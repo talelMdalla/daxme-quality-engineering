@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.8.0 on win32)" generated="2025-01-10T14:20:08.620912" rpa="false" schemaversion="5">
+<suite id="s1" name="TestAutoWeb" source="C:\Users\LENOVO\Desktop\Nouveau dossier\TestAutoWeb">
+<suite id="s1-s1" name="TestSuites" source="C:\Users\LENOVO\Desktop\Nouveau dossier\TestAutoWeb\TestSuites">
+<suite id="s1-s1-s1" name="Planning" source="C:\Users\LENOVO\Desktop\Nouveau dossier\TestAutoWeb\TestSuites\Planning">
+<suite id="s1-s1-s1-s1" name="WorkingDays" source="C:\Users\LENOVO\Desktop\Nouveau dossier\TestAutoWeb\TestSuites\Planning\WorkingDays.robot">
+<test id="s1-s1-s1-s1-t1" name="validate add working days with end time is in another day" line="228">
+<kw name="Login with credentials" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:08.894292" level="INFO">Opening browser 'Chrome' to base url 'https://dev.daxme.fr/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-10T14:20:08.894292" elapsed="3.274360"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-10T14:20:12.169653" elapsed="0.053999"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-10T14:20:13.243282" level="INFO">Slept 1 second.</msg>
+<arg>${DELAY_IN_SECONDS}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-10T14:20:12.225673" elapsed="1.019469"/>
+</kw>
+<kw name="Button Cookies" owner="keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:13.252138" level="INFO">Clicking button 'id:rcc-confirm-button'.</msg>
+<arg>id:rcc-confirm-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-10T14:20:13.249136" elapsed="0.106823"/>
+</kw>
+<status status="PASS" start="2025-01-10T14:20:13.246139" elapsed="0.110821"/>
+</kw>
+<kw name="Button LoginForm" owner="keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:13.357958" level="INFO">Clicking button 'xpath://*[@data-test-id="button-login-navbar"]'.</msg>
+<arg>xpath://*[@data-test-id="button-login-navbar"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-10T14:20:13.356960" elapsed="0.097207"/>
+</kw>
+<status status="PASS" start="2025-01-10T14:20:13.356960" elapsed="0.097207"/>
+</kw>
+<kw name="Input Email" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:13.455139" level="INFO">Typing text 'boutcho@outlook.com' into text field 'id:email'.</msg>
+<arg>id:email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-10T14:20:13.455139" elapsed="0.208001"/>
+</kw>
+<arg>${VALID_EMAIL}</arg>
+<status status="PASS" start="2025-01-10T14:20:13.454167" elapsed="0.208973"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-10T14:20:14.678522" level="INFO">Slept 1 second.</msg>
+<arg>${DELAY_IN_SECONDS}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-10T14:20:13.664140" elapsed="1.014382"/>
+</kw>
+<kw name="Input pasword" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:14.681729" level="INFO">Typing text 'Hamza123&amp;' into text field 'xpath://input[@type='password']'.</msg>
+<arg>xpath://input[@type='password']</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-10T14:20:14.680728" elapsed="0.134723"/>
+</kw>
+<arg>${VALID_PASSWORD}</arg>
+<status status="PASS" start="2025-01-10T14:20:14.679746" elapsed="0.136706"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-10T14:20:15.817471" level="INFO">Slept 1 second.</msg>
+<arg>${DELAY_IN_SECONDS}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-10T14:20:14.816452" elapsed="1.002062"/>
+</kw>
+<kw name="Submit Login" owner="keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:15.824468" level="INFO">Clicking button 'xpath://*[@data-test-id='button-login-loginModal']'.</msg>
+<arg>xpath://*[@data-test-id='button-login-loginModal']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-10T14:20:15.822513" elapsed="0.120513"/>
+</kw>
+<status status="PASS" start="2025-01-10T14:20:15.820513" elapsed="0.122513"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-10T14:20:16.949796" level="INFO">Slept 1 second.</msg>
+<arg>${DELAY_IN_SECONDS}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-10T14:20:15.943026" elapsed="1.006770"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:17.182922" level="INFO">${current_url} = https://dev.daxme.fr/landingpage</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-01-10T14:20:16.950793" elapsed="0.232129"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${expectedLandingPageUrl}</arg>
+<arg>${current_url}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-01-10T14:20:17.183923" elapsed="0.000999"/>
+</kw>
+<arg>${email}</arg>
+<arg>${passwrod}</arg>
+<doc>Logs in with valid credentials</doc>
+<status status="PASS" start="2025-01-10T14:20:08.892263" elapsed="8.293671"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-10T14:20:18.193292" level="INFO">Slept 1 second.</msg>
+<arg>time_=${DELAY_IN_SECONDS}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-10T14:20:17.185934" elapsed="1.007358"/>
+</kw>
+<kw name="PlanningButton" owner="WorkingDaysKeywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:18.196213" level="INFO">Clicking element 'xpath://*[@data-test-id="link-myCalendar-navbar"]'.</msg>
+<arg>xpath://*[@data-test-id="link-myCalendar-navbar"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-10T14:20:18.195213" elapsed="0.109752"/>
+</kw>
+<status status="PASS" start="2025-01-10T14:20:18.194239" elapsed="0.111728"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-10T14:20:19.315937" level="INFO">Slept 1 second.</msg>
+<arg>time_=${DELAY_IN_SECONDS}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-10T14:20:18.305967" elapsed="1.011907"/>
+</kw>
+<kw name="EnterMyAvailabilityButton" owner="WorkingDaysKeywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:19.324878" level="INFO">Clicking element 'xpath://*[@id="root"]/div[2]/div/div/div/div[1]/button'.</msg>
+<arg>xpath://*[@id="root"]/div[2]/div/div/div/div[1]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-10T14:20:19.322877" elapsed="0.114533"/>
+</kw>
+<status status="PASS" start="2025-01-10T14:20:19.319936" elapsed="0.117474"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-10T14:20:20.450880" level="INFO">Slept 1 second.</msg>
+<arg>time_=${DELAY_IN_SECONDS}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-10T14:20:19.438410" elapsed="1.013476"/>
+</kw>
+<kw name="LundiButton" owner="WorkingDaysKeywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:20.454882" level="INFO">Clicking element 'xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div/div/span/span[1]'.</msg>
+<arg>xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div/div/span/span[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-10T14:20:20.453880" elapsed="0.115531"/>
+</kw>
+<status status="PASS" start="2025-01-10T14:20:20.452880" elapsed="0.116531"/>
+</kw>
+<kw name="Add time slots button for monday" owner="WorkingDaysKeywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:20.571411" level="INFO">Clicking element 'xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[1]/button'.</msg>
+<arg>xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[1]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-10T14:20:20.571411" elapsed="0.089007"/>
+</kw>
+<status status="PASS" start="2025-01-10T14:20:20.570411" elapsed="0.090007"/>
+</kw>
+<kw name="Lundi start time input" owner="WorkingDaysKeywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:20.662409" level="INFO">Typing text '08:00' into text field 'xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div/div/input'.</msg>
+<arg>xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div/div/input</arg>
+<arg>${LundiStartTime}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-10T14:20:20.662409" elapsed="0.133124"/>
+</kw>
+<arg>08:00</arg>
+<status status="PASS" start="2025-01-10T14:20:20.661409" elapsed="0.134124"/>
+</kw>
+<kw name="Lundi end time input" owner="WorkingDaysKeywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:20.797536" level="INFO">Typing text '00:00' into text field 'xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div/div/input'.</msg>
+<arg>xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div/div/input</arg>
+<arg>${LundiEndTime}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-10T14:20:20.797536" elapsed="0.141996"/>
+</kw>
+<arg>00:00</arg>
+<status status="PASS" start="2025-01-10T14:20:20.796531" elapsed="0.144002"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-10T14:20:21.948412" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-10T14:20:20.940533" elapsed="1.009815"/>
+</kw>
+<kw name="Invalid Time Range Error" owner="WorkingDaysKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://*[@data-test-id="L'heure de fin ne peut pas être antérieure à l'heure de début. Veuillez indiquer vos disponibilités au-delà de 23h59 dans le jour suivant."]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-10T14:20:21.955361" elapsed="0.052007"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-01-10T14:20:22.037314" level="INFO">Element 'xpath://*[@data-test-id="L'heure de fin ne peut pas être antérieure à l'heure de début. Veuillez indiquer vos disponibilités au-delà de 23h59 dans le jour suivant."]' contains text 'L'heure de fin ne peut pas être antérieure à l'heure de début. Veuillez indiquer vos disponibilités au-delà de 23h59 dans le jour suivant.'.</msg>
+<arg>xpath://*[@data-test-id="L'heure de fin ne peut pas être antérieure à l'heure de début. Veuillez indiquer vos disponibilités au-delà de 23h59 dans le jour suivant."]</arg>
+<arg>L'heure de fin ne peut pas être antérieure à l'heure de début. Veuillez indiquer vos disponibilités au-delà de 23h59 dans le jour suivant.</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-01-10T14:20:22.007368" elapsed="0.030941"/>
+</kw>
+<status status="PASS" start="2025-01-10T14:20:21.953362" elapsed="0.084947"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-10T14:20:22.039308" elapsed="3.759861"/>
+</kw>
+<tag>6</tag>
+<status status="PASS" start="2025-01-10T14:20:08.890291" elapsed="16.908878"/>
+</test>
+<doc>Test cases for create mission functionality.</doc>
+<status status="PASS" start="2025-01-10T14:20:08.665213" elapsed="17.135958"/>
+</suite>
+<status status="PASS" start="2025-01-10T14:20:08.661224" elapsed="17.143945"/>
+</suite>
+<status status="PASS" start="2025-01-10T14:20:08.657214" elapsed="17.149956"/>
+</suite>
+<status status="PASS" start="2025-01-10T14:20:08.626899" elapsed="17.182272"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">6</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestAutoWeb">TestAutoWeb</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="TestSuites">TestAutoWeb.TestSuites</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Planning">TestAutoWeb.TestSuites.Planning</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="WorkingDays">TestAutoWeb.TestSuites.Planning.WorkingDays</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
