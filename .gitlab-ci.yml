@@ -1,0 +1,10 @@
+variables:
+  ROBOT_OPTIONS: "--variable BROWSER:chrome"
+
+run-smoke-tests:
+  stage: smoke
+  script:
+    - robot --outputdir reports $ROBOT_OPTIONS tests/smoke
+  artifacts:
+    paths:
+      - reports
