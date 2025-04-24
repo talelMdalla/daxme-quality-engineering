@@ -1,0 +1,10 @@
+stages:
+  - smoke
+
+run-smoke-tests:
+  stage: smoke
+  script:
+    - echo "Hello World"
+  artifacts:
+    paths:
+      - reports

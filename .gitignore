@@ -1,0 +1,6 @@
+Pipfile.lock
+output.xml
+log.html
+report.html
+selenium-screenshot-*.png
+Results/**
