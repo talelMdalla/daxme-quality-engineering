@@ -1,6 +1,4 @@
 .install:api:
-  extends:
-    - .base
   before_script:
     - pip install virtualenv
     - virtualenv -p python3 venv
