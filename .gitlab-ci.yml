@@ -8,17 +8,17 @@ stages:
 
 install_dependencies:
   stage: install
-  extends: 
+  extends:
     - .install:api
   script:
     - python3 --version
 
 run_tests:
   stage: test
-  extends: 
+  extends:
     - .install:api
   script:
-    - robot --outputdir results tests/
+    - robot --outputdir results ./TestSuites
   artifacts:
     paths:
       - results/
