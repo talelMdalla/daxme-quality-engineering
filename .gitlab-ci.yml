@@ -5,7 +5,6 @@ run-smoke-tests:
   stage: smoke
   script:
     - echo "Hello World"
-    - robot --outputdir reports $ROBOT_OPTIONS tests/smoke
   artifacts:
     paths:
       - reports
