@@ -1,18 +1,22 @@
+image: python:3.8
+include:
+  - local: /.gitlab/ci/extends.yml
+
 stages:
   - install
   - test
 
 install_dependencies:
   stage: install
-  image: python:3.8
+  extends: 
+    - .install:api
   script:
-    - pip install --upgrade pip
-    - pip install robotframework
-    - pip install -r requirements.txt
+    - python3 --version
 
 run_tests:
   stage: test
-  image: python:3.8
+  extends: 
+    - .install:api
   script:
     - robot --outputdir results tests/
   artifacts:
