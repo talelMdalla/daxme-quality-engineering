@@ -1,5 +1,5 @@
-variables:
-  ROBOT_OPTIONS: "--variable BROWSER:chrome"
+stages:
+  - smoke
 
 run-smoke-tests:
   stage: smoke
