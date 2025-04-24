@@ -1,10 +1,23 @@
 stages:
-  - smoke
+  - install
+  - test
 
-run-smoke-tests:
-  stage: smoke
+install_dependencies:
+  stage: install
+  image: python:3.8
   script:
-    - echo "Hello World"
+    - pip install --upgrade pip
+    - pip install robotframework
+    - pip install -r requirements.txt
+
+run_tests:
+  stage: test
+  image: python:3.8
+  script:
+    - robot --outputdir results tests/
   artifacts:
     paths:
-      - reports
+      - results/
+    expire_in: 1 day
+  dependencies:
+    - install_dependencies
