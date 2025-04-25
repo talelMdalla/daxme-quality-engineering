@@ -1,40 +1,36 @@
-*** Setting ***
-Resource   ../resources/page-objects/LoginPo.robot
+*** Settings ***
+Documentation       This suite includes login tests
 
-Documentation   This suite includes login tests
-
-Test Teardown  Close Browser
+Resource            ../resources/page_objects/LoginPo.robot
 
 
 *** Variables ***
-${invalidEmail}                       megdgd
-${invalidPassword}                       test@12
-${WRONG_PASSWORD_ERROR_MESSAGE}          Wrong password.
-${USER_DOES_NOT_EXIST_ERROR_MESSAGE}     User does not exist.
+${invalidEmail}                         megdgd
+${invalidPassword}                      test@12
+${WRONG_PASSWORD_ERROR_MESSAGE}         Wrong password.
+${USER_DOES_NOT_EXIST_ERROR_MESSAGE}    User does not exist.
 
 
 *** Test Cases ***
 Verify That An Unregistered Person Cannot Login To The Application
     [Documentation]    TVerify that an unregistered person cannot login to the application
-    [tags]  Regression
-    
+    [Tags]    regression
+
     Open Browser To Login Page
-    Submit Login Information [Arguments] ${invalidUserName} ${invalidPassword}
+    Submit Login Information [Arguments] ${invalidEmail} ${invalidPassword}
     User Should See An Alert With The Error Message [Arguments] ${USER_DOES_NOT_EXIST_ERROR_MESSAGE}
-    
-    
+
 Verify That A Registered User Cannot Login To The Application Using An Incorrect Password
     [Documentation]    Verify that a registered user cannot login to the application using an incorrect password
-    [tags]  Regression
-    
-    Open Browser To Login Page
-    Submit Login Information [Arguments] ${USERNAME} ${invalidPassword}
-    User Should See An Alert With The Error Message [Arguments] ${WRONG_PASSWORD_ERROR_MESSAGE}
+    [Tags]    regression
 
+    Open Browser To Login Page
+    Submit Login Information [Arguments] ${INDIV_CLIENT_EMAIL} ${invalidPassword}
+    User Should See An Alert With The Error Message [Arguments] ${WRONG_PASSWORD_ERROR_MESSAGE}
 
 Verify That A Registered User Can Login To The Application Using The Correct Password
     [Documentation]    Verify that a registered user can login to the application using the correct password
-    [tags]  Smoke
-    
-    Login To The Application [Arguments] ${USERNAME} ${PASSWORD}
+    [Tags]    smoke
+
+    Login To The Application [Arguments] ${INDIV_CLIENT_EMAIL} ${PASSWORD}
     Logout From The Application

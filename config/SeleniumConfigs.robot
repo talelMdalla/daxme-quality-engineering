@@ -1,4 +1,3 @@
 *** Variables ***
-
 # Default Timeout
-${SELENIUM_TIMEOUT}    60
+${SELENIUM_TIMEOUT}     60

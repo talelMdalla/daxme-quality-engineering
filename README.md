@@ -34,8 +34,8 @@ like `python -m robot` or `jython -m robot`.
 The basic usage is giving a path to a test (or task) file or directory as an
 argument with possible command line options before the path
 
-    python3 -m robot -v ENV:SIT -i Smoke -d results path/to/tests/
-    python3 -m robot -v ENV:SIT -i Smoke -d results test-cases/LoginTest.robot
+    robot -v ENV:DEV -i Smoke -d results ./tests
+    robot -v ENV:DEV -i Smoke -d results ./tests/LoginTest.robot
 
 "**_-v_**" refers to the variables. To replace a declared value within the code, you can specify a variable name and value.
 
