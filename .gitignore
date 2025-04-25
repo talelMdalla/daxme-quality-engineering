@@ -2,5 +2,11 @@ Pipfile.lock
 output.xml
 log.html
 report.html
+**/report.html
+**/log.html
+**/output.xml
 selenium-screenshot-*.png
+**/selenium-screenshot-*.png
 Results/**
+results/**
+venv

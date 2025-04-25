@@ -2,9 +2,9 @@
 Documentation       Test cases for create mission functionality.
 
 Library             SeleniumLibrary
-Resource            ../../Assets/CreateMissionKeywords/DescriptionKeywords.robot
-Resource            ../../Assets/CreateMissionKeywords/ScheduleKeywords.robot
-Resource            ../../Assets/keywords.robot
+Resource            ../../resources/createMission/DescriptionKeywords.robot
+Resource            ../../resources/createMission//ScheduleKeywords.robot
+Resource            ../../resources/Keywords.robot
 
 
 *** Variables ***

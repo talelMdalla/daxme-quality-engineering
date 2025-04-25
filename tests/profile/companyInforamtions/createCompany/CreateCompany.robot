@@ -3,8 +3,8 @@ Documentation       Test cases for register functionality.
 
 Library             SeleniumLibrary
 Library             XML
-Resource            ../../../../Assets/ProfileKeywords.robot
-Resource            ../../../../Assets/keywords.robot
+Resource            ../../../../resources/profile/ProfileKeywords.robot
+Resource            ../../../../resources/Keywords.robot
 
 
 *** Variables ***

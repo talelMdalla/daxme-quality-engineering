@@ -1,10 +1,27 @@
-stages:
-  - smoke
+image: python:3.8
+include:
+  - local: /.gitlab/ci/extends.yml
 
-run-smoke-tests:
-  stage: smoke
+stages:
+  - install
+  - test
+
+install_dependencies:
+  stage: install
+  extends:
+    - .install:api
   script:
-    - echo "Hello World"
+    - python3 --version
+
+run_tests:
+  stage: test
+  extends:
+    - .install:api
+  script:
+    - robot --outputdir results ./TestSuites
   artifacts:
     paths:
-      - reports
+      - results/
+    expire_in: 1 day
+  dependencies:
+    - install_dependencies
