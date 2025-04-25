@@ -3,19 +3,19 @@ include:
   - local: /.gitlab/ci/extends.yml
 
 stages:
-  - install
-  - smoke_test
-  - regression_test
+  - install 🛠️
+  - smoke_test 🚬
+  - regression_test 📊
 
 install_dependencies:
-  stage: install
+  stage: install 🛠️
   extends:
     - .install:api
   script:
     - python3 --version
 
 smoke_test:
-  stage: smoke_test
+  stage: smoke_test 🚬
   extends:
     - .install:api
     - .robot_test_template
@@ -24,7 +24,7 @@ smoke_test:
     TEST_TAG: Smoke
 
 regression_test:
-  stage: regression_test
+  stage: regression_test 📊
   extends:
     - .install:api
     - .robot_test_template
