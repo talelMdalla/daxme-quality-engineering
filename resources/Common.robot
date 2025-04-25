@@ -9,14 +9,14 @@ Library     OperatingSystem
 
 *** Variables ***
 ${cookies_btn}      id:rcc-confirm-button
-
+${OPTIONS}     ${OPTIONS}
 
 *** Keywords ***
 Open Browser Page
     [Documentation]
     ...    Open the browser and navigates to the login page    ...
 
-    Open Browser    ${TEST_ENV_URL}    ${BROWSER}
+    Open Browser    ${TEST_ENV_URL}    ${BROWSER}    options=${OPTIONS}
     Maximize Browser Window
     Set Selenium Timeout    ${SELENIUM_TIMEOUT}
     Set Log Level    DEBUG
