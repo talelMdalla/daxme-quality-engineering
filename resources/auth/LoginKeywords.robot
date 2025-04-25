@@ -10,9 +10,6 @@ ${InvalidEmailError}        S'il vous plaît entrez un email valide
 
 
 *** Keywords ***
-Button Cookies
-    Click Element [Arguments] id:rcc-confirm-button ${SMALL_RETRY_COUNT}
-
 Button LoginForm
     Click Element [Arguments] xpath://*[@data-test-id="button-login-navbar"] ${SMALL_RETRY_COUNT}
 
