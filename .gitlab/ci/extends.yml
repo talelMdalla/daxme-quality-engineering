@@ -13,7 +13,7 @@
       else
         VERBOSITY="DEV"
       fi
-      robot --outputdir results --variable ENV:$VERBOSITY $TEST_PATH
+      robot --outputdir results -v ENV:$VERBOSITY -i $TEST_TAG $TEST_PATH
   artifacts:
     paths:
       - results/

@@ -20,7 +20,8 @@ smoke_test:
     - .install:api
     - .robot_test_template
   variables:
-    TEST_PATH: ./tests/smoke
+    TEST_PATH: ./tests
+    TEST_TAG: Smoke
 
 regression_test:
   stage: regression_test
@@ -28,4 +29,5 @@ regression_test:
     - .install:api
     - .robot_test_template
   variables:
-    TEST_PATH: ./tests/regression
+    TEST_PATH: ./tests
+    TEST_TAG: Regression
