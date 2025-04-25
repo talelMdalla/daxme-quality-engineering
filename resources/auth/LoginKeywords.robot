@@ -28,10 +28,10 @@ Submit Login
     Click Element [Arguments] xpath://*[@data-test-id='button-login-loginModal'] ${SMALL_RETRY_COUNT}
 
 Emty email error
-    Element Text Should Contain [Arguments] xpath://*[@id="root"]/div[2]/div[1]/div[1]/form/div[1] ${requiredTextError} ${SMALL_RETRY_COUNT}
+    Element Text Should Contain [Arguments] xpath://*[@data-test-id="email-error"] ${requiredTextError} ${SMALL_RETRY_COUNT}
 
 Emty password error
-    Element Text Should Contain [Arguments] xpath://*[@id="root"]/div[2]/div[1]/div[1]/form/div[2] ${requiredTextError} ${SMALL_RETRY_COUNT}
+    Element Text Should Contain [Arguments] xpath://*[@data-test-id="password-error"] ${requiredTextError} ${SMALL_RETRY_COUNT}
 
 Invalid email or password error
     Element Text Should Contain [Arguments] xpath://*[@data-test-id="login_field_error"] ${emailOrPasswordError} ${SMALL_RETRY_COUNT}

@@ -9,3 +9,4 @@ ${RETRY_DELAY}              1 s
 
 # Default Timeout
 ${SELENIUM_TIMEOUT}         60
+${BROWSER_OPTIONS}          ''
