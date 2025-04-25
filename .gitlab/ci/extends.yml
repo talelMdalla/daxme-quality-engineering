@@ -4,3 +4,20 @@
     - virtualenv -p python3 venv
     - source ./venv/bin/activate
     - pip install -r requirements.txt
+
+.robot_test_template:
+  script:
+    - |
+      if [[ "$CI_COMMIT_REF_NAME" == "master" ]]; then
+        VERBOSITY="PROD"
+      else
+        VERBOSITY="DEV"
+      fi
+      robot --outputdir results -v ENV:$VERBOSITY BROWSER_OPTIONS:'add_argument("--headless");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage")' -i $TEST_TAG $TEST_PATH
+  artifacts:
+    when: always
+    paths:
+      - results/
+    expire_in: 1 day
+  dependencies:
+    - install_dependencies

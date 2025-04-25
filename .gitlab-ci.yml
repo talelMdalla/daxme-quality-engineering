@@ -1,27 +1,33 @@
-image: python:3.8
+image: marketsquare/robotframework-browser
 include:
   - local: /.gitlab/ci/extends.yml
 
 stages:
-  - install
-  - test
+  - install 🛠️
+  - smoke_test 🚬
+  - regression_test 📊
 
 install_dependencies:
-  stage: install
+  stage: install 🛠️
   extends:
     - .install:api
   script:
     - python3 --version
 
-run_tests:
-  stage: test
+smoke_test:
+  stage: smoke_test 🚬
   extends:
     - .install:api
-  script:
-    - robot --outputdir results ./TestSuites
-  artifacts:
-    paths:
-      - results/
-    expire_in: 1 day
-  dependencies:
-    - install_dependencies
+    - .robot_test_template
+  variables:
+    TEST_PATH: ./tests
+    TEST_TAG: Smoke
+
+regression_test:
+  stage: regression_test 📊
+  extends:
+    - .install:api
+    - .robot_test_template
+  variables:
+    TEST_PATH: ./tests
+    TEST_TAG: Regression
