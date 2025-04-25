@@ -15,6 +15,7 @@
       fi
       robot --outputdir results -v ENV:$VERBOSITY -i $TEST_TAG $TEST_PATH
   artifacts:
+    when: always
     paths:
       - results/
     expire_in: 1 day
