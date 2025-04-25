@@ -136,7 +136,7 @@ Button Cookies
     Click Element [Arguments] id:rcc-confirm-button ${SMALL_RETRY_COUNT}
 
 Open Window
-    IF    ${BROWSER_OPTIONS} != ''
+    IF    "${BROWSER_OPTIONS}" != ''
         Open Browser    ${TEST_ENV_URL}    ${BROWSER}    options=${BROWSER_OPTIONS}
     ELSE
         Open Browser    ${TEST_ENV_URL}    ${BROWSER}
