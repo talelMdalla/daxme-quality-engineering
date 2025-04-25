@@ -12,7 +12,7 @@ ${cookies_btn}      id:rcc-confirm-button
 
 
 *** Keywords ***
-Open Browser To Login Page
+Open Browser Page
     [Documentation]
     ...    Open the browser and navigates to the login page    ...
 
@@ -131,3 +131,6 @@ Scroll To The Bottom Of The Page
 Check Page URL    [Arguments]    ${expectedPageUrl}
     ${current_url}    Get Location
     Should Contain    ${expectedPageUrl}    ${current_url}
+
+Button Cookies
+    Click Element [Arguments] id:rcc-confirm-button ${SMALL_RETRY_COUNT}
