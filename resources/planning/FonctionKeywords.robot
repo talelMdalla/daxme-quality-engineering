@@ -3,8 +3,8 @@ Documentation       Test cases for create mission functionality.
 
 Library             Collections
 Library             SeleniumLibrary
-Resource            ../../Assets/keywords.robot
-Resource            ../../Assets/PlannningKeywords/WorkingDaysKeywords.robot
+Resource            ../Keywords.robot
+Resource            ./WorkingDaysKeywords.robot
 
 
 *** Variables ***

@@ -1,8 +1,7 @@
 *** Settings ***
-Resource    ../../config/EnvDetails.robot
-Resource    ../../config/BrowserDetails.robot
-Resource    ../../config/SeleniumConfigs.robot
-Resource    ../../config/ApplicationVariables.robot
+Resource    ../config/EnvDetails.robot
+Resource    ../config/BrowserDetails.robot
+Resource    ../config/SeleniumConfigs.robot
 Library     SeleniumLibrary
 Library     String
 Library     OperatingSystem
@@ -99,6 +98,13 @@ Element Text Should Be [Arguments] ${locator} ${text} ${retryScale}
     Wait Until Keyword Succeeds    ${retryScale}    ${RETRY_DELAY}    Wait Until Element Is Visible    ${locator}
     Wait Until Keyword Succeeds    ${retryScale}    ${RETRY_DELAY}    Element Text Should Be    ${locator}    ${text}
 
+Element Text Should Contain [Arguments] ${locator} ${text} ${retryScale}
+    [Documentation]
+    ...    Validate the text of an element    ...
+
+    Wait Until Keyword Succeeds    ${retryScale}    ${RETRY_DELAY}    Wait Until Element Is Visible    ${locator}
+    Wait Until Keyword Succeeds    ${retryScale}    ${RETRY_DELAY}    Element Should Contain    ${locator}    ${text}
+
 Set Text [Arguments] ${textBoxLocator} ${text} ${retryScale}
     [Documentation]
     ...    Input text into a text box    ...
@@ -121,3 +127,7 @@ Scroll To The Bottom Of The Page
     ...    Scroll to the bottom of the page
 
     Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+
+Check Page URL    [Arguments]    ${expectedPageUrl}
+    ${current_url}    Get Location
+    Should Contain    ${expectedPageUrl}    ${current_url}
