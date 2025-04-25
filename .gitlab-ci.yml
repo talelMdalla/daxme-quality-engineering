@@ -4,7 +4,8 @@ include:
 
 stages:
   - install
-  - test
+  - smoke_test
+  - regression_test
 
 install_dependencies:
   stage: install
@@ -13,15 +14,18 @@ install_dependencies:
   script:
     - python3 --version
 
-run_tests:
-  stage: test
+smoke_test:
+  stage: smoke_test
   extends:
-    - .install:api
-  script:
-    - robot --outputdir results ./TestSuites
-  artifacts:
-    paths:
-      - results/
-    expire_in: 1 day
-  dependencies:
-    - install_dependencies
+    - .robot_test_template
+  variables:
+    TEST_PATH: ./tests/auth/Login.robot
+    TEST_TAG: Smoke
+
+regression_test:
+  stage: regression_test
+  extends:
+    - .robot_test_template
+  variables:
+    TEST_PATH: ./tests/auth/Login.robot
+    TEST_TAG: Regression

@@ -35,7 +35,7 @@ The basic usage is giving a path to a test (or task) file or directory as an
 argument with possible command line options before the path
 
     robot -v ENV:DEV -i Smoke -d results ./tests
-    robot -v ENV:DEV -i Smoke -d results ./tests/LoginTest.robot
+    robot -v ENV:DEV -i Smoke -d results ./tests/auth/Login.robot
 
 "**_-v_**" refers to the variables. To replace a declared value within the code, you can specify a variable name and value.
 

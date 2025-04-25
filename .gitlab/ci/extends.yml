@@ -4,3 +4,19 @@
     - virtualenv -p python3 venv
     - source ./venv/bin/activate
     - pip install -r requirements.txt
+
+.robot_test_template:
+  script:
+    - |
+      if [[ "$CI_COMMIT_REF_NAME" == "master" ]]; then
+        VERBOSITY="PROD"
+      else
+        VERBOSITY="DEV"
+      fi
+      robot --outputdir -v ENV:$VERBOSITY -i Smoke results $TEST_PATH
+  artifacts:
+    paths:
+      - results/
+    expire_in: 1 day
+  dependencies:
+    - install_dependencies
