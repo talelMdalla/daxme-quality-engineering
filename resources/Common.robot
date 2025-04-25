@@ -16,7 +16,7 @@ Open Browser Page
     [Documentation]
     ...    Open the browser and navigates to the login page    ...
 
-    Open Browser    ${TEST_ENV_URL}    ${BROWSER}  --edge-skip-compat-layer-relaunch
+    Open Browser    ${TEST_ENV_URL}    ${BROWSER}
     Maximize Browser Window
     Set Selenium Timeout    ${SELENIUM_TIMEOUT}
     Set Log Level    DEBUG
