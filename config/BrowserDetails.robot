@@ -8,9 +8,10 @@ ${COMMON_OPTS}      add_argument("--headless");add_argument("--no-sandbox");add_
 # ${COMMON_OPTS}    add_argument:--headless add_argument:--no-sandbox add_argument:--disable-dev-shm-usage
 # ${TEST_BROWSER}    headlesschrome
 # ${TEST_BROWSER}    headlessfirefox
-${LOCAL_BROWSER}    chrome
-${DEV_BROWSER}      chrome    options=${COMMON_OPTS}
-${PROD_BROWSER}     chrome    options=${COMMON_OPTS}
-${TEST_BROWSER}     '${${ENV}_BROWSER}'
+${BROWSER}    chrome
+${LOCAL_BROWSER_OPTIONS}    ${EMPTY}
+${DEV_BROWSER_OPTIONS}      options=${COMMON_OPTS}
+${PROD_BROWSER_OPTIONS}     options=${COMMON_OPTS}
+${TEST_BROWSER_OPTIONS}     ${${ENV}_BROWSER}
 # ${TEST_BROWSER}    firefox
 # ${TEST_BROWSER}    safari
