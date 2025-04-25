@@ -1,7 +1,7 @@
 *** Variables ***
 # Extecution Browser
-${BROWSER}    headlesschrome
+# ${BROWSER}    headlesschrome
 # ${BROWSER}    headlessfirefox
-# ${BROWSER}      chrome
+${BROWSER}      chrome
 # ${BROWSER}    firefox
 # ${BROWSER}    safari
