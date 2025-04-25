@@ -4,11 +4,11 @@ Resource    ./EnvDetails.robot
 
 *** Variables ***
 # Extecution Browser
-${COMMON_OPTS}      add_argument("--headless");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage")
+${COMMON_OPTS}              add_argument("--headless");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage")
 # ${COMMON_OPTS}    add_argument:--headless add_argument:--no-sandbox add_argument:--disable-dev-shm-usage
 # ${TEST_BROWSER}    headlesschrome
 # ${TEST_BROWSER}    headlessfirefox
-${BROWSER}    chrome
+${BROWSER}                  chrome
 ${LOCAL_BROWSER_OPTIONS}    ${EMPTY}
 ${DEV_BROWSER_OPTIONS}      options=${COMMON_OPTS}
 ${PROD_BROWSER_OPTIONS}     options=${COMMON_OPTS}
