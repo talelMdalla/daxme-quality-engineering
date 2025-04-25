@@ -12,6 +12,6 @@ ${BROWSER}                  chrome
 ${LOCAL_BROWSER_OPTIONS}    ${EMPTY}
 ${DEV_BROWSER_OPTIONS}      options=${COMMON_OPTS}
 ${PROD_BROWSER_OPTIONS}     options=${COMMON_OPTS}
-${TEST_BROWSER_OPTIONS}     ${${ENV}_BROWSER}
+${TEST_BROWSER_OPTIONS}     ${${ENV}_BROWSER_OPTIONS}
 # ${TEST_BROWSER}    firefox
 # ${TEST_BROWSER}    safari
