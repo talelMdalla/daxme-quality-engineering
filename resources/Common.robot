@@ -16,7 +16,7 @@ Open Browser Page
     [Documentation]
     ...    Open the browser and navigates to the login page    ...
 
-    Open Window
+    Open Browser    ${TEST_ENV_URL}    ${TEST_BROWSER}
     Maximize Browser Window
     Set Selenium Timeout    ${SELENIUM_TIMEOUT}
     Set Log Level    DEBUG
@@ -134,10 +134,3 @@ Check Page URL    [Arguments]    ${expectedPageUrl}
 
 Button Cookies
     Click Element [Arguments] id:rcc-confirm-button ${SMALL_RETRY_COUNT}
-
-Open Window
-    IF    "${BROWSER_OPTIONS}" != ''
-        Open Browser    ${TEST_ENV_URL}    ${BROWSER}    options=${BROWSER_OPTIONS}
-    ELSE
-        Open Browser    ${TEST_ENV_URL}    ${BROWSER}
-    END
