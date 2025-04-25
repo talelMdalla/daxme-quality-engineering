@@ -20,8 +20,7 @@ smoke_test:
     - .install:api
     - .robot_test_template
   variables:
-    TEST_PATH: ./tests/auth/Login.robot
-    TEST_TAG: Smoke
+    TEST_PATH: ./tests/smoke
 
 regression_test:
   stage: regression_test
@@ -29,5 +28,4 @@ regression_test:
     - .install:api
     - .robot_test_template
   variables:
-    TEST_PATH: ./tests/auth/Login.robot
-    TEST_TAG: Regression
+    TEST_PATH: ./tests/regression
