@@ -17,6 +17,7 @@ install_dependencies:
 smoke_test:
   stage: smoke_test
   extends:
+    - .install:api
     - .robot_test_template
   variables:
     TEST_PATH: ./tests/auth/Login.robot
@@ -25,6 +26,7 @@ smoke_test:
 regression_test:
   stage: regression_test
   extends:
+    - .install:api
     - .robot_test_template
   variables:
     TEST_PATH: ./tests/auth/Login.robot
