@@ -9,9 +9,9 @@ Test Teardown       Close Browser
 
 
 *** Variables ***
-${VALID_EMAIL}          testing.daxme@gmail.com
+${VALID_EMAIL}          testing1.daxme@gmail.com
 ${VALID_PASSWORD}       Boutcho123&
-${INVALID_EMAIL}        testing.daxme@gmail.com
+${INVALID_EMAIL}        testing1.daxme@gmail.com
 ${INVALID_PASSWORD}     Hamza123*
 ${EMAIL_INVALID}        hamza.com
 
