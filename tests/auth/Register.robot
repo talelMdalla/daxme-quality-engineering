@@ -29,7 +29,7 @@ Register with empty fields
     ConfirmPassword empty error
 
 Register with email and number invalid
-    [Tags]    regression
+    [Tags]    1
     Open Browser Page
     Button RegisterForm
     Button AgentForm
