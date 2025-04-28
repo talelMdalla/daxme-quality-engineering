@@ -9,7 +9,7 @@ ${COMMON_OPTS}              options=add_argument("--lang=fr");add_argument("--he
 # ${TEST_BROWSER}    headlesschrome
 # ${TEST_BROWSER}    headlessfirefox
 ${BROWSER}                  chrome
-${LOCAL_BROWSER_OPTIONS}    ${EMPTY}
+${LOCAL_BROWSER_OPTIONS}    options=add_argument("--lang=fr");
 ${DEV_BROWSER_OPTIONS}      ${COMMON_OPTS}
 ${PROD_BROWSER_OPTIONS}     ${COMMON_OPTS}
 ${TEST_BROWSER_OPTIONS}     ${${ENV}_BROWSER_OPTIONS}
