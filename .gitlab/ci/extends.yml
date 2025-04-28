@@ -15,7 +15,7 @@
       fi
       robot --outputdir results -v ENV:$VERBOSITY -i $TEST_TAG $TEST_PATH
   after_script:
-    - if [ "$CI_JOB_STATUS" != "success" ]; then echo *$CI_JOB_STAGE* > failed_stage.txt; fi
+    - if [ "$CI_JOB_STATUS" != "success" ]; then echo $CI_JOB_STAGE > failed_stage.txt; fi
   artifacts:
     when: always
     paths:
