@@ -10,8 +10,8 @@ ${COMMON_OPTS}              options=add_argument("--headless");add_argument("--n
 # ${TEST_BROWSER}    headlessfirefox
 ${BROWSER}                  chrome
 ${LOCAL_BROWSER_OPTIONS}    ${EMPTY}
-${DEV_BROWSER_OPTIONS}      options=${COMMON_OPTS}
-${PROD_BROWSER_OPTIONS}     options=${COMMON_OPTS}
+${DEV_BROWSER_OPTIONS}      ${COMMON_OPTS}
+${PROD_BROWSER_OPTIONS}     ${COMMON_OPTS}
 ${TEST_BROWSER_OPTIONS}     ${${ENV}_BROWSER_OPTIONS}
 # ${TEST_BROWSER}    firefox
 # ${TEST_BROWSER}    safari
