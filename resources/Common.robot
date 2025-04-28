@@ -16,7 +16,7 @@ Open Browser Page
     [Documentation]
     ...    Open the browser and navigates to the login page    ...
 
-    Open Browser    ${TEST_ENV_URL}    chrome    options=add_argument("--headless");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage")
+    Open Browser    ${TEST_ENV_URL}    ${BROWSER}    ${TEST_BROWSER_OPTIONS}
     Maximize Browser Window
     Set Selenium Timeout    ${SELENIUM_TIMEOUT}
     Set Log Level    DEBUG
