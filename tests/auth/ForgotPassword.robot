@@ -8,7 +8,7 @@ Resource            ../../resources/auth/ForgotPasswordKeywords.robot
 
 *** Test Cases ***
 Validate reset password with empty email field
-    [Tags]    smoke
+    [Tags]    regression
     Open Browser Page
     Button LoginForm
     Forgot password button
@@ -17,7 +17,7 @@ Validate reset password with empty email field
     [Teardown]    Close Browser
 
 Validate reset password with invalid email
-    [Tags]    smoke
+    [Tags]    regression
     Open Browser Page
     Button LoginForm
     Forgot password button
@@ -27,7 +27,7 @@ Validate reset password with invalid email
     [Teardown]    Close Browser
 
 Validate reset password with email not existing
-    [Tags]    smoke
+    [Tags]    regression
     Open Browser Page
     Button LoginForm
     Forgot password button
