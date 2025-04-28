@@ -6,6 +6,7 @@ stages:
   - install 🛠️
   - smoke_test 🚬
   - regression_test 📊
+  - notify 🚩
 
 install_dependencies:
   stage: install 🛠️
@@ -33,7 +34,7 @@ regression_test:
     TEST_TAG: Regression
 
 notify_slack_on_failure:
-  stage: notify
+  stage: notify 🚩
   script:
     - 'curl -X POST --data-urlencode "payload={\"channel\": \"#test-web\", \"username\": \"DAXme Test\", \"text\": \"Pipeline FAILED on $CI_PROJECT_NAME at $CI_COMMIT_REF_NAME - $CI_PIPELINE_URL.\", \"icon_emoji\": \":ghost:\"}" $SLACK_WEBHOOK_URL'
   when: on_failure
