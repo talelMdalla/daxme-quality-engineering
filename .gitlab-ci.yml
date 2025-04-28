@@ -31,3 +31,13 @@ regression_test:
   variables:
     TEST_PATH: ./tests
     TEST_TAG: Regression
+
+notify_slack_on_failure:
+  stage: notify
+  script:
+    - 'curl -X POST --data-urlencode "payload={\"channel\": \"#test-web\", \"username\": \"DAXme Test\", \"text\": \"Pipeline FAILED on $CI_PROJECT_NAME at $CI_COMMIT_REF_NAME - $CI_PIPELINE_URL.\", \"icon_emoji\": \":ghost:\"}" $SLACK_WEBHOOK_URL'
+  when: on_failure
+  only:
+    refs:
+      - dev
+      - master
