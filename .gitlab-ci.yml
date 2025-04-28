@@ -22,7 +22,7 @@ smoke_test:
     - .robot_test_template
   variables:
     TEST_PATH: ./tests
-    TEST_TAG: Smoke
+    TEST_TAG: smoke
 
 regression_test:
   stage: regression_test 📊
@@ -31,7 +31,7 @@ regression_test:
     - .robot_test_template
   variables:
     TEST_PATH: ./tests
-    TEST_TAG: Regression
+    TEST_TAG: regression
 
 notify_slack_on_failure:
   stage: notify 🚩
