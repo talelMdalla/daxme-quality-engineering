@@ -37,4 +37,4 @@ Invalid email or password error
     Element Text Should Contain [Arguments] xpath://*[@data-test-id="login_field_error"] ${emailOrPasswordError} ${SMALL_RETRY_COUNT}
 
 Invalid email error
-    Element Text Should Contain [Arguments] xpath://*[@data-test-id="schema:validate_email"] ${InvalidEmailError} ${SMALL_RETRY_COUNT}
+    Element Text Should Contain [Arguments] xpath://*[@data-test-id="email-error"] ${InvalidEmailError} ${SMALL_RETRY_COUNT}
