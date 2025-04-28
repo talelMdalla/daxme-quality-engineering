@@ -51,7 +51,7 @@ Submit Register
     Click Button    xpath://*[@data-test-id="button-singupAgent-modal"]
 
 Accept general condition button
-    Click Button    xpath://input[@type="checkbox"]
+    Click Element [Arguments] xpath://input[@type="checkbox"] ${SMALL_RETRY_COUNT}
 
 Confirm recaptcha
     Click Button    id=recaptcha-anchor
@@ -66,6 +66,7 @@ FirstName empty error
 
 LastName empty error
     Element Text Should Contain [Arguments] xpath://*[@data-test-id="error_last_name"] ${requiredTextError} ${SMALL_RETRY_COUNT}
+
 
 Email empty error
     Element Text Should Contain [Arguments] xpath://*[@data-test-id="error_email"] ${requiredTextError} ${SMALL_RETRY_COUNT}

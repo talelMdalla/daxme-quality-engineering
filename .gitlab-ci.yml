@@ -6,6 +6,7 @@ stages:
   - install 🛠️
   - smoke_test 🚬
   - regression_test 📊
+  - notify 🚩
 
 install_dependencies:
   stage: install 🛠️
@@ -21,7 +22,7 @@ smoke_test:
     - .robot_test_template
   variables:
     TEST_PATH: ./tests
-    TEST_TAG: Smoke
+    TEST_TAG: smoke
 
 regression_test:
   stage: regression_test 📊
@@ -30,4 +31,23 @@ regression_test:
     - .robot_test_template
   variables:
     TEST_PATH: ./tests
-    TEST_TAG: Regression
+    TEST_TAG: regression
+
+notify_slack_on_failure:
+  stage: notify 🚩
+  dependencies:
+    - smoke_test
+    - regression_test
+  script:
+    - |
+      if [ -f failed_stage.txt ]; then
+        FAILED_STAGE=$(cat failed_stage.txt)
+      else
+        FAILED_STAGE="unknown stage"
+      fi
+      curl -X POST --data-urlencode "payload={\"channel\": \"#test-web\", \"username\": \"DAXme Test\", \"text\": \":x: Pipeline FAILED during *$FAILED_STAGE* on project *$CI_PROJECT_NAME* (branch *$CI_COMMIT_REF_NAME*). <$CI_PIPELINE_URL|View Pipeline>\", \"icon_emoji\": \":ghost:\"}" $SLACK_WEBHOOK_URL
+  when: on_failure
+  only:
+    refs:
+      - dev
+      - master
