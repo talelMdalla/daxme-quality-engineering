@@ -17,6 +17,7 @@ Open Browser Page
     ...    Open the browser and navigates to the login page    ...
 
     Open Browser    ${TEST_ENV_URL}    ${BROWSER}    options=${TEST_BROWSER_OPTIONS}
+    Execute Javascript    window.localStorage.setItem('disable-recaptcha-daxme-test', 'true');
     Set Selenium Speed     ${TEST_SELENIUM_SPEED}
     Maximize Browser Window
     Set Selenium Timeout    ${SELENIUM_TIMEOUT}
