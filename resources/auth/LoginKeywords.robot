@@ -21,9 +21,6 @@ Input Password
     [Arguments]    ${password}
     Set Text [Arguments] xpath://input[@type='password'] ${password} ${SMALL_RETRY_COUNT}
 
-Profile Avatar Should Be Visible
-    Element Should Be Visible [Arguments] xpath://*[@data-test-id="photo_profile"] ${SMALL_RETRY_COUNT}
-
 Submit Login
     Click Element [Arguments] xpath://*[@data-test-id='button-login-loginModal'] ${SMALL_RETRY_COUNT}
 
