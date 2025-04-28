@@ -5,6 +5,8 @@ Library             SeleniumLibrary
 Resource            ../../resources/Common.robot
 Resource            ../../resources/auth/ForgotPasswordKeywords.robot
 
+Test Teardown       Close Browser
+
 
 *** Test Cases ***
 Validate reset password with empty email field
@@ -14,7 +16,6 @@ Validate reset password with empty email field
     Forgot password button
     Submit
     Emty email error
-    [Teardown]    Close Browser
 
 Validate reset password with invalid email
     [Tags]    regression
@@ -24,7 +25,6 @@ Validate reset password with invalid email
     Input Email    ${INVALID_EMAIL}
     Submit
     Invalid email error
-    [Teardown]    Close Browser
 
 Validate reset password with email not existing
     [Tags]    regression
@@ -34,7 +34,6 @@ Validate reset password with email not existing
     Input Email    ${EmailNotExist}
     Submit
     Email not exist error
-    [Teardown]    Close Browser
 
 Validate reset password with valid email
     [Tags]    smoke
@@ -44,4 +43,3 @@ Validate reset password with valid email
     Input Email    ${VALID_EMAIL}
     Submit
     Success message
-    [Teardown]    Close Browser

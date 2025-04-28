@@ -18,7 +18,7 @@ Open Browser Page
 
     Open Browser    ${TEST_ENV_URL}    ${BROWSER}    options=${TEST_BROWSER_OPTIONS}
     Execute Javascript    window.localStorage.setItem('disable-recaptcha-daxme-test', 'true');
-    Set Selenium Speed     ${TEST_SELENIUM_SPEED}
+    Set Selenium Speed    ${TEST_SELENIUM_SPEED}
     Maximize Browser Window
     Set Selenium Timeout    ${SELENIUM_TIMEOUT}
     Set Log Level    DEBUG
@@ -136,3 +136,19 @@ Check Page URL    [Arguments]    ${expectedPageUrl}
 
 Button Cookies
     Click Element [Arguments] id:rcc-confirm-button ${SMALL_RETRY_COUNT}
+
+Profile Avatar Should Be Visible
+    Element Should Be Visible [Arguments] xpath://*[@data-test-id="photo_profile"] ${SMALL_RETRY_COUNT}
+
+Get Random Email
+    [Documentation]    Return random email address
+    ${randomText}    Generate Random String    8    [LETTERS]
+    ${email}    Set Variable    ${randomText}@example.com
+    RETURN    ${email}
+
+Get Random Phone Number
+    [Documentation]    Return random phonenumber
+    ${firstDigit}    Set Variable    06
+    ${randomText}    Generate Random String    8    [NUMBERS]
+    ${phone}    Set Variable    ${firstDigit}${randomText}
+    RETURN    ${phone}
