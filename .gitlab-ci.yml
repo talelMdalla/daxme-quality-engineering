@@ -36,7 +36,7 @@ regression_test:
 notify_slack_on_failure:
   stage: notify 🚩
   script:
-    - 'curl -X POST --data-urlencode "payload={\"channel\": \"#test-web\", \"username\": \"DAXme Test\", \"text\": \"Pipeline FAILED on $CI_PROJECT_NAME at $CI_COMMIT_REF_NAME - $CI_PIPELINE_URL.\", \"icon_emoji\": \":ghost:\"}" $SLACK_WEBHOOK_URL'
+    - 'curl -X POST --data-urlencode "payload={\"channel\": \"#test-web\", \"username\": \"DAXme Test\", \"text\": \":x: Pipeline FAILED during stage *$CI_JOB_STAGE* on project *$CI_PROJECT_NAME* (branch *$CI_COMMIT_REF_NAME*). <$CI_PIPELINE_URL|View Pipeline>\", \"icon_emoji\": \":ghost:\"}" $SLACK_WEBHOOK_URL'
   when: on_failure
   only:
     refs:
