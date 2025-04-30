@@ -100,6 +100,13 @@ Element Text Should Be [Arguments] ${locator} ${text} ${retryScale}
     Wait Until Keyword Succeeds    ${retryScale}    ${RETRY_DELAY}    Wait Until Element Is Visible    ${locator}
     Wait Until Keyword Succeeds    ${retryScale}    ${RETRY_DELAY}    Element Text Should Be    ${locator}    ${text}
 
+Scroll To Element [Arguments] ${locator} ${retryScale}
+    [Documentation]
+    ...    Scroll Into Element    ...
+
+    Wait Until Keyword Succeeds    ${retryScale}    ${RETRY_DELAY}    Wait Until Element Is Visible    ${locator}
+    Wait Until Keyword Succeeds    ${retryScale}    ${RETRY_DELAY}    Scroll Element Into View    ${locator}
+
 Element Text Should Contain [Arguments] ${locator} ${text} ${retryScale}
     [Documentation]
     ...    Validate the text of an element    ...

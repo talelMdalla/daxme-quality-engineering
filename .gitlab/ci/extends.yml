@@ -13,6 +13,8 @@
     - source ./venv/bin/activate
 
 .robot_test_template:
+  extends:
+    - .install:api
   script:
     - |
       if [[ "$CI_COMMIT_REF_NAME" == "master" ]]; then
@@ -31,3 +33,15 @@
     expire_in: 1 day
   dependencies:
     - install_dependencies
+
+.notify:hook:
+  script:
+    - >
+      curl -X POST --data-urlencode
+      "payload={
+        \"channel\": \"#test-web\",
+        \"username\": \"DAXme Test\",
+        \"text\": \":$TEXT_EMOJI: $TEXT\",
+        \"icon_emoji\": \":$EMOJI:\"
+      }"
+      $SLACK_WEBHOOK_URL
