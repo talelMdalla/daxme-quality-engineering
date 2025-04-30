@@ -14,11 +14,14 @@ Test Teardown       Close Browser
 ${VALID_EMAIL}          createcompany@gmail.com
 ${VALID_PASSWORD}       Boutcho123&
 
+${VALID_EMAIL1}         boutcho@outlook.com
+${VALID_PASSWORD1}      Hamza123&
+
 
 *** Test Cases ***
 validate create company with empty field
     [Tags]    regression
-    Login with credentials    ${VALID_EMAIL}    ${VALID_PASSWORD}
+    Login with credentials    ${VALID_EMAIL1}    ${VALID_PASSWORD1}
     Access to profile page
     Scroll to company information
     Create company button
@@ -30,7 +33,7 @@ validate create company with empty field
 
 validate create company with invalid SIRET
     [Tags]    regression
-    Login with credentials    ${VALID_EMAIL}    ${VALID_PASSWORD}
+    Login with credentials    ${VALID_EMAIL1}    ${VALID_PASSWORD1}
     Access to profile page
     Scroll to company information
     Create company button
