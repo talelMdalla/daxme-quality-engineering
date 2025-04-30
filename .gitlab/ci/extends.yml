@@ -35,6 +35,13 @@
     - install_dependencies
 
 .notify:hook:
+  before_script:
+    - |
+      if [ -f failed_stage.txt ]; then
+        FAILED_STAGE=$(cat failed_stage.txt)
+      else
+        FAILED_STAGE="unknown stage"
+      fi
   script:
     - >
       curl -X POST --data-urlencode

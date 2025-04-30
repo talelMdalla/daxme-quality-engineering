@@ -40,13 +40,6 @@ notify_slack_on_failure:
   dependencies:
     - smoke_test
     - regression_test
-  before_script:
-    - |
-      if [ -f failed_stage.txt ]; then
-        FAILED_STAGE=$(cat failed_stage.txt)
-      else
-        FAILED_STAGE="unknown stage"
-      fi
   extends:
     - .notify:hook
   variables:
