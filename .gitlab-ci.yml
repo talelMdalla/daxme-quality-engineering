@@ -22,7 +22,6 @@ install_dependencies:
 smoke_test:
   stage: smoke_test 🚬
   extends:
-    - .install:api
     - .robot_test_template
   variables:
     TEST_PATH: ./tests
@@ -31,7 +30,6 @@ smoke_test:
 regression_test:
   stage: regression_test 📊
   extends:
-    - .install:api
     - .robot_test_template
   variables:
     TEST_PATH: ./tests
@@ -42,15 +40,34 @@ notify_slack_on_failure:
   dependencies:
     - smoke_test
     - regression_test
-  script:
+  before_script:
     - |
       if [ -f failed_stage.txt ]; then
         FAILED_STAGE=$(cat failed_stage.txt)
       else
         FAILED_STAGE="unknown stage"
       fi
-      curl -X POST --data-urlencode "payload={\"channel\": \"#test-web\", \"username\": \"DAXme Test\", \"text\": \":x: Pipeline FAILED during *$FAILED_STAGE* on project *$CI_PROJECT_NAME* (branch *$CI_COMMIT_REF_NAME*). <$CI_PIPELINE_URL|View Pipeline>\", \"icon_emoji\": \":ghost:\"}" $SLACK_WEBHOOK_URL
+  extends:
+    - .notify:hook
+  variables:
+    TEXT_EMOJI: x
+    TEXT: Pipeline FAILED during *$FAILED_STAGE* on project *$CI_PROJECT_NAME* (branch *$CI_COMMIT_REF_NAME*). <$CI_PIPELINE_URL|View Pipeline>
+    EMOJI: ghost
   when: on_failure
+  only:
+    refs:
+      - dev
+      - master
+
+notify_slack_on_success:
+  stage: notify 🚩
+  extends:
+    - .notify:hook
+  variables:
+    TEXT_EMOJI: white_check_mark
+    TEXT: Pipeline SUCCEEDED on project *$CI_PROJECT_NAME* (branch *$CI_COMMIT_REF_NAME*). <$CI_PIPELINE_URL|View Pipeline>
+    EMOJI: rocket
+  when: on_success
   only:
     refs:
       - dev
