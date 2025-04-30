@@ -1,6 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
-
+Resource    ../Common.robot
 
 *** Variables ***
 ${URL}                          https://dev.daxme.fr/
