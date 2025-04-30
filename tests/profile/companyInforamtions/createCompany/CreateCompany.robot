@@ -11,8 +11,8 @@ Test Teardown       Close Browser
 
 
 *** Variables ***
-${VALID_EMAIL}          boutcho@outlook.com
-${VALID_PASSWORD}       Hamza123&
+${VALID_EMAIL}          createcompany@gmail.com
+${VALID_PASSWORD}       Boutcho123&
 
 
 *** Test Cases ***
@@ -42,7 +42,7 @@ validate create company with invalid SIRET
     Seconde confirm button
 
 validate create company with valid SIRET
-    [Tags]    3
+    [Tags]    smoke
     Login with credentials    ${VALID_EMAIL}    ${VALID_PASSWORD}
     Access to profile page
     Scroll to company information
