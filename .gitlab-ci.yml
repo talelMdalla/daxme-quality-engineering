@@ -40,11 +40,18 @@ notify_slack_on_failure:
   dependencies:
     - smoke_test
     - regression_test
+  before_script:
+    - |
+      if [ -f failed_stage.txt ]; then
+        FAILED_STAGE=$(cat failed_stage.txt)
+      else
+        FAILED_STAGE="unknown stage"
+      fi
+      TEXT="Pipeline FAILED during *$FAILED_STAGE* on project *$CI_PROJECT_NAME* (branch *$CI_COMMIT_REF_NAME*). <$CI_PIPELINE_URL|View Pipeline>"
   extends:
     - .notify:hook
   variables:
     TEXT_EMOJI: x
-    TEXT: Pipeline FAILED during *$FAILED_STAGE* on project *$CI_PROJECT_NAME* (branch *$CI_COMMIT_REF_NAME*). <$CI_PIPELINE_URL|View Pipeline>
     EMOJI: ghost
   when: on_failure
   only:
