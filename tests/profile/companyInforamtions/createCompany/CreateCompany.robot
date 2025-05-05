@@ -55,5 +55,5 @@ validate create company with valid SIRET
     Select company type from liste
     Scroll to submit button
     Submit button
-    Seconde confirm button
-    Success message
+    # Seconde confirm button
+    # Success message
