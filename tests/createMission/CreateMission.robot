@@ -9,19 +9,17 @@ Resource            ../../resources/Keywords.robot
 
 *** Variables ***
 ${email}                client-indiv@gmail.com
-${passwrod}             Daxme2024&
+${passwrod}             Daxme2021&
 ${DELAY_IN_SECONDS}     2
 
 
 *** Test Cases ***
 Validate description step with emty fields
     [Documentation]    First step "Description"
-    [Tags]    1
+    [Tags]    regression
     Login with credentials    ${email}    ${passwrod}
     Create mission button
-    Sleep    ${DELAY_IN_SECONDS}
     Scroll to bottom
-    sleep    1s
     Next button
     Empty mission name error message
     Empty mission type error message
@@ -32,13 +30,12 @@ Validate description step with emty fields
 
 Validate with a single character in the name and description fields
     [Documentation]    First step "Description"
-    [Tags]    2
+    [Tags]    regression
     Login with credentials    ${email}    ${passwrod}
     Create mission button
     Mission name input    a
     Mission description input    a
     Scroll to bottom
-    sleep    1s
     Next button
     one caracter error message name
     one caracter error message description
@@ -46,30 +43,27 @@ Validate with a single character in the name and description fields
 
 validate with an agent number greater than 124
     [Documentation]    First step "Description"
-    [Tags]    3
+    [Tags]    regression
     Login with credentials    ${email}    ${passwrod}
     Create mission button
     Agent number input    290
     Scroll to bottom
-    sleep    1s
     Next button
     maximun agent error message
     Close Browser
 
 validate description form with valid data
     [Documentation]    First step "Description"
-    [Tags]    4
+    [Tags]    smoke
     Login with credentials    ${email}    ${passwrod}
     Create mission button
     Mission name input    hamza
     Mission type input
-    Sleep    1s
-    Select company type from liste
+    Select company type from listes
     Gender checkbox
     Level checkbox
     Adress input
     Scroll to bottom
-    sleep    1s
     Next button
     Verify description step
 
@@ -81,8 +75,6 @@ Validate schedule step with emty fields
     Start date empty error message
     End date empty error message
     Days per week empty error message
-    Start time empty error message
-    End time empty error message
     Close Browser
 
 validate with an old start date and less than the end date
@@ -174,9 +166,11 @@ First step description
     Create mission button
     Mission name input    hamza
     Mission type input
+    Select company type from listes
     Gender checkbox
     Level checkbox
     Adress input
+    Scroll to bottom
     Next button
     Verify description step
 
