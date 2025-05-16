@@ -48,7 +48,7 @@ validate create company with valid SIRET
     [Tags]    smoke
     Login with credentials    ${VALID_EMAIL}    ${VALID_PASSWORD}
     Access to profile page
-    Scroll To The Bottom Of The Page
+    Scroll to company information
     Create company button
     Company name input
     SIRET valid input
