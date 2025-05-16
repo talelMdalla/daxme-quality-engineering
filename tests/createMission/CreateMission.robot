@@ -131,7 +131,7 @@ validate with break time less than 30 min
 
 validate with two time slots in the same day
     [Documentation]    Second step "schedule"
-    [Tags]    regression
+    [Tags]    10
     First step description
     Start date input    01/01/2030
     End date input    10/01/2030
