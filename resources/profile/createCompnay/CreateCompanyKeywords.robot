@@ -36,8 +36,7 @@ Scroll to company information
     Scroll Element Into View    xpath=//*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[4]/div/div[2]/button
 
 Scroll to submit button
-    Scroll Element Into View
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[4]/div/div[2]/button
+    Scroll To Element [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[4]/div/div[2]/button ${SMALL_RETRY_COUNT}
 
 Confirm button
     Click Element [Arguments] xpath=/html/body/div[3]/div/div[1]/div/div/div[2]/div[2]/div/button ${SMALL_RETRY_COUNT}
