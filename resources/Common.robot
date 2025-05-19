@@ -159,3 +159,15 @@ Get Random Phone Number
     ${randomText}    Generate Random String    8    [NUMBERS]
     ${phone}    Set Variable    ${firstDigit}${randomText}
     RETURN    ${phone}
+
+Select From List [Arguments] ${locator} ${text} ${retryScale}
+    [Documentation]
+    ...    Validate the text of an element    ...
+
+    Wait Until Keyword Succeeds    ${retryScale}    ${RETRY_DELAY}    Wait Until Element Is Visible    ${locator}
+    Wait Until Keyword Succeeds
+    ...    ${retryScale}
+    ...    ${RETRY_DELAY}
+    ...    Select From List By Value
+    ...    ${locator}
+    ...    ${text}

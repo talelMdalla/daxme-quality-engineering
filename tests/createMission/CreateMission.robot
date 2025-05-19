@@ -9,19 +9,17 @@ Resource            ../../resources/Keywords.robot
 
 *** Variables ***
 ${email}                client-indiv@gmail.com
-${passwrod}             Daxme2024&
+${passwrod}             Daxme2021&
 ${DELAY_IN_SECONDS}     2
 
 
 *** Test Cases ***
 Validate description step with emty fields
     [Documentation]    First step "Description"
-    [Tags]    1
+    [Tags]    regression
     Login with credentials    ${email}    ${passwrod}
     Create mission button
-    Sleep    ${DELAY_IN_SECONDS}
     Scroll to bottom
-    sleep    1s
     Next button
     Empty mission name error message
     Empty mission type error message
@@ -32,13 +30,12 @@ Validate description step with emty fields
 
 Validate with a single character in the name and description fields
     [Documentation]    First step "Description"
-    [Tags]    2
+    [Tags]    regression
     Login with credentials    ${email}    ${passwrod}
     Create mission button
     Mission name input    a
     Mission description input    a
     Scroll to bottom
-    sleep    1s
     Next button
     one caracter error message name
     one caracter error message description
@@ -46,48 +43,43 @@ Validate with a single character in the name and description fields
 
 validate with an agent number greater than 124
     [Documentation]    First step "Description"
-    [Tags]    3
+    [Tags]    regression
     Login with credentials    ${email}    ${passwrod}
     Create mission button
     Agent number input    290
     Scroll to bottom
-    sleep    1s
     Next button
     maximun agent error message
     Close Browser
 
 validate description form with valid data
     [Documentation]    First step "Description"
-    [Tags]    4
+    [Tags]    smoke
     Login with credentials    ${email}    ${passwrod}
     Create mission button
     Mission name input    hamza
     Mission type input
-    Sleep    1s
-    Select company type from liste
+    Select company type from listes
     Gender checkbox
     Level checkbox
     Adress input
     Scroll to bottom
-    sleep    1s
     Next button
     Verify description step
 
 Validate schedule step with emty fields
     [Documentation]    Second step "schedule"
-    [Tags]    5
+    [Tags]    regression
     First step description
     Next button
     Start date empty error message
     End date empty error message
     Days per week empty error message
-    Start time empty error message
-    End time empty error message
     Close Browser
 
 validate with an old start date and less than the end date
     [Documentation]    Second step "schedule"
-    [Tags]    6
+    [Tags]    regression
     First step description
     Start date input    12/01/2024
     End date input    25/01/2024
@@ -97,7 +89,7 @@ validate with an old start date and less than the end date
 
 validate with a start date greater than the end date
     [Documentation]    Second step "schedule"
-    [Tags]    7
+    [Tags]    regression
     First step description
     Start date input    12/01/2025
     End date input    12/01/2024
@@ -107,10 +99,14 @@ validate with a start date greater than the end date
 
 validate with start time less than end time
     [Documentation]    Second step "schedule"
-    [Tags]    8
+    [Tags]    regression
     First step description
-    Start time input    08:00
-    End time input    08:00
+    Start date input    01/01/2030
+    End date input    10/01/2030
+    select days filed
+    Click on days per week
+    Monday Start time input    08:00
+    Monday end time input    08:00
     Next button
     Sleep    2s    reason=waiting error to popup
     start time less than end time error message
@@ -118,17 +114,40 @@ validate with start time less than end time
 
 validate with break time less than 30 min
     [Documentation]    Second step "schedule"
-    [Tags]    9
+    [Tags]    regression
     First step description
-    Start date input    25/01/2025
-    End date input    25/02/2025
-    Start time input    09:00
-    End time input    08:00
-    Start break time input    12:00
-    End break time input    18:00
-    Next button
+    Start date input    01/01/2030
+    End date input    10/01/2030
+    select days filed
+    Click on days per week
+    Monday Start time input    09:00
+    Monday end time input    12:00
+    Add break time button
+    Start break time input    08:00
+    End break time input    10:00
     Sleep    2s    reason=waiting error to popup
-    break time less than 30 min error message
+    Start break time must be between start time and end time error message
+    Close Browser
+
+validate with two time slots in the same day
+    [Documentation]    Second step "schedule"
+    [Tags]    10
+    First step description
+    Start date input    01/01/2030
+    End date input    10/01/2030
+    select Monday
+    Click on days per week
+    Monday Start time input1    09:00
+    Monday end time input1    18:00
+    Add break time button
+    Start break time input1    10:05
+    End break time input1    10:10
+    Add interval button
+    Scroll to bottom
+    Seconde Start time    19:00
+    Seconde End time    20:00
+    Sleep    2s    reason=waiting error to popup
+    Start break time must be between start time and end time error message
     Close Browser
 
 validate with break times not between start and end times
@@ -137,8 +156,8 @@ validate with break times not between start and end times
     First step description
     Start date input    25/01/2025
     End date input    25/02/2025
-    Start time input    09:00
-    End time input    18:00
+    Monday Start time input    09:00
+    Monday end time input    18:00
     Start break time input    07:00
     End break time input    08:00
     Next button
@@ -153,8 +172,8 @@ validate schedule form with valid data
     Start date input    25/01/2025
     End date input    25/02/2025
     Set working days
-    Start time input    09:00
-    End time input    18:00
+    Monday Start time input    09:00
+    Monday end time input    18:00
     Start break time input    13:00
     End break time input    14:00
     Next button
@@ -174,9 +193,11 @@ First step description
     Create mission button
     Mission name input    hamza
     Mission type input
+    Select company type from listes
     Gender checkbox
     Level checkbox
     Adress input
+    Scroll to bottom
     Next button
     Verify description step
 
@@ -185,8 +206,8 @@ Second step schedule
     Start date input    25/01/2025
     End date input    25/02/2025
     Set working days
-    Start time input    09:00
-    End time input    18:00
+    Monday Start time input    09:00
+    Monday end time input    18:00
     Start break time input    13:00
     End break time input    14:00
     Next button

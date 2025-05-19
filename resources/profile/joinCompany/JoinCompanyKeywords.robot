@@ -18,7 +18,7 @@ Access to profile page
     Click Element [Arguments] xpath://*[@id="drop"]/button[1] ${SMALL_RETRY_COUNT}
 
 Joindre une entreprise
-    Click Element [Arguments] xpath://*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[2] ${SMALL_RETRY_COUNT}
+    Click Element [Arguments] xpath://*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[3] ${SMALL_RETRY_COUNT}
 
 SIRET invalid input
     Set Text [Arguments] xpath://*[@id="company__input3"] 77021502800018 ${SMALL_RETRY_COUNT}
