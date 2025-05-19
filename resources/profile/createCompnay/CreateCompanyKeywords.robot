@@ -33,7 +33,7 @@ Submit button
     Click Element [Arguments] xpath://*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[3]/div/form/div[7]/div/button ${SMALL_RETRY_COUNT}
 
 Scroll to company information
-    Scroll Element Into View    xpath=//*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[4]/div/div[2]/button
+    Scroll To Element [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[4]/div/div[2]/button ${SMALL_RETRY_COUNT}
 
 Scroll to submit button
     Scroll To Element [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[4]/div/div[2]/button ${SMALL_RETRY_COUNT}
