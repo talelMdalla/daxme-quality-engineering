@@ -77,7 +77,7 @@ Agent number input
 
 Mission type input
     Click Element [Arguments] xpath=//*[@id="select-types"]/div ${MEDIUM_RETRY_COUNT}
-    Click Element [Arguments] xpath=//div[@id='react-select-2-option-0'] ${MEDIUM_RETRY_COUNT}
+    Click Element [Arguments] xpath=//*[@id="react-select-2-option-0"] ${MEDIUM_RETRY_COUNT}
 
 Select company type from listes
     Click Element [Arguments] xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[3]/div[1]/li[2]/div ${SMALL_RETRY_COUNT}
