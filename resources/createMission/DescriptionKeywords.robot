@@ -96,7 +96,7 @@ Adress input
     sleep    2s
 
 Verify description step
-    Element Should Be Visible    xpath=//*[@id="start_date"]
+    Element Should Be Visible [Arguments] xpath=//*[@id="start_date"] ${SMALL_RETRY_COUNT}
 
 Verify schedule step
     Element Should Be Visible    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[1]/div/li
