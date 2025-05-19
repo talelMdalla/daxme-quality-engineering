@@ -5,11 +5,12 @@ Library             SeleniumLibrary
 Resource            ../../resources/createMission/DescriptionKeywords.robot
 Resource            ../../resources/createMission//ScheduleKeywords.robot
 Resource            ../../resources/Keywords.robot
+Resource            ../../config/CredentialsDetails.robot
 
 
 *** Variables ***
-${email}                client-indiv@gmail.com
-${passwrod}             Daxme2021&
+${email}                ${TEST_EMAIL_CREATE_MISSION}
+${passwrod}             ${TEST_PASS_CREATE_MISSION}
 ${DELAY_IN_SECONDS}     2
 
 

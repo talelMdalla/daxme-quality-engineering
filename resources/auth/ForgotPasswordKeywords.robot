@@ -1,10 +1,11 @@
 *** Settings ***
 Library     SeleniumLibrary
 Resource    ../../resources/Common.robot
+Resource    ../../config/CredentialsDetails.robot
 
 
 *** Variables ***
-${VALID_EMAIL}              testing.daxme@gmail.com
+${VALID_EMAIL}              ${TEST_EMAIL_AUTH}
 ${INVALID_EMAIL}            testing
 ${EmailNotExist}            azure@gmail.com
 ${EMAIL_INVALID}            hamza.com
