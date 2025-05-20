@@ -40,3 +40,11 @@ ${PROD_PASS_COMPANY}                Boutcho123&
 
 ${TEST_EMAIL_COMPANY}               ${${ENV}_EMAIL_COMPANY}
 ${TEST_PASS_COMPANY}                ${${ENV}_PASS_COMPANY}
+
+# SIRET
+
+${LOCAL_SIRET}                      55203253400646
+${DEV_SIRET}                        55203253400646
+${PROD_SIRET}                       00000000000000
+
+${TEST_SIRET}                       ${${ENV}_SIRET}
