@@ -15,7 +15,7 @@ Create mission button
     Click Element [Arguments] xpath=//*[@id="chip_create_mission"] ${SMALL_RETRY_COUNT}
 
 Next button
-    Click Element [Arguments] xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[4]/div/div/div/button[2] ${SMALL_RETRY_COUNT}
+    Click Element [Arguments] xpath=//*[@id="Groupe_Buttons_Step"]/button[2] ${SMALL_RETRY_COUNT}
 
 Empty mission name error message
     Wait Until Element Is Visible
