@@ -55,35 +55,35 @@ End date input
 Monday Start time input
     [Arguments]    ${startTime}
     Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[4]/div[1]/div/div[2]/div[1]/div/div/input
+    ...    xpath=//*[@id="start_time-0-0"]
     ...    timeout=10s
-    Set Text [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[4]/div[1]/div/div[2]/div[1]/div/div/input ${startTime} ${SMALL_RETRY_COUNT}
+    Set Text [Arguments] xpath=//*[@id="start_time-0-0"] ${startTime} ${SMALL_RETRY_COUNT}
 
 Monday end time input
     [Arguments]    ${endTime}
     Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[4]/div[1]/div/div[2]/div[2]/div/div/input
+    ...    xpath=//*[@id="end_time-0-0"]
     ...    timeout=10s
 
-    Set Text [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[4]/div[1]/div/div[2]/div[2]/div/div/input ${endTime} ${SMALL_RETRY_COUNT}
+    Set Text [Arguments] xpath=//*[@id="end_time-0-0"] ${endTime} ${SMALL_RETRY_COUNT}
 
 Start break time input
     [Arguments]    ${startBreakTime}
     Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[4]/div[1]/div/div[3]/div[1]/div/div/input
+    ...    xpath=//*[@id="start_break_time-0-0"]
     ...    timeout=10s
-    Set Text [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[4]/div[1]/div/div[3]/div[1]/div/div/input ${startBreakTime} ${SMALL_RETRY_COUNT}
+    Set Text [Arguments] xpath=//*[@id="start_break_time-0-0"] ${startBreakTime} ${SMALL_RETRY_COUNT}
 
 End break time input
     [Arguments]    ${endBreakTime}
     Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[4]/div[1]/div/div[3]/div[2]/div/div/input
+    ...    xpath=//*[@id="end_break_time-0-0"]
     ...    timeout=10s
-    Set Text [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[4]/div[1]/div/div[3]/div[2]/div/div/input ${endBreakTime} ${SMALL_RETRY_COUNT}
+    Set Text [Arguments] xpath=//*[@id="end_break_time-0-0"] ${endBreakTime} ${SMALL_RETRY_COUNT}
 
 Set working days
     Click Element    xpath=//*[@id="select-days"]/div
-    Click Element    xpath=//div[@id='react-select-3-option-0']
+    Click Element    xpath=//div[@id='react-select-4-option-0']
 
 old start date and less than the end date error message
     Wait Until Element Is Visible
@@ -109,9 +109,9 @@ start time less than end time error message
 
 Start break time must be between start time and end time error message
     Wait Until Element Is Visible
-    ...    xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[4]/div[1]/div/div[3]/div[1]/div[2]
+    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[1]/div[2]
     ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[4]/div[1]/div/div[3]/div[1]/div[2] ${Start_break_time_must_be_between_start_time_and_end_time_error} ${SMALL_RETRY_COUNT}
+    Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[1]/div[2] ${Start_break_time_must_be_between_start_time_and_end_time_error} ${SMALL_RETRY_COUNT}
 
 break times not between start and end times error message
     Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[1]/div[2] ${start_break_time_must_between_start_time_and_end_time} ${SMALL_RETRY_COUNT}
@@ -125,7 +125,7 @@ Click on days per week
     Click Element [Arguments] xpath=//*[@id="select-days"]/div ${SMALL_RETRY_COUNT}
 
 Add break time button
-    Click Element [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/button ${SMALL_RETRY_COUNT}
+    Click Element [Arguments] xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/button ${SMALL_RETRY_COUNT}
 
 Add interval button
     Click Element [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[1]/button/span[1] ${SMALL_RETRY_COUNT}

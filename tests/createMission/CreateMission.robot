@@ -119,7 +119,7 @@ validate with break time less than 30 min
     First step description
     Start date input    01/01/2030
     End date input    10/01/2030
-    select days filed
+    select Monday
     Click on days per week
     Monday Start time input    09:00
     Monday end time input    12:00
@@ -140,9 +140,6 @@ validate with two time slots in the same day
     Click on days per week
     Monday Start time input1    09:00
     Monday end time input1    18:00
-    Add break time button
-    Start break time input1    10:05
-    End break time input1    10:10
     Add interval button
     Scroll to bottom
     Seconde Start time    19:00
@@ -191,13 +188,14 @@ validate with two overlapping slots
 
 validate schedule form with valid data
     [Documentation]    Second step "schedule"
-    [Tags]    11
+    [Tags]    smoke
     First step description
-    Start date input    25/01/2025
-    End date input    25/02/2025
+    Start date input    01/01/2030
+    End date input    10/01/2030
     Set working days
     Monday Start time input    09:00
     Monday end time input    18:00
+    Add break time button
     Start break time input    13:00
     End break time input    14:00
     Next button
@@ -209,6 +207,7 @@ validate schedule update with invalid schedules
     [Documentation]    third step "Working hours"
     [Tags]    11
     Second step schedule
+
 
 
 *** Keywords ***
