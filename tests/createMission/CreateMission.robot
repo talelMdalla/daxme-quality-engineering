@@ -132,7 +132,7 @@ validate with break time less than 30 min
 
 validate with two time slots in the same day
     [Documentation]    Second step "schedule"
-    [Tags]    10
+    [Tags]    regression
     First step description
     Start date input    01/01/2030
     End date input    10/01/2030
@@ -147,23 +147,46 @@ validate with two time slots in the same day
     Scroll to bottom
     Seconde Start time    19:00
     Seconde End time    20:00
-    Sleep    2s    reason=waiting error to popup
-    Start break time must be between start time and end time error message
+    Next button
+    Wait Until Element Is Visible    locator=//*[@id="info_ctn"]/div
     Close Browser
 
 validate with break times not between start and end times
     [Documentation]    Second step "schedule"
-    [Tags]    10
+    [Tags]    regression
     First step description
-    Start date input    25/01/2025
-    End date input    25/02/2025
-    Monday Start time input    09:00
-    Monday end time input    18:00
-    Start break time input    07:00
-    End break time input    08:00
+    Start date input    01/01/2030
+    End date input    10/01/2030
+    select Monday
+    Click on days per week
+    Monday Start time input1    09:00
+    Monday end time input1    18:00
+    Add break time button
+    Start break time input1    08:00
+    End break time input1    10:10
     Next button
-    Sleep    2s    reason=waiting error to popup
     break times not between start and end times error message
+    Close Browser
+
+validate with two overlapping slots
+    [Documentation]    Second step "schedule"
+    [Tags]    regression
+    First step description
+    Start date input    01/01/2030
+    End date input    10/01/2030
+    select Monday
+    Click on days per week
+    Monday Start time input1    09:00
+    Monday end time input1    18:00
+    Add break time button
+    Start break time input1    10:05
+    End break time input1    10:10
+    Add interval button
+    Scroll to bottom
+    Seconde Start time    19:00
+    Seconde End time    20:00
+    Next button
+    Wait Until Element Is Visible    locator=//*[@id="info_ctn"]/div
     Close Browser
 
 validate schedule form with valid data
