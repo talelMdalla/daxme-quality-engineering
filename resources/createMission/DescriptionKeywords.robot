@@ -77,7 +77,11 @@ Agent number input
 
 Mission type input
     Click Element [Arguments] xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[2]/div/li[2]/div ${MEDIUM_RETRY_COUNT}
-    Click Element [Arguments] xpath=//*[@id="react-select-2-option-1"] ${MEDIUM_RETRY_COUNT}
+    Wait Until Keyword Succeeds
+    ...    ${MEDIUM_RETRY_COUNT}
+    ...    ${RETRY_DELAY}
+    ...    Click Element
+    ...    xpath=//*[@id="react-select-2-option-1"]
 
 Select company type from listes
     Click Element [Arguments] xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[3]/div[1]/li[2]/div ${SMALL_RETRY_COUNT}
@@ -94,7 +98,7 @@ Adress input
     Click Element [Arguments] xpath=//div[@id='react-select-2-option-0'] ${MEDIUM_RETRY_COUNT}
 
 Verify description step
-    Element Should Be Visible [Arguments] xpath=//*[@id="start_date"] ${SMALL_RETRY_COUNT}
+    Element Should Be Visible [Arguments] xpath=//*[@id="info_ctn"] ${SMALL_RETRY_COUNT}
 
 Verify schedule step
     Element Should Be Visible    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[1]/div/li
