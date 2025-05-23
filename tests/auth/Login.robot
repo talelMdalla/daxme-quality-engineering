@@ -9,6 +9,7 @@ Resource            ../../config/CredentialsDetails.robot
 Test Teardown       Close Browser
 
 
+
 *** Variables ***
 ${VALID_EMAIL}          ${TEST_EMAIL_AUTH}
 ${VALID_PASSWORD}       ${TEST_PASS_AUTH}
