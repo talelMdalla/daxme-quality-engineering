@@ -1,4 +1,6 @@
 .install:api:
+  tags:
+    - test-web
   before_script:
     - |
       if [ -d "venv" ]; then
