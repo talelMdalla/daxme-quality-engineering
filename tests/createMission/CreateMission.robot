@@ -203,7 +203,7 @@ validate schedule form with valid data
     Verify schedule step
     Close Browser
 
-validate schedule update with invalid schedules
+validate schedule update with only days off
     [Documentation]    third step "Working hours"
     [Tags]    11
     Second step schedule
