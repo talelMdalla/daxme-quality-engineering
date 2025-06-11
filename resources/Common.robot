@@ -19,10 +19,7 @@ Open Browser Page
     Open Browser    ${TEST_ENV_URL}    ${BROWSER}    options=${TEST_BROWSER_OPTIONS}
     Execute Javascript    window.localStorage.setItem('disable-recaptcha-daxme-test', 'true');
     Set Selenium Speed    ${TEST_SELENIUM_SPEED}
-    ${width}=    Execute Javascript    return window.innerWidth;
-    ${height}=   Execute Javascript    return window.innerHeight;
-    Log    Width: ${width}, Height: ${height}
-    # Set Window Size    width=1920    height=1080
+    Set Window Size    width=1920    height=1080
     Maximize Browser Window
     Set Selenium Timeout    ${SELENIUM_TIMEOUT}
     Set Log Level    DEBUG
