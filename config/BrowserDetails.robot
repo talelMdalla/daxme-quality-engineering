@@ -5,7 +5,7 @@ Resource    ./EnvDetails.robot
 *** Variables ***
 # Extecution Browser
 ${LANGUAGE_SETTINGS}        add_argument("--lang=fr");add_experimental_option("prefs", {"intl.accept_languages": "fr"});
-${COMMON_OPTS}              ${LANGUAGE_SETTINGS}add_argument("--headless=chrome");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080");
+${COMMON_OPTS}              ${LANGUAGE_SETTINGS}add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080");add_argument("--force-device-scale-factor=0.75");
 
 
 ${BROWSER}                  chrome
