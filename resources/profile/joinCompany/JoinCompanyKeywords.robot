@@ -2,6 +2,7 @@
 Library     SeleniumLibrary
 Resource    ../../../config/SeleniumConfigs.robot
 Resource    ../../../resources/Common.robot
+Resource    ../../../config/CredentialsDetails.robot
 
 
 *** Variables ***
@@ -24,7 +25,7 @@ SIRET invalid input
     Set Text [Arguments] xpath://*[@id="company__input3"] 77021502800018 ${SMALL_RETRY_COUNT}
 
 SIRET valid input
-    Set Text [Arguments] xpath://*[@id="company__input3"] 55203253400646 ${SMALL_RETRY_COUNT}
+    Set Text [Arguments] xpath://*[@id="company__input3"] ${TEST_SIRET} ${SMALL_RETRY_COUNT}
 
 Submit button
     Click Element [Arguments] xpath://*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[3]/div/form/div[2]/button ${SMALL_RETRY_COUNT}
