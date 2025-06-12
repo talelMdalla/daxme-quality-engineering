@@ -40,3 +40,6 @@ ${PROD_PASS_COMPANY}                Boutcho123&
 
 ${TEST_EMAIL_COMPANY}               ${${ENV}_EMAIL_COMPANY}
 ${TEST_PASS_COMPANY}                ${${ENV}_PASS_COMPANY}
+
+${LOCAL_EMAIL_LOGIN}      createcompany@gmail.com
+${LOCAL_PASS_LOGIN}       Boutcho123&
