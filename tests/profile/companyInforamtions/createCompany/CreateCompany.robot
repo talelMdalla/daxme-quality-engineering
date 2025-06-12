@@ -6,6 +6,7 @@ Library             XML
 Resource            ../../../../resources/profile/ProfileKeywords.robot
 Resource            ../../../../resources/Keywords.robot
 Resource            ../../../../resources/profile/createCompnay/CreateCompanyKeywords.robot
+Resource            ../../../../config/CredentialsDetails.robot
 
 Test Teardown       Close Browser
 
@@ -14,8 +15,8 @@ Test Teardown       Close Browser
 ${VALID_EMAIL}          createcompany@gmail.com
 ${VALID_PASSWORD}       Boutcho123&
 
-${VALID_EMAIL1}         boutcho@outlook.com
-${VALID_PASSWORD1}      Hamza123&
+${VALID_EMAIL1}         ${TEST_EMAIL_COMPANY}
+${VALID_PASSWORD1}      ${TEST_PASS_COMPANY}
 
 
 *** Test Cases ***
