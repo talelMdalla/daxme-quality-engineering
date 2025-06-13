@@ -6,6 +6,7 @@ Resource            ../../resources/createMission/DescriptionKeywords.robot
 Resource            ../../resources/createMission//ScheduleKeywords.robot
 Resource            ../../resources/Keywords.robot
 Resource            ../../config/CredentialsDetails.robot
+Resource            ../../resources/createMission/AdjustmentSchedulesKeywords.robot
 
 
 *** Variables ***
@@ -205,9 +206,29 @@ validate schedule form with valid data
 
 validate schedule update with only days off
     [Documentation]    third step "Working hours"
-    [Tags]    11
+    [Tags]    regression
     Second step schedule
+    Next week button
+    Card of day selected
+    Day off check box
+    Update button
+    Scroll To The Bottom Of The Page
+    Setp3 Next button
+    Confirm Financial information modal
+    Create mission with all days off error
 
+validate schedule update with one days off
+    [Documentation]    third step "Working hours"
+    [Tags]    regression
+    Second step schedule1
+    Next week button
+    Card of day selected
+    Day off check box
+    Update button
+    Scroll To The Bottom Of The Page
+    Setp3 Next button
+    Confirm Financial information modal
+    Verif create mission with one day off
 
 
 *** Keywords ***
@@ -226,13 +247,24 @@ First step description
 
 Second step schedule
     First step description
-    Start date input    25/01/2025
-    End date input    25/02/2025
+    Start date input    01/01/2030
+    End date input    10/01/2030
     Set working days
     Monday Start time input    09:00
     Monday end time input    18:00
-    Start break time input    13:00
-    End break time input    14:00
+    Next button
+    Sleep    2s
+    Verify schedule step
+
+Second step schedule1
+    First step description
+    Start date input    01/01/2030
+    End date input    10/01/2030
+    Select tow days
+    Monday Start time input    09:00
+    Monday end time input    18:00
+    Tuesday start time    09:00
+    Tuesday end time    18:00
     Next button
     Sleep    2s
     Verify schedule step
