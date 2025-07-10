@@ -8,6 +8,8 @@ Resource            ../../resources/Keywords.robot
 Resource            ../../config/CredentialsDetails.robot
 Resource            ../../resources/createMission/AdjustmentSchedulesKeywords.robot
 
+Test Teardown       Close Browser
+
 
 *** Variables ***
 ${email}                ${TEST_EMAIL_CREATE_MISSION}
@@ -28,7 +30,6 @@ Validate description step with emty fields
     Empty gender error message
     Empty level error message
     Empty adress error message
-    Close Browser
 
 Validate with a single character in the name and description fields
     [Documentation]    First step "Description"
@@ -41,7 +42,6 @@ Validate with a single character in the name and description fields
     Next button
     one caracter error message name
     one caracter error message description
-    Close Browser
 
 validate with an agent number greater than 124
     [Documentation]    First step "Description"
@@ -52,7 +52,6 @@ validate with an agent number greater than 124
     Scroll to bottom
     Next button
     maximun agent error message
-    Close Browser
 
 validate description form with valid data
     [Documentation]    First step "Description"
@@ -77,7 +76,6 @@ Validate schedule step with emty fields
     Start date empty error message
     End date empty error message
     Days per week empty error message
-    Close Browser
 
 validate with an old start date and less than the end date
     [Documentation]    Second step "schedule"
@@ -87,7 +85,6 @@ validate with an old start date and less than the end date
     End date input    25/01/2024
     Next button
     old start date and less than the end date error message
-    Close Browser
 
 validate with a start date greater than the end date
     [Documentation]    Second step "schedule"
@@ -97,7 +94,6 @@ validate with a start date greater than the end date
     End date input    12/01/2024
     Next button
     start date greater than the end date error message
-    Close Browser
 
 validate with start time less than end time
     [Documentation]    Second step "schedule"
@@ -112,7 +108,6 @@ validate with start time less than end time
     Next button
     Sleep    2s    reason=waiting error to popup
     start time less than end time error message
-    Close Browser
 
 validate with break time less than 30 min
     [Documentation]    Second step "schedule"
@@ -129,7 +124,6 @@ validate with break time less than 30 min
     End break time input    10:00
     Sleep    2s    reason=waiting error to popup
     Start break time must be between start time and end time error message
-    Close Browser
 
 validate with two time slots in the same day
     [Documentation]    Second step "schedule"
@@ -147,7 +141,6 @@ validate with two time slots in the same day
     Seconde End time    20:00
     Next button
     Wait Until Element Is Visible    locator=//*[@id="info_ctn"]/div
-    Close Browser
 
 validate with break times not between start and end times
     [Documentation]    Second step "schedule"
@@ -164,7 +157,6 @@ validate with break times not between start and end times
     End break time input1    10:10
     Next button
     break times not between start and end times error message
-    Close Browser
 
 validate with two overlapping slots
     [Documentation]    Second step "schedule"
@@ -185,7 +177,6 @@ validate with two overlapping slots
     Seconde End time    20:00
     Next button
     Wait Until Element Is Visible    locator=//*[@id="info_ctn"]/div
-    Close Browser
 
 validate schedule form with valid data
     [Documentation]    Second step "schedule"
@@ -202,7 +193,6 @@ validate schedule form with valid data
     Next button
     Sleep    2s
     Verify schedule step
-    Close Browser
 
 validate schedule update with only days off
     [Documentation]    third step "Working hours"
@@ -229,6 +219,7 @@ validate schedule update with one days off
     Setp3 Next button
     Confirm Financial information modal
     Verif create mission with one day off
+
 
 
 *** Keywords ***
