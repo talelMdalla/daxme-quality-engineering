@@ -11,27 +11,29 @@ ${InvalidEmailError}        S'il vous plaît entrez un email valide
 
 *** Keywords ***
 Button LoginForm
-    Click Element [Arguments] xpath://*[@data-test-id="button-login-navbar"] ${SMALL_RETRY_COUNT}
-
+    Click Element    xpath://a[@href="/app/login" and contains(text(), "Connexion")]
+    Sleep    5s
+    Capture Page Screenshot
 Input Email
     [Arguments]    ${email}
-    Set Text [Arguments] id:email ${email} ${SMALL_RETRY_COUNT}
+    Input Text    id:email    ${email}
 
 Input Password
     [Arguments]    ${password}
-    Set Text [Arguments] xpath://input[@type='password'] ${password} ${SMALL_RETRY_COUNT}
+    Input Text    xpath://input[@type='password']    ${password}
 
 Submit Login
-    Click Element [Arguments] xpath://*[@data-test-id='button-login-loginModal'] ${SMALL_RETRY_COUNT}
+    Click Element    xpath://*[@data-test-id='button-login-loginModal'] 
 
-Emty email error
-    Element Text Should Contain [Arguments] xpath://*[@data-test-id="email-error"] ${requiredTextError} ${SMALL_RETRY_COUNT}
+Empty email error
+    Element Should Contain    xpath://*[@data-test-id="email-error"]    ${requiredTextError}
 
-Emty password error
-    Element Text Should Contain [Arguments] xpath://*[@data-test-id="password-error"] ${requiredTextError} ${SMALL_RETRY_COUNT}
+Empty password error
+    Element Should Contain    xpath://*[@data-test-id="password-error"]    ${requiredTextError}
 
 Invalid email or password error
-    Element Text Should Contain [Arguments] xpath://*[@data-test-id="login_field_error"] ${emailOrPasswordError} ${SMALL_RETRY_COUNT}
+    Wait Until Element Is Visible    xpath://*[@data-test-id="login_field_error"]    10s
+    Element Should Contain    xpath://*[@data-test-id="login_field_error"]    ${emailOrPasswordError}
 
 Invalid email error
-    Element Text Should Contain [Arguments] xpath://*[@data-test-id="email-error"] ${InvalidEmailError} ${SMALL_RETRY_COUNT}
+    Element Should Contain    xpath://*[@data-test-id="email-error"]    ${InvalidEmailError}

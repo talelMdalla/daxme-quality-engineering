@@ -33,8 +33,8 @@ Login with empty fields
     Open Browser Page
     Button LoginForm
     Submit Login
-    Emty email error
-    Emty password error
+    Empty email error
+    Empty password error
 
 Login with email or password invalid
     [Tags]    regression
