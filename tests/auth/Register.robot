@@ -49,7 +49,7 @@ Register with email and number existe
     Input Birthday    06-12-1998
     Input Password    Password123*
     Input ConfirmPassword    Password123*
-    Email Number invalid Input    testing.daxme@gmail.com    0654654654
+    Email Number invalid Input    testing.daxme@gmail.com    0564619292
     Submit Register
     Email and Number existe error
 

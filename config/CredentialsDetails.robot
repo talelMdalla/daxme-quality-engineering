@@ -41,5 +41,10 @@ ${PROD_PASS_COMPANY}                Boutcho123&
 ${TEST_EMAIL_COMPANY}               ${${ENV}_EMAIL_COMPANY}
 ${TEST_PASS_COMPANY}                ${${ENV}_PASS_COMPANY}
 
-${LOCAL_EMAIL_LOGIN}      createcompany@gmail.com
-${LOCAL_PASS_LOGIN}       Boutcho123&
+# SIRET
+
+${LOCAL_SIRET}                      55203253400646
+${DEV_SIRET}                        55203253400646
+${PROD_SIRET}                       00000000000000
+
+${TEST_SIRET}                       ${${ENV}_SIRET}

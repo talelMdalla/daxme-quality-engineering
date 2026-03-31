@@ -6,13 +6,14 @@ Library             XML
 Resource            ../../../../resources/profile/ProfileKeywords.robot
 Resource            ../../../../resources/Keywords.robot
 Resource            ../../../../resources/profile/joinCompany/JoinCompanyKeywords.robot
+Resource            ../../../../config/CredentialsDetails.robot
 
 Test Teardown       Close Browser
 
 
 *** Variables ***
-${VALID_EMAIL}          boutcho@outlook.com
-${VALID_PASSWORD}       Hamza123&
+${VALID_EMAIL}          ${PROD_EMAIL_COMPANY}
+${VALID_PASSWORD}       ${PROD_PASS_COMPANY}
 
 
 *** Test Cases ***
