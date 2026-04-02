@@ -44,6 +44,7 @@ Register with email and number existe
     [Tags]    regression
     Open Browser Page
     Button RegisterForm
+    Click Inscription Button
     Button AgentForm
     Accept general condition button
     Input FirstName    hamza
