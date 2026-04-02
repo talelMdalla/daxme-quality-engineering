@@ -14,8 +14,9 @@ ${NumberExistError}         Numéro de téléphone deja utilisé
 
 *** Keywords ***
 Button RegisterForm
-    Click Button    xpath://*[@data-test-id="button-signup-navbar"]
-
+    Click Button    xpath://a[@href="/app/login" and contains(text(), "Inscription")]
+     Sleep    5s
+    Capture Page Screenshot
 Button AgentForm
     Click Element    xpath://*[@data-test-id="card-agent-modal"]
 

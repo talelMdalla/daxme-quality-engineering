@@ -15,7 +15,7 @@ Validate reset password with empty email field
     Button LoginForm
     Forgot password button
     Submit
-    Emty email error
+    Epmty email error
 
 Validate reset password with invalid email
     [Tags]    regression

@@ -17,26 +17,26 @@ ${EmptyEmailError}          Ce champ est obligatoire
 
 *** Keywords ***
 Button LoginForm
-    Click Button    xpath://*[@data-test-id="button-login-navbar"]
+    Click Element    xpath://a[@href="/app/login" and contains(text(), "Connexion")]
 
 Forgot password button
-    Click Element [Arguments] xpath://*[@id="forgotPassword"] ${SMALL_RETRY_COUNT}
+    Common.Click Element    xpath://*[@id="forgotPassword"]    ${SMALL_RETRY_COUNT}
 
 Input Email
     [Arguments]    ${email}
     Input Text    id:Email    ${email}
 
 Submit
-    Click Element [Arguments] xpath://*[@data-test-id="btn_verification_email"] ${SMALL_RETRY_COUNT}
+    Common.Click Element    xpath://*[@data-test-id="btn_verification_email"]    ${SMALL_RETRY_COUNT}
 
-Emty email error
-    Element Text Should Be [Arguments] xpath://*[@data-test-id="reset-password-email"] ${EmptyEmailError} ${SMALL_RETRY_COUNT}
+Epmty email error
+    Element Text Should Be    xpath://*[@data-test-id="reset-password-email"]    ${EmptyEmailError}    ${SMALL_RETRY_COUNT}
 
 Invalid email error
-    Element Text Should Contain [Arguments] xpath://*[@data-test-id="reset-password-email"] ${InvalidEmailError} ${SMALL_RETRY_COUNT}
+    Element Text Should Contain    xpath://*[@data-test-id="reset-password-email"]    ${InvalidEmailError}    ${SMALL_RETRY_COUNT}
 
 Email not exist error
-    Element Text Should Contain [Arguments] xpath://*[@data-test-id="reset-password-email"] ${EmailNotEsixtError} ${SMALL_RETRY_COUNT}
+    Element Text Should Contain    xpath://*[@data-test-id="reset-password-email"]    ${EmailNotEsixtError}    ${SMALL_RETRY_COUNT}
 
 Success message
-    Element Text Should Contain [Arguments] xpath://*[@data-test-id="sucess_send_reset"] ${Success_message} ${SMALL_RETRY_COUNT}
+    Element Text Should Contain    xpath://*[@data-test-id="sucess_send_reset"]    ${Success_message}    ${SMALL_RETRY_COUNT}
