@@ -18,7 +18,7 @@ ${DELAY_IN_SECONDS}     2
 
 
 *** Test Cases ***
-Validate description step with emty fields
+Validate description step with empty fields
     [Documentation]    First step "Description"
     [Tags]    regression
     Login with credentials    ${email}    ${passwrod}

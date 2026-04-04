@@ -36,8 +36,18 @@ Input Email
     Input Text    xpath://*[@id="mail"]    ${Email}
 
 Input Birthday
-    [Arguments]    ${Birthday}
-    Input Text    xpath://*[@id="root"]/div[2]/div[1]/div[1]/form/div[2]/div[2]/div/div/input    ${Birthday}
+    [Arguments]    ${day}    ${month}    ${year}
+    # Remplir le jour
+    Click Element    xpath=//span[@aria-label="Day"]
+    Press Keys       xpath=//span[@aria-label="Day"]    ${day}
+    Sleep    0.2s    
+    Click Element    xpath=//span[@aria-label="Month"]
+    Press Keys       xpath=//span[@aria-label="Month"]    ${month}
+    Sleep    0.2s
+    # Remplir l'année
+    Click Element    xpath=//span[@aria-label="Year"]
+    Press Keys       xpath=//span[@aria-label="Year"]    ${year}
+    Sleep    0.2s
 
 Input Number
     [Arguments]    ${Number}
@@ -64,7 +74,7 @@ Email Number invalid Input
     [Arguments]    ${Email}    ${Number}
     Input Text    xpath://*[@id="mail"]    ${Email}
     Input Text    xpath://input[@type="tel"]    ${Number}
-    Sleep    5s
+    
 FirstName empty error
     Element Text Should Contain  xpath://*[@data-test-id="error_first_name"]  ${requiredTextError}  ${SMALL_RETRY_COUNT}
 

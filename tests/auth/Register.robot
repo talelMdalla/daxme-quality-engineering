@@ -28,6 +28,7 @@ Register with empty fields
     Number empty error
     Password empty error
     ConfirmPassword empty error
+    
 
 Register with email and number invalid
     [Tags]    1
@@ -49,10 +50,10 @@ Register with email and number existe
     Accept general condition button
     Input FirstName    hamza
     Input LastName    chebbi
-    Input Birthday    06-12-1998
+    Input Birthday    06    12    1998
     Input Password    Password123*
     Input ConfirmPassword    Password123*
-    Email Number invalid Input    testing.daxme@gmail.com    0564619292
+    Email Number invalid Input    ghada.sakouhi@esprit.tn    0564619292
     Submit Register
     Email and Number existe error
 
