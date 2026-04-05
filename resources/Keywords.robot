@@ -9,11 +9,11 @@ Button LoginForm
 
 Input Email
     [Arguments]    ${email}
-    Set Text [Arguments] id:email ${email} ${SMALL_RETRY_COUNT}
+    Common.Set Text    id:email    ${email}    ${SMALL_RETRY_COUNT}
 
 Input pasword
     [Arguments]    ${password}
-    Set Text [Arguments] xpath://input[@type='password'] ${password} ${SMALL_RETRY_COUNT}
+    Common.Set Text    xpath://input[@type='password']    ${password}    ${SMALL_RETRY_COUNT}
 
 Submit Login
     Click Element [Arguments] xpath://*[@data-test-id='button-login-loginModal'] ${SMALL_RETRY_COUNT}
