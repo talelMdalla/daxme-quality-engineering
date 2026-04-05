@@ -16,7 +16,7 @@ Input pasword
     Common.Set Text    xpath://input[@type='password']    ${password}    ${SMALL_RETRY_COUNT}
 
 Submit Login
-    Click Element [Arguments] xpath://*[@data-test-id='button-login-loginModal'] ${SMALL_RETRY_COUNT}
+    Click Element    xpath://*[@data-test-id='button-login-loginModal']     ${SMALL_RETRY_COUNT}
 
 Login with credentials
     [Documentation]    Logs in with valid credentials

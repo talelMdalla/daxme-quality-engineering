@@ -12,8 +12,7 @@ ${AgentNumberError}     doit être un nombre positif inférieur à 124
 *** Keywords ***
 Create mission button
     Wait Until Element Is Visible    xpath=//*[@id="chip_create_mission"]    timeout=10s
-    Click Element [Arguments] xpath=//*[@id="chip_create_mission"] ${SMALL_RETRY_COUNT}
-
+    Click Element    xpath=//*[@id="chip_create_mission"]    ${SMALL_RETRY_COUNT}
 Next button
     Click Element [Arguments] xpath=//*[@id="Groupe_Buttons_Step"]/button[2] ${SMALL_RETRY_COUNT}
 
