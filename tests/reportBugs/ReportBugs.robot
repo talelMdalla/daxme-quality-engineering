@@ -9,8 +9,8 @@ Test Teardown       Close Browser
 
 *** Variables ***
 ${URL}          https://dev.daxme.fr
-${EMAIL}        testing.daxme@gmail.com
-${PASSWORD}     Boutcho123&
+${EMAIL}        vajayeb494@kaoing.com
+${PASSWORD}     123Ghada!
 
 
 *** Test Cases ***

@@ -14,8 +14,8 @@ Create mission button
     Wait Until Element Is Visible    xpath=//*[@id="chip_create_mission"]    timeout=10s
     Click Element    xpath=//*[@id="chip_create_mission"]    ${SMALL_RETRY_COUNT}
 Next button
-    Click Element [Arguments] xpath=//*[@id="Groupe_Buttons_Step"]/button[2] ${SMALL_RETRY_COUNT}
-
+    Common.Click Element    xpath=//*[@id="Groupe_Buttons_Step"]/button[2]    ${SMALL_RETRY_COUNT}
+    
 Empty mission name error message
     Wait Until Element Is Visible
     ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[1]/div/div    timeout=10s

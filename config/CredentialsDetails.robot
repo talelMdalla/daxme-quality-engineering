@@ -4,13 +4,13 @@ Resource    ./EnvDetails.robot
 
 *** Variables ***
 # CREATE MISSION
-${LOCAL_EMAIL_CREATE_MISSION}       testing.daxme@gmail.com
-${DEV_EMAIL_CREATE_MISSION}         testing.daxme@gmail.com
-${PROD_EMAIL_CREATE_MISSION}        testing.daxme@gmail.com
+${LOCAL_EMAIL_CREATE_MISSION}       vajayeb494@kaoing.com
+${DEV_EMAIL_CREATE_MISSION}         vajayeb494@kaoing.com
+${PROD_EMAIL_CREATE_MISSION}        vajayeb494@kaoing.com
 
-${LOCAL_PASS_CREATE_MISSION}        Boutcho123&
-${DEV_PASS_CREATE_MISSION}          Boutcho123&
-${PROD_PASS_CREATE_MISSION}         Daxme2021&
+${LOCAL_PASS_CREATE_MISSION}        123Ghada!
+${DEV_PASS_CREATE_MISSION}          123Ghada!
+${PROD_PASS_CREATE_MISSION}         123Ghada!
 
 ${TEST_EMAIL_CREATE_MISSION}        ${${ENV}_EMAIL_CREATE_MISSION}
 ${TEST_PASS_CREATE_MISSION}         ${${ENV}_PASS_CREATE_MISSION}
