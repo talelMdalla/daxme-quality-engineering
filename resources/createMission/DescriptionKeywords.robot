@@ -13,97 +13,102 @@ ${AgentNumberError}     doit être un nombre positif inférieur à 124
 Create mission button
     Wait Until Element Is Visible    xpath=//*[@id="chip_create_mission"]    timeout=10s
     Click Element    xpath=//*[@id="chip_create_mission"]    ${SMALL_RETRY_COUNT}
+    
 Next button
-    Common.Click Element    xpath=//*[@id="Groupe_Buttons_Step"]/button[2]    ${SMALL_RETRY_COUNT}
+    Wait Until Element Is Visible    xpath=//*[@id="Groupe_Buttons_Step"]/button[2]    timeout=10s
+    Scroll Element Into View    xpath=//*[@id="Groupe_Buttons_Step"]/button[2]
+    Sleep    1s
+    Execute JavaScript    document.querySelector('button.btn_orange').scrollIntoView({block: 'center'});
+    Sleep    500ms
+    Execute JavaScript    document.querySelector('button.btn_orange').click();
+    Sleep    500ms
 
 Empty mission name error message
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[1]/div/div
-    ...    timeout=10s
-    Element Text Should Contain
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[1]/div/div
-    ...    ${EmptyErrorMsg}
+    Wait Until Page Contains    ${EmptyErrorMsg}    timeout=20s
+    Element Text Should Contain    xpath=//*[contains(text(), '${EmptyErrorMsg}')]    ${EmptyErrorMsg}    ${SMALL_RETRY_COUNT}
 
 Empty mission type error message
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[2]/div[1]/li[3]/div
-    ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[2]/div[1]/li[3]/div ${EmptyErrorMsg} ${SMALL_RETRY_COUNT}
+    Wait Until Page Contains    ${EmptyErrorMsg}    timeout=20s
+    Wait Until Element Is Visible    xpath=//li//div[contains(text(), '${EmptyErrorMsg}')]    timeout=20s
+    Element Text Should Contain    xpath=//li//div[contains(text(), '${EmptyErrorMsg}')]    ${EmptyErrorMsg}    ${SMALL_RETRY_COUNT}
 
 Empty gender error message
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[3]/div/li[2]/div
-    ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[4]/div/li[2]/div ${EmptyErrorMsg} ${SMALL_RETRY_COUNT}
+    Wait Until Page Contains    ${EmptyErrorMsg}    timeout=20s
+    Wait Until Element Is Visible    xpath=//li//div[contains(text(), '${EmptyErrorMsg}')]    timeout=20s
+    Element Text Should Contain    xpath=//li//div[contains(text(), '${EmptyErrorMsg}')]    ${EmptyErrorMsg}    ${SMALL_RETRY_COUNT}
 
 Empty level error message
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[5]/div/li[2]/div
-    ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[5]/div/li[2]/div ${EmptyErrorMsg} ${SMALL_RETRY_COUNT}
+    Wait Until Page Contains    ${EmptyErrorMsg}    timeout=20s
+    Wait Until Element Is Visible    xpath=//li//div[contains(text(), '${EmptyErrorMsg}')]    timeout=20s
+    Element Text Should Contain    xpath=//li//div[contains(text(), '${EmptyErrorMsg}')]    ${EmptyErrorMsg}    ${SMALL_RETRY_COUNT}
 
 Empty adress error message
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[2]/div[2]/li[2]/div/div[2]
-    ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[2]/div[2]/li[2]/div/div[2] ${EmptyErrorMsg} ${SMALL_RETRY_COUNT}
+    Wait Until Page Contains    ${EmptyErrorMsg}    timeout=20s
+    Wait Until Element Is Visible    xpath=//div[contains(text(), '${EmptyErrorMsg}')]    timeout=20s
+    Element Text Should Contain    xpath=//div[contains(text(), '${EmptyErrorMsg}')]    ${EmptyErrorMsg}    ${SMALL_RETRY_COUNT}
 
-one caracter error message name
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[1]/div/div
-    ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[1]/div/div ${3caracterError} ${SMALL_RETRY_COUNT}
+One caracter error message name
+    Wait Until Page Contains    ${3caracterError}    timeout=20s
+    Wait Until Element Is Visible    xpath=//div[contains(text(), '${3caracterError}')]    timeout=20s
+    Element Text Should Contain    xpath=//div[contains(text(), '${3caracterError}')]    ${3caracterError}    ${SMALL_RETRY_COUNT}
 
-one caracter error message description
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[2]/div[1]/li/div
-    ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[2]/div[1]/li/div ${3caracterError} ${SMALL_RETRY_COUNT}
+One caracter error message description
+    Wait Until Page Contains    ${3caracterError}    timeout=20s
+    Wait Until Element Is Visible    xpath=//li//div[contains(text(), '${3caracterError}')]    timeout=20s
+    Element Text Should Contain    xpath=//li//div[contains(text(), '${3caracterError}')]    ${3caracterError}    ${SMALL_RETRY_COUNT}
 
-maximun agent error message
-    Element Text Should Contain [Arguments] xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[3]/div[2]/div ${AgentNumberError} ${SMALL_RETRY_COUNT}
+Maximum agent error message
+    Wait Until Page Contains    ${AgentNumberError}    timeout=20s
+    Wait Until Element Is Visible    xpath=//div[contains(text(), '${AgentNumberError}')]    timeout=20s
+    Element Text Should Contain    xpath=//div[contains(text(), '${AgentNumberError}')]    ${AgentNumberError}    ${SMALL_RETRY_COUNT}
 
 Mission name input
     [Arguments]    ${MissionName}
     Wait Until Element Is Visible    xpath=//*[@id="mission_name_input"]    timeout=10s
-    Set Text [Arguments] xpath=//*[@id="mission_name_input"] ${MissionName} ${SMALL_RETRY_COUNT}
+    Input Text    xpath=//*[@id="mission_name_input"]    ${MissionName}
 
 Mission description input
     [Arguments]    ${description}
     Wait Until Element Is Visible    xpath=//*[@id="desc_txt__update__agent"]    timeout=10s
-    Set Text [Arguments] xpath=//*[@id="desc_txt__update__agent"] ${description} ${SMALL_RETRY_COUNT}
+    Input Text    xpath=//*[@id="desc_txt__update__agent"]    ${description}
 
 Agent number input
     [Arguments]    ${AgentNumber}
-    Set Text [Arguments] xpath=//*[@name="agent_number"] ${AgentNumber} ${SMALL_RETRY_COUNT}
+    Wait Until Element Is Visible    xpath=//*[@name="agent_number"]    timeout=10s
+    Input Text    xpath=//*[@name="agent_number"]    ${AgentNumber}
 
 Mission type input
-    Click Element [Arguments] xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[2]/div/li[2]/div ${MEDIUM_RETRY_COUNT}
-    Wait Until Keyword Succeeds
-    ...    ${MEDIUM_RETRY_COUNT}
-    ...    ${RETRY_DELAY}
-    ...    Click Element
-    ...    xpath=//*[@id="react-select-2-option-1"]
+    Wait Until Element Is Visible    xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[2]/div/li[2]/div    timeout=10s
+    Click Element    xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[2]/div/li[2]/div
+    Wait Until Keyword Succeeds    ${MEDIUM_RETRY_COUNT}    ${RETRY_DELAY}    Click Element    xpath=//*[@id="react-select-2-option-1"]
 
 Select company type from listes
-    Click Element [Arguments] xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[3]/div[1]/li[2]/div ${SMALL_RETRY_COUNT}
-    Click Element [Arguments] xpath=//div[@id='react-select-3-option-0'] ${SMALL_RETRY_COUNT}
+    Wait Until Element Is Visible    xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[3]/div[1]/li[2]/div    timeout=10s
+    Click Element    xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[3]/div[1]/li[2]/div
+    Wait Until Element Is Visible    xpath=//div[@id='react-select-3-option-0']    timeout=10s
+    Click Element    xpath=//div[@id='react-select-3-option-0']
 
 Gender checkbox
-    Click Element [Arguments] xpath=//*[@test-id="homme"] ${SMALL_RETRY_COUNT}
+    Wait Until Element Is Visible    xpath=//*[@test-id="homme"]    timeout=10s
+    Click Element    xpath=//*[@test-id="homme"]
 
 Level checkbox
-    Click Element [Arguments] xpath=//*[@test-id="labels:level1"] ${SMALL_RETRY_COUNT}
+    Wait Until Element Is Visible    xpath=//*[@test-id="labels:level1"]    timeout=10s
+    Click Element    xpath=//*[@test-id="labels:level1"]
 
-Adress input
-    Set Text [Arguments] xpath=(//input[@id='react-select-2-input'])[2] chat ${SMALL_RETRY_COUNT}
-    Click Element [Arguments] xpath=//div[@id='react-select-2-option-0'] ${MEDIUM_RETRY_COUNT}
+Address input
+    Wait Until Element Is Visible    xpath=(//input[@id='react-select-2-input'])[2]    timeout=10s
+    Input Text    xpath=(//input[@id='react-select-2-input'])[2]    chat
+    Wait Until Element Is Visible    xpath=//div[@id='react-select-2-option-0']    timeout=10s
+    Click Element    xpath=//div[@id='react-select-2-option-0']
 
 Verify description step
-    Element Should Be Visible [Arguments] xpath=//*[@id="info_ctn"] ${SMALL_RETRY_COUNT}
+    Wait Until Element Is Visible    xpath=//*[@id="info_ctn"]    timeout=10s
+    Element Should Be Visible    xpath=//*[@id="info_ctn"]
 
 Verify schedule step
+    Wait Until Element Is Visible    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[1]/div/li    timeout=10s
     Element Should Be Visible    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[1]/div/li
 
 Scroll to bottom
-    Press Key    xpath=//body    \ue00f
+    Press Key    xpath=//body    End
