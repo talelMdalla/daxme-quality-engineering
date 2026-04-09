@@ -4,7 +4,8 @@ Documentation       Test cases for the 'Report Bugs' functionality.
 Library             SeleniumLibrary
 Resource            ../config/CredentialsDetails.robot
 
-Test Teardown       Close Browser
+Suite Setup         Open Browser    ${URL}    chrome
+Suite Teardown      Close Browser
 
 
 *** Variables ***
@@ -16,7 +17,6 @@ ${PASSWORD}     123Ghada!
 *** Test Cases ***
 Report Bug Form - Display and Validation
     [Documentation]    Vérifie l'accès au formulaire de signalement de bugs et la présence des champs obligatoires.
-    Open Browser    ${URL}    chrome
     Maximize Browser Window
     Wait Until Page Contains Element
     ...    xpath=//button[contains(.,'Accepter') or contains(.,'Accept') or contains(.,'cookies')]
