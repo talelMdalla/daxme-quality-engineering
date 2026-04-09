@@ -1,3 +1,4 @@
 {
-    "robotcode.robocop.enabled": true
+    "robotcode.robocop.enabled": true,
+    "robotcode.disableExtension": true
 }

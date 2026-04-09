@@ -61,13 +61,14 @@ Register with valid credentials
     [Tags]    smoke
     Open Browser Page
     Button RegisterForm
+    Click Inscription Button
     Button AgentForm
     Accept general condition button
     Input FirstName    hamza
     Input LastName    chebbi
     ${email}    Get Random Email
     Input Email    ${email}
-    Input Birthday    06-12-1998
+    Input Birthday    06    12    1998
     ${phoneNumber}    Get Random Phone Number
     Input Number    ${phoneNumber}
     Input Password    Password123*

@@ -30,3 +30,10 @@ Login with credentials
 
 Profile button
     Click Element [Arguments] xpath://*[@id="navBar"]/div[2]/div[2]/div[3]/div[5]/li/a/button/span[1] ${SMALL_RETRY_COUNT}
+
+Click Element Safe
+    [Arguments]    ${locator}
+    Wait Until Element Is Visible    ${locator}    timeout=15s
+    Scroll Element Into View         ${locator}
+    Sleep    300ms
+    Click Element                   ${locator}

@@ -51,7 +51,7 @@ validate with an agent number greater than 124
     Agent number input    290
     Scroll to bottom
     Next button
-    maximun agent error message
+    maximum agent error message
 
 validate description form with valid data
     [Documentation]    First step "Description"
@@ -63,7 +63,7 @@ validate description form with valid data
     Select company type from listes
     Gender checkbox
     Level checkbox
-    Adress input
+    Address input    chat
     Scroll to bottom
     Next button
     Verify description step
