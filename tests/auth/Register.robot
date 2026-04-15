@@ -16,7 +16,6 @@ Register with empty fields
     [Tags]    regression
     Open Browser Page
     Button RegisterForm
-    Click Inscription Button
     Button AgentForm
     Accept general condition button
     Submit Register
@@ -34,7 +33,6 @@ Register with email and number invalid
     [Tags]    1
     Open Browser Page
     Button RegisterForm
-    Click Inscription Button
     Button AgentForm
     Accept general condition button
     Email Number invalid Input    testestest    75323861
@@ -45,7 +43,6 @@ Register with email and number existe
     [Tags]    regression
     Open Browser Page
     Button RegisterForm
-    Click Inscription Button
     Button AgentForm
     Accept general condition button
     Input FirstName    hamza
@@ -61,7 +58,6 @@ Register with valid credentials
     [Tags]    smoke
     Open Browser Page
     Button RegisterForm
-    Click Inscription Button
     Button AgentForm
     Accept general condition button
     Input FirstName    hamza

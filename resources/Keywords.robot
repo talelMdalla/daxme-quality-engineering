@@ -37,3 +37,6 @@ Click Element Safe
     Scroll Element Into View         ${locator}
     Sleep    300ms
     Click Element                   ${locator}
+
+Trigger Blur
+    Press Keys    xpath=//body    TAB

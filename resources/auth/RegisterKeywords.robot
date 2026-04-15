@@ -14,11 +14,9 @@ ${NumberExistError}         Numéro de téléphone deja utilisé
 
 *** Keywords ***
 Button RegisterForm
-    Click Element    xpath://a[@href="/app/login" and contains(text(), "Inscription")]
-     Sleep    5s
+    Click Button    xpath://*[@data-test-id="button-signup-navbar"]
+    Sleep    5s
     Capture Page Screenshot
-Click Inscription Button
-    Common.Click Element    xpath://button[contains(@class,"btn_blue_border") and normalize-space()="Inscription"]    ${SMALL_RETRY_COUNT}
 
 Button AgentForm
     Click Element    xpath://*[@data-test-id="card-individu-modal"]
