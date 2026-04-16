@@ -27,6 +27,26 @@ Register with empty fields
     Number empty error
     Password empty error
     ConfirmPassword empty error
+
+Register with email invalid
+    [Tags]    1
+    Open Browser Page
+    Button RegisterForm
+    Button AgentForm
+    Accept general condition button
+    Email Number invalid Input    testestest    12345678    # Invalid email, valid number
+    Submit Register
+    Invalid email error only    # Only check email error
+
+Register with number invalid
+    [Tags]    1
+    Open Browser Page
+    Button RegisterForm
+    Button AgentForm
+    Accept general condition button
+    Email Number invalid Input    test@test.com    75323861    # Valid email, invalid number
+    Submit Register
+    Invalid number error only    # Only check number error
     
 
 Register with email and number invalid

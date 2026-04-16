@@ -101,3 +101,8 @@ Invalid number and email error
 Email and Number existe error
     Element Text Should Contain   xpath://*[@data-test-id="erroremail"]  ${EmailExistError}  ${SMALL_RETRY_COUNT}
     Element Text Should Contain   xpath://*[@data-test-id="errorphone"]  ${NumberExistError}  ${SMALL_RETRY_COUNT}
+Invalid email error only
+    Element Text Should Contain   xpath://*[@data-test-id="error_email"]  ${InvalideEmailError}  ${SMALL_RETRY_COUNT}
+
+Invalid number error only
+    Element Text Should Contain   xpath://*[@data-test-id="errorphone"]  ${InvalideNumberError}  ${SMALL_RETRY_COUNT}
