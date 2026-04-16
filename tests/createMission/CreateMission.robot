@@ -29,7 +29,7 @@ Validate description step with empty fields
     Empty mission type error message
     Empty gender error message
     Empty level error message
-    Empty adress error message
+    Empty adress error message   #valide
 
 Validate with a single character in the name and description fields
     [Documentation]    First step "Description"
@@ -41,7 +41,7 @@ Validate with a single character in the name and description fields
     Scroll to bottom
     Next button
     one caracter error message name
-    one caracter error message description
+    one caracter error message description   #valide
 
 validate with an agent number greater than 124
     [Documentation]    First step "Description"
@@ -51,7 +51,7 @@ validate with an agent number greater than 124
     Agent number input    290
     Scroll to bottom
     Next button
-    maximum agent error message
+    maximum agent error message     #valide
 
 validate description form with valid data
     [Documentation]    First step "Description"

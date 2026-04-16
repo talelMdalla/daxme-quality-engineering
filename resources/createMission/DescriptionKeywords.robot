@@ -79,28 +79,38 @@ Agent number input
 
 Mission type input
     [Arguments]    ${MissionType}=Type 1
-
-    # Cliquer sur le champ (pas besoin d’ID exact)
-    Click Element    xpath=//div[contains(@class,"placeholder")]
-
-    # Attendre l’input actif
-    Wait Until Element Is Visible    xpath=//input[contains(@id,"react-select") and contains(@id,"input")]    timeout=10s
-
-    # Taper le texte
-    Input Text    xpath=//input[contains(@id,"react-select-3-placeholder") and contains(@id,"input")]    ${MissionType}
-
-    # Cliquer sur la première option
-    Wait Until Element Is Visible    xpath=//div[contains(@id,"option-0")]    timeout=10s
-    Click Element    xpath=//div[contains(@id,"option-0")]
-   
+    Capture Page Screenshot    before_mission_type.png
+    
+    # Attendre que l'input existe
+    Wait Until Page Contains Element    xpath=//input[@id='react-select-2-input']    timeout=10s
+    Sleep    2s
+    
+    # Cliquer sur le container
+    Click Element    xpath=//div[@id='select-types']
+    Sleep    2s
+    
+    # Attendre et cliquer sur l'option
+    Wait Until Element Is Visible    xpath=//div[@id='react-select-2-option-0']    timeout=5s
+    Click Element    xpath=//div[@id='react-select-2-option-0']
+    Sleep    1s
+    
+    Capture Page Screenshot    after_mission_type.png
 
 Select company type from listes
     [Arguments]    ${CompanyType}=Type 1
     Capture Page Screenshot    before_company_type.png
-    ${element_found}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//input[@id='company-type']    timeout=5s
-    Run Keyword If    ${element_found}    Input Text    xpath=//input[@id='company-type']    ${CompanyType}
-    Run Keyword Unless    ${element_found}    Log    Company type selector not found
-    Sleep    1s
+    
+    Wait Until Page Contains Element    xpath=//div[@id='select-types']    timeout=10s
+    Sleep    2s
+    
+    # Cliquer sur le container (IMPORTANT)
+    Click Element    xpath=(//div[contains(@class,'css-b62m3t-container')])[2]
+    Sleep    2s
+    
+    Wait Until Element Is Visible    xpath=//div[@id='react-select-3-option-0']    timeout=5s
+    Click Element    xpath=//div[@id='react-select-3-option-0']
+    
+    Capture Page Screenshot    after_company_type.png
 
 Gender checkbox
     Capture Page Screenshot    before_gender.png
@@ -126,11 +136,12 @@ Address input
     Sleep    500ms
 
 Verify description step
-    Wait Until Element Is Visible    xpath=//*[@id="info_ctn"]    timeout=10s
-    Element Should Be Visible    xpath=//*[@id="info_ctn"]
+    Wait Until Page Contains Element    xpath=//*[@id="info_ctn"]    timeout=15s
+    Scroll Element Into View            xpath=//*[@id="info_ctn"]
+    Wait Until Element Is Visible       xpath=//*[@id="info_ctn"]    timeout=10s
 
 Verify schedule step
     Element Should Be Visible    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[1]/div/li
 
 Scroll to bottom
-    Press Key    xpath=//body    End
+    Press Key    xpath=//body    En
