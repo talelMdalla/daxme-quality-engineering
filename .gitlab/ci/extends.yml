@@ -1,6 +1,6 @@
 .install:api:
   tags:
-    - test-web
+    - saas-linux-small-amd64
   before_script:
     - |
       if [ -d "venv" ]; then
