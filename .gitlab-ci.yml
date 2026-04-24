@@ -58,6 +58,7 @@ notify_slack_on_failure:
     refs:
       - dev
       - master
+      - ghada
 
 notify_slack_on_success:
   stage: notify 🚩
@@ -72,4 +73,5 @@ notify_slack_on_success:
     refs:
       - dev
       - master
+      - ghada
 
