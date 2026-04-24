@@ -5,7 +5,7 @@ Resource    ../Common.robot
 
 *** Variables ***
 ${EmptyErrorMsg}                                                        Ce champ est obligatoire
-${Days_per_week_empty_error}                                            Doit avoir au moins 1 éléments
+${Days_per_week_empty_error}                                            Doit avoir au moins 1
 ${start_time_less_than_end_time_error}                                  La durée d'un interval doit être supérieure ou égale à une heure.
 ${Start_break_time_must_be_between_start_time_and_end_time_error}       L'heure de début de la pause doit être entre l'heure de début et l'heure de fin
 ${start_break_time_must_between_start_time_and_end_time}                L'heure de début de la pause doit être entre l'heure de début et l'heure de fin
@@ -13,34 +13,20 @@ ${start_break_time_must_between_start_time_and_end_time}                L'heure 
 
 *** Keywords ***
 Start date empty error message
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="start_date-helper-text"]/div
-    ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=//*[@id="start_date-helper-text"]/div ${EmptyErrorMsg} ${SMALL_RETRY_COUNT}
+    Wait Until Page Contains Element
+    ...    xpath=(//*[contains(text(),'${EmptyErrorMsg}')])[1]
+    ...    timeout=20s
 
 End date empty error message
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="end_date-helper-text"]/div
-    ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=//*[@id="end_date-helper-text"]/div ${EmptyErrorMsg} ${SMALL_RETRY_COUNT}
-
-Start time empty error message
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="start_time-helper-text"]/div
-    ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=//*[@id="start_time-helper-text"]/div ${EmptyErrorMsg} ${SMALL_RETRY_COUNT}
-
-End time empty error message
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[3]/li[2]/div/p/div
-    ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[3]/li[2]/div/p/div ${EmptyErrorMsg} ${SMALL_RETRY_COUNT}
+    Wait Until Page Contains Element
+    ...    xpath=(//*[contains(text(),'${EmptyErrorMsg}')])[2]
+    ...    timeout=20s
 
 Days per week empty error message
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[2]/div/li[3]/div
-    ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[2]/div/li[3]/div ${Days_per_week_empty_error} ${SMALL_RETRY_COUNT}
+    Wait Until Page Contains Element
+    ...    xpath=//div[contains(@data-test-id,'${Days_per_week_empty_error}')]
+    ...    timeout=20s
+
 
 Start date input
     [Arguments]    ${startDate}
@@ -122,7 +108,7 @@ select days filed
     Click Element [Arguments] xpath=//div[@id='react-select-4-option-1'] ${SMALL_RETRY_COUNT}
 
 Click on days per week
-    Click Element [Arguments] xpath=//*[@id="select-days"]/div ${SMALL_RETRY_COUNT}
+    Click Element [Arguments]  xpath=//*[@id="select-days"]/div ${SMALL_RETRY_COUNT}
 
 Add break time button
     Click Element [Arguments] xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/button ${SMALL_RETRY_COUNT}

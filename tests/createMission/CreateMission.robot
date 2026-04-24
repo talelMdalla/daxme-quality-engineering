@@ -68,10 +68,19 @@ validate description form with valid data
     Next button
     Verify description step
 
-Validate schedule step with emty fields
+Validate schedule step with empty fields
     [Documentation]    Second step "schedule"
     [Tags]    regression
-    First step description
+    Login with credentials    ${email}    ${passwrod}
+    Create mission button
+    Mission name input    hamza
+    Mission type input
+    Select company type from listes
+    Gender checkbox
+    Level checkbox
+    Address input    chat
+    Scroll to bottom
+    Next button
     Next button
     Start date empty error message
     End date empty error message
