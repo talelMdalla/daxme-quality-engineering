@@ -2,6 +2,8 @@
   tags:
     - saas-linux-small-amd64
   before_script:
+    - apt-get update
+    - apt-get install -y build-essential libffi-dev python3-dev
     - |
       if [ -d "venv" ]; then
         echo "Using cached virtualenv..."
