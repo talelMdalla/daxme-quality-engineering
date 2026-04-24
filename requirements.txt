@@ -28,7 +28,7 @@ rich-click==1.8.3
 robotframework==7.1
 robotframework-appiumlibrary==2.1.0
 robotframework-pythonlibcore==4.4.1
-robotframework-seleniumlibrary==6.6.1
+robotframework-seleniumlibrary==6.8.0
 robotframework-tidy==4.14.0
 selenium==4.16.0
 selenium-stealth==1.0.6
