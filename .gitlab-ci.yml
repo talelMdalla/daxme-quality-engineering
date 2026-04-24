@@ -72,3 +72,4 @@ notify_slack_on_success:
     refs:
       - dev
       - master
+
