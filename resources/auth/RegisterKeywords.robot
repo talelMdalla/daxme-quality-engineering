@@ -50,6 +50,7 @@ Input Birthday
 Input Number
     [Arguments]    ${Number}
     Input Text    xpath://input[@type="tel"]    ${Number}
+    Press Keys    xpath://input[@type="tel"]    TAB
 
 Input Password
     [Arguments]    ${Password}
@@ -95,7 +96,7 @@ ConfirmPassword empty error
     Element Text Should Contain   xpath://*[@data-test-id="error_password2"]  ${requiredTextError}  ${SMALL_RETRY_COUNT}
 
 Invalid number and email error
-    Element Text Should Contain   xpath://*[@data-test-id="error_phone_number"]  ${InvalideNumberError}  ${SMALL_RETRY_COUNT}
+    Element Text Should Contain   xpath://*[@data-test-id="errorphone"]  ${InvalideNumberError}  ${SMALL_RETRY_COUNT}
     Element Text Should Contain   xpath://*[@data-test-id="error_email"]  ${InvalideEmailError}  ${SMALL_RETRY_COUNT}
 
 Email and Number existe error
@@ -105,4 +106,5 @@ Invalid email error only
     Element Text Should Contain   xpath://*[@data-test-id="error_email"]  ${InvalideEmailError}  ${SMALL_RETRY_COUNT}
 
 Invalid number error only
-    Element Text Should Contain   xpath://*[@data-test-id="errorphone"]  ${InvalideNumberError}  ${SMALL_RETRY_COUNT}
+    Wait Until Element Is Visible    xpath=//*[@data-test-id="errorphone"]    timeout=10s
+    Element Text Should Contain      xpath=//*[@data-test-id="errorphone"]    ${InvalideNumberError}

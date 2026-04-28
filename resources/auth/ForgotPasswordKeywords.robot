@@ -17,7 +17,7 @@ ${EmptyEmailError}          Ce champ est obligatoire
 
 *** Keywords ***
 Button LoginForm
-    Common.Click Element    xpath://a[@href="/app/login" and contains(text(), "Connexion")]
+    Common.Click Element    xpath://a[@href="/login" and contains(text(), "Connexion")]
 
 Forgot password button
     Common.Click Element    xpath://*[@id="forgotPassword"]    ${SMALL_RETRY_COUNT}
