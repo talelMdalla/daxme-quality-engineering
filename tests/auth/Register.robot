@@ -44,21 +44,15 @@ Register with number invalid
     Button RegisterForm
     Button AgentForm
     Accept general condition button
-    Email Number invalid Input    test@test.com    75323861    # Valid email, invalid number
+    Input FirstName    hamza
+    Input LastName    chebbi
+    Input Birthday    06    12    1998
+    Input Password    Password123*
+    Input ConfirmPassword    Password123*
+    Email Number invalid Input    test@test.com    056553  # Valid email, invalid number
     Submit Register
     Invalid number error only    # Only check number error
     
-
-Register with email and number invalid
-    [Tags]    1
-    Open Browser Page
-    Button RegisterForm
-    Button AgentForm
-    Accept general condition button
-    Email Number invalid Input    testestest    75323861
-    Submit Register
-    Invalid number and email error
-
 Register with email and number existe
     [Tags]    regression
     Open Browser Page
@@ -70,7 +64,7 @@ Register with email and number existe
     Input Birthday    06    12    1998
     Input Password    Password123*
     Input ConfirmPassword    Password123*
-    Email Number invalid Input    ghada.sakouhi@esprit.tn    0564619292
+    Email Number invalid Input    ghada.sakouhi@esprit.tn    0643274723
     Submit Register
     Email and Number existe error
 

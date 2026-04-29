@@ -8,8 +8,8 @@ ${expectedPageUrl}          https://dev.daxme.fr/verif-code
 ${requiredTextError}        Ce champ est obligatoire
 ${InvalideNumberError}      Veuillez saisir un numéro valide
 ${InvalideEmailError}       S'il vous plaît entrez un email valide
-${EmailExistError}          Adresse mail deja utilisée
-${NumberExistError}         Numéro de téléphone deja utilisé
+${EmailExistError}          Adresse mail déja utilisée
+${NumberExistError}         Numéro de téléphone déja utilisé
 
 
 *** Keywords ***
@@ -102,9 +102,9 @@ Invalid number and email error
 Email and Number existe error
     Element Text Should Contain   xpath://*[@data-test-id="erroremail"]  ${EmailExistError}  ${SMALL_RETRY_COUNT}
     Element Text Should Contain   xpath://*[@data-test-id="errorphone"]  ${NumberExistError}  ${SMALL_RETRY_COUNT}
+
 Invalid email error only
     Element Text Should Contain   xpath://*[@data-test-id="error_email"]  ${InvalideEmailError}  ${SMALL_RETRY_COUNT}
 
 Invalid number error only
-    Wait Until Element Is Visible    xpath=//*[@data-test-id="errorphone"]    timeout=10s
-    Element Text Should Contain      xpath=//*[@data-test-id="errorphone"]    ${InvalideNumberError}
+    Element Text Should Contain      xpath=//*[@data-test-id="errorphone"]    ${InvalideNumberError}  ${SMALL_RETRY_COUNT}
