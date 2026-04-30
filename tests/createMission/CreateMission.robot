@@ -107,9 +107,18 @@ validate with an old start date and less than the end date
 validate with a start date greater than the end date
     [Documentation]    Second step "schedule"
     [Tags]    regression
-    First step description
-    Start date input    12/01/2025
-    End date input    12/01/2024
+    Login with credentials    ${email}    ${passwrod}
+    Create mission button
+    Mission name input    hamza
+    Mission type input
+    Select company type from listes
+    Gender checkbox
+    Level checkbox
+    Address input    chat
+    Scroll to bottom
+    Next button
+    Start date input    12012025
+    End date input      12012024
     Next button
     start date greater than the end date error message
 

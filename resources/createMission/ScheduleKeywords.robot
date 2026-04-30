@@ -76,12 +76,11 @@ old start date and less than the end date error message
     ...    timeout=10s
     
 start date greater than the end date error message
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="end_date-helper-text"]/div
-    ...    timeout=10s
-    Element Should Contain
-    ...    xpath=//*[@id="end_date-helper-text"]/div
-    ...    la date de fin doit être une date valide postérieure à la date de début
+   Wait Until Element Is Visible    xpath=//*[@data-test-id='date-picker-error']    10s
+
+   Element Should Contain
+   ...    xpath=//*[@data-test-id='date-picker-error']
+   ...    la date de debut doit être une date valide inferiéur à la date de fin et supérieur à la date d'aujourdhui
 
 start time less than end time error message
     Wait Until Element Is Visible
