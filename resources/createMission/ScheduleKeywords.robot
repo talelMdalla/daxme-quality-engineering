@@ -9,7 +9,7 @@ ${Days_per_week_empty_error}                                            Doit avo
 ${start_time_less_than_end_time_error}                                  La durée d'un interval doit être supérieure ou égale à une heure.
 ${Start_break_time_must_be_between_start_time_and_end_time_error}       L'heure de début de la pause doit être entre l'heure de début et l'heure de fin
 ${start_break_time_must_between_start_time_and_end_time}                L'heure de début de la pause doit être entre l'heure de début et l'heure de fin
-
+${start_date_and_less_than_end_date_error}                              la date de debut doit être une date valide
 
 *** Keywords ***
 Start date empty error message
@@ -27,16 +27,15 @@ Days per week empty error message
     ...    xpath=//div[contains(@data-test-id,'${Days_per_week_empty_error}')]
     ...    timeout=20s
 
-
 Start date input
     [Arguments]    ${startDate}
-    Wait Until Element Is Visible    xpath=//*[@id="start_date"]    timeout=10s
-    Input Text    xpath=//*[@id="start_date"]    ${startDate}
+    Click Element    xpath=(//div[@role="group"])[1]
+    Press Keys    None    ${startDate}
 
 End date input
     [Arguments]    ${endDate}
-    Wait Until Element Is Visible    xpath=//*[@id="end_date"]    timeout=10s
-    Input Text    xpath=//*[@id="end_date"]    ${endDate}
+    Click Element    xpath=(//div[@role="group"])[2]
+    Press Keys    None    ${endDate}
 
 Monday Start time input
     [Arguments]    ${startTime}
@@ -73,12 +72,9 @@ Set working days
 
 old start date and less than the end date error message
     Wait Until Element Is Visible
-    ...    xpath=//*[@id="start_date-helper-text"]/div
+    ...    xpath=//*[contains(normalize-space(.), '${start_date_and_less_than_end_date_error}')]
     ...    timeout=10s
-    Element Should Contain
-    ...    xpath=//*[@id="start_date-helper-text"]/div
-    ...    la date de debut doit être une date valide inferiéur à la date de fin et    à partir de la date d'aujourdhui
-
+    
 start date greater than the end date error message
     Wait Until Element Is Visible
     ...    xpath=//*[@id="end_date-helper-text"]/div

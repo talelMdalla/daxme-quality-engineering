@@ -22,10 +22,12 @@ PlanningButton
     Click Element    xpath://*[@data-test-id="link-myCalendar-navbar"]
 
 EnterMyAvailabilityButton
-    Click Element    xpath://*[@id="root"]/div[2]/div/div/div/div[1]/button
+    Wait Until Element Is Visible    xpath=//button[@data-test-id="button-editSchedule-myCalendar"]    10s
+    Click Element    xpath=//button[@data-test-id="button-editSchedule-myCalendar"]
 
 LundiButton
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div/div/span/span[1]
+    Wait Until Element Is Visible    xpath=//div[contains(.,'Lundi')]    10s
+    Click Element    xpath=//div[contains(.,'Lundi')]//span[contains(@class,'MuiSwitch-switchBase')]
 
 MardiButton
     Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[2]/div/div/span/span[1]

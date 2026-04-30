@@ -89,9 +89,18 @@ Validate schedule step with empty fields
 validate with an old start date and less than the end date
     [Documentation]    Second step "schedule"
     [Tags]    regression
-    First step description
-    Start date input    12/01/2024
-    End date input    25/01/2024
+    Login with credentials    ${email}    ${passwrod}
+    Create mission button
+    Mission name input    hamza
+    Mission type input
+    Select company type from listes
+    Gender checkbox
+    Level checkbox
+    Address input    chat
+    Scroll to bottom
+    Next button
+    Start date input    12072024    
+    End date input      25072024
     Next button
     old start date and less than the end date error message
 

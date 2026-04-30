@@ -8,8 +8,8 @@ Resource            ../../resources/planning/FonctionKeywords.robot
 
 
 *** Variables ***
-${email}                boutcho@outlook.com
-${passwrod}             Hamza123&
+${email}                plano1@yopmail.com
+${passwrod}             Daxme2021&
 ${DELAY_IN_SECONDS}     1
 
 
