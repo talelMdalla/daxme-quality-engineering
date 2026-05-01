@@ -114,26 +114,68 @@ Select company type from listes
 
 Gender checkbox
     Capture Page Screenshot    before_gender.png
-    ${element_found}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//*[@test-id="homme"]    timeout=5s
-    Run Keyword If    ${element_found}    Click Element    xpath=//*[@test-id="homme"]
-    Run Keyword Unless    ${element_found}    Log    Gender checkbox not found
-    Sleep    500ms
+
+    Wait Until MUI Is Idle
+
+    ${element_found}=    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    xpath=//*[@test-id="homme"]
+    ...    timeout=5s
+
+    IF    ${element_found}
+        Wait Until Element Is Enabled    xpath=//*[@test-id="homme"]    timeout=5s
+        Click Element    xpath=//*[@test-id="homme"]
+    ELSE
+        Log    Gender checkbox not found
+    END
+
+    Wait Until MUI Is Idle
 
 Level checkbox
     Capture Page Screenshot    before_level.png
-    ${element_found}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//*[@test-id="labels:level1"]    timeout=5s
-    Run Keyword If    ${element_found}    Click Element    xpath=//*[@test-id="labels:level1"]
-    Run Keyword Unless    ${element_found}    Log    Level checkbox not found
-    Sleep    500ms
+
+    Wait Until MUI Is Idle
+
+    ${element_found}=    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible
+    ...    xpath=//*[@test-id="labels:level1"]
+    ...    timeout=5s
+
+    IF    ${element_found}
+        Wait Until Element Is Enabled    xpath=//*[@test-id="labels:level1"]    timeout=5s
+        Click Element    xpath=//*[@test-id="labels:level1"]
+    ELSE
+        Log    Level checkbox not found
+    END
+
+    Wait Until MUI Is Idle
 
 Address input
     [Arguments]    ${Address}=chat
-    Capture Page Screenshot    before_address.png
-    ${element_found}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=(//input[@id='react-select-2-input'])[2]    timeout=5s
-    Run Keyword If    ${element_found}    Input Text    xpath=(//input[@id='react-select-2-input'])[2]    ${Address}
-    Run Keyword If    ${element_found}    Click Element    xpath=//div[@id='react-select-2-option-0']
-    Run Keyword Unless    ${element_found}    Log    Address input not found
-    Sleep    500ms
+
+    Wait Until MUI Is Idle
+
+    Wait Until Element Is Visible
+    ...    xpath=(//input[contains(@id,'react-select')])[last()]
+    ...    timeout=10s
+
+    Click Element
+    ...    xpath=(//input[contains(@id,'react-select')])[last()]
+
+    Input Text
+    ...    xpath=(//input[contains(@id,'react-select')])[last()]
+    ...    ${Address}
+
+    Wait Until Element Is Visible
+    ...    xpath=//div[contains(@id,'react-select') and contains(@id,'option-0')]
+    ...    timeout=10s
+
+    Wait Until MUI Is Idle
+
+    Click Element
+    ...    xpath=//div[contains(@id,'react-select') and contains(@id,'option-0')]
+
+    Wait Until MUI Is Idle
 
 Verify description step
     Wait Until Page Contains Element    xpath=//*[@id="info_ctn"]    timeout=15s

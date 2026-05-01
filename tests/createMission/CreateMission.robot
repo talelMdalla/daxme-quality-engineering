@@ -126,21 +126,7 @@ validate with start time less than end time
     Next button
     Sleep    2s    reason=waiting error to popup
     start time less than end time error message
-
-validate with start time less than end time
-    [Documentation]    Second step "schedule"
-    [Tags]    regression
-    First step description
-    Start date input    01/01/2030
-    End date input      10/01/2030
-    select days filed
-    Click on days per week
-    Monday Start time input    08:00
-    Monday end time input      08:00
-    Next button
-    Sleep    2s    reason=waiting error to popup
-    start time less than end time error message
-
+    
 validate with break time less than 30 min
     [Documentation]    Second step "schedule"
     [Tags]    regression

@@ -169,3 +169,10 @@ Select From List
 
     Wait Until Keyword Succeeds   ${retryScale}    ${RETRY_DELAY}    SeleniumLibrary.Wait Until Element Is Visible    ${locator}
     Wait Until Keyword Succeeds   ${retryScale}    ${RETRY_DELAY}    SeleniumLibrary.Select From List By Value    ${locator}    ${text}
+
+Wait Until MUI Is Idle
+    [Documentation]    Wait for MUI overlays/backdrops/snackbars to disappear
+    Wait Until Page Does Not Contain Element    xpath=//div[contains(@class,'MuiBackdrop-root')]    timeout=10s
+    Wait Until Page Does Not Contain Element    xpath=//div[contains(@class,'MuiSnackbar-root')]    timeout=10s
+    Wait Until Page Does Not Contain Element    xpath=//div[contains(@class,'MuiDialog-root')]    timeout=10s
+    Wait Until Page Does Not Contain Element    xpath=//div[contains(@class,'MuiPopover-root')]    timeout=10s
