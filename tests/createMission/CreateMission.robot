@@ -104,7 +104,7 @@ validate with an old start date and less than the end date
     Next button
     old start date and less than the end date error message
 
-validate with a start date greater than the end date
+validate with start time less than end time
     [Documentation]    Second step "schedule"
     [Tags]    regression
     Login with credentials    ${email}    ${passwrod}
@@ -117,21 +117,26 @@ validate with a start date greater than the end date
     Address input    chat
     Scroll to bottom
     Next button
-    Start date input    12012025
-    End date input      12012024
+    Start date input    01012030
+    End date input      10012030
+    select days filed
+    Click on days per week
+    Monday Start time input    08:00
+    Monday end time input      08:00
     Next button
-    start date greater than the end date error message
+    Sleep    2s    reason=waiting error to popup
+    start time less than end time error message
 
 validate with start time less than end time
     [Documentation]    Second step "schedule"
     [Tags]    regression
     First step description
     Start date input    01/01/2030
-    End date input    10/01/2030
+    End date input      10/01/2030
     select days filed
     Click on days per week
     Monday Start time input    08:00
-    Monday end time input    08:00
+    Monday end time input      08:00
     Next button
     Sleep    2s    reason=waiting error to popup
     start time less than end time error message

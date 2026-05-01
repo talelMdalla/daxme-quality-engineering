@@ -39,10 +39,12 @@ End date input
 
 Monday Start time input
     [Arguments]    ${startTime}
+
     Wait Until Element Is Visible
     ...    xpath=//*[@id="start_time-0-0"]
     ...    timeout=10s
-    Set Text [Arguments] xpath=//*[@id="start_time-0-0"] ${startTime} ${SMALL_RETRY_COUNT}
+
+    Common.Set Text    xpath=//*[@id="start_time-0-0"]    ${startTime}    ${SMALL_RETRY_COUNT}
 
 Monday end time input
     [Arguments]    ${endTime}
@@ -50,7 +52,7 @@ Monday end time input
     ...    xpath=//*[@id="end_time-0-0"]
     ...    timeout=10s
 
-    Set Text [Arguments] xpath=//*[@id="end_time-0-0"] ${endTime} ${SMALL_RETRY_COUNT}
+    Common.Set Text    xpath=//*[@id="end_time-0-0"]    ${endTime}     ${SMALL_RETRY_COUNT}
 
 Start break time input
     [Arguments]    ${startBreakTime}
@@ -84,9 +86,12 @@ start date greater than the end date error message
 
 start time less than end time error message
     Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[4]/div[1]/div/div[2]/div[2]/div[2]
-    ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[4]/div[1]/div/div[2]/div[2]/div[2] ${start_time_less_than_end_time_error} ${SMALL_RETRY_COUNT}
+    ...    xpath=//*[@data-test-id="La durée d'un interval doit être supérieure ou égale à une heure."]
+    ...    10s
+
+    Element Should Contain
+    ...    xpath=//*[@data-test-id="La durée d'un interval doit être supérieure ou égale à une heure."]
+    ...    La durée d'un interval doit être supérieure ou égale à une heure.
 
 Start break time must be between start time and end time error message
     Wait Until Element Is Visible
@@ -98,12 +103,12 @@ break times not between start and end times error message
     Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[1]/div[2] ${start_break_time_must_between_start_time_and_end_time} ${SMALL_RETRY_COUNT}
 
 select days filed
-    Click Element [Arguments] xpath=//*[@id="select-days"]/div ${SMALL_RETRY_COUNT}
-    Click Element [Arguments] xpath=//div[@id='react-select-4-option-0'] ${SMALL_RETRY_COUNT}
-    Click Element [Arguments] xpath=//div[@id='react-select-4-option-1'] ${SMALL_RETRY_COUNT}
+    Click Element    xpath=//*[@id="select-days"]
+    Click Element    xpath=//div[contains(@id,'react-select') and contains(@id,'option-0')]    
+    Click Element    xpath=//div[contains(@id,'react-select') and contains(@id,'option-1')]    
 
 Click on days per week
-    Click Element [Arguments]  xpath=//*[@id="select-days"]/div ${SMALL_RETRY_COUNT}
+    Common.Click Element    xpath=//*[@id="select-days"]  ${SMALL_RETRY_COUNT}
 
 Add break time button
     Click Element [Arguments] xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/button ${SMALL_RETRY_COUNT}
