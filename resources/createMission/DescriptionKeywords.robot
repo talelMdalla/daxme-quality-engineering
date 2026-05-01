@@ -149,7 +149,7 @@ Level checkbox
     END
 
     Wait Until MUI Is Idle
-
+    
 Address input
     [Arguments]    ${Address}=chat
 
