@@ -126,21 +126,30 @@ validate with start time less than end time
     Next button
     Sleep    2s    reason=waiting error to popup
     start time less than end time error message
-    
+
 validate with break time less than 30 min
     [Documentation]    Second step "schedule"
     [Tags]    regression
-    First step description
-    Start date input    01/01/2030
-    End date input    10/01/2030
+    Login with credentials    ${email}    ${passwrod}
+    Create mission button
+    Mission name input    hamza
+    Mission type input
+    Select company type from listes
+    Gender checkbox
+    Level checkbox
+    Address input    chat
+    Scroll to bottom
+    Next button
+    Start date input    01012030
+    End date input      10012030
     select Monday
     Click on days per week
     Monday Start time input    09:00
-    Monday end time input    12:00
+    Monday end time input      12:00
     Add break time button
     Start break time input    08:00
-    End break time input    10:00
-    Sleep    2s    reason=waiting error to popup
+    End break time input      10:00  
+    Sleep      2s
     Start break time must be between start time and end time error message
 
 validate with two time slots in the same day

@@ -54,19 +54,6 @@ Monday end time input
 
     Common.Set Text    xpath=//*[@id="end_time-0-0"]    ${endTime}     ${SMALL_RETRY_COUNT}
 
-Start break time input
-    [Arguments]    ${startBreakTime}
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="start_break_time-0-0"]
-    ...    timeout=10s
-    Set Text [Arguments] xpath=//*[@id="start_break_time-0-0"] ${startBreakTime} ${SMALL_RETRY_COUNT}
-
-End break time input
-    [Arguments]    ${endBreakTime}
-    Wait Until Element Is Visible
-    ...    xpath=//*[@id="end_break_time-0-0"]
-    ...    timeout=10s
-    Set Text [Arguments] xpath=//*[@id="end_break_time-0-0"] ${endBreakTime} ${SMALL_RETRY_COUNT}
 
 Set working days
     Click Element    xpath=//*[@id="select-days"]/div
@@ -95,12 +82,15 @@ start time less than end time error message
 
 Start break time must be between start time and end time error message
     Wait Until Element Is Visible
-    ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[1]/div[2]
+    ...    xpath=//*[@data-test-id="L'heure de début de la pause doit être entre l'heure de début et l'heure de fin"]
     ...    timeout=10s
-    Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[1]/div[2] ${Start_break_time_must_be_between_start_time_and_end_time_error} ${SMALL_RETRY_COUNT}
+
+    Element Should Contain
+    ...    xpath=//*[@data-test-id="L'heure de début de la pause doit être entre l'heure de début et l'heure de fin"]
+    ...    ${Start_break_time_must_be_between_start_time_and_end_time_error}
 
 break times not between start and end times error message
-    Element Text Should Contain [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[1]/div[2] ${start_break_time_must_between_start_time_and_end_time} ${SMALL_RETRY_COUNT}
+    Element Text Should Contain   xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[1]/div[2]  ${start_break_time_must_between_start_time_and_end_time}   ${SMALL_RETRY_COUNT}
 
 select days filed
     Click Element    xpath=//*[@id="select-days"]
@@ -111,7 +101,23 @@ Click on days per week
     Common.Click Element    xpath=//*[@id="select-days"]  ${SMALL_RETRY_COUNT}
 
 Add break time button
-    Click Element [Arguments] xpath=/html/body/div[1]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/button ${SMALL_RETRY_COUNT}
+    Wait Until Element Is Visible    xpath=//button[contains(.,'Ajouter une pause')]    ${SMALL_RETRY_COUNT}
+    Click Element    xpath=//button[contains(.,'Ajouter une pause')]
+
+
+Start break time input
+    [Arguments]    ${startBreakTime}
+    Wait Until Element Is Visible
+    ...    xpath=//*[@id="start_break_time-0-0"]
+    ...    timeout=10s
+    common.Set Text    xpath=//*[@id="start_break_time-0-0"]   ${startBreakTime}   ${SMALL_RETRY_COUNT}
+
+End break time input
+    [Arguments]    ${endBreakTime}
+    Wait Until Element Is Visible
+    ...    xpath=//*[@id="end_break_time-0-0"]
+    ...    timeout=10s
+    Common.Set Text     xpath=//*[@id="end_break_time-0-0"]  ${endBreakTime}    ${SMALL_RETRY_COUNT}
 
 Add interval button
     Click Element [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[1]/button/span[1] ${SMALL_RETRY_COUNT}
@@ -138,8 +144,8 @@ Delete day
 # specific keywords for specific test case "validate with two time slots in the same day"
 
 select Monday
-    Click Element [Arguments] xpath=//*[@id="select-days"]/div ${SMALL_RETRY_COUNT}
-    Click Element [Arguments] xpath=//div[@id='react-select-4-option-0'] ${SMALL_RETRY_COUNT}
+    Click Element   xpath=//*[@id="select-days"]/div  ${SMALL_RETRY_COUNT}
+    Click Element   xpath=//div[@id='react-select-4-option-0']  ${SMALL_RETRY_COUNT}
 
 Seconde Start time1
     [Arguments]    ${SecondeStartTime}
@@ -177,11 +183,11 @@ Start break time input1
     Wait Until Element Is Visible
     ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[1]/div/div/input
     ...    timeout=10s
-    Set Text [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[1]/div/div/input ${startBreakTime} ${SMALL_RETRY_COUNT}
+    Common.Set Text [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[1]/div/div/input ${startBreakTime} ${SMALL_RETRY_COUNT}
 
 End break time input1
     [Arguments]    ${endBreakTime}
     Wait Until Element Is Visible
     ...    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[2]/div/div/input
     ...    timeout=10s
-    Set Text [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[2]/div/div/input ${endBreakTime} ${SMALL_RETRY_COUNT}
+    Common.Set Text [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[2]/div/div/input ${endBreakTime} ${SMALL_RETRY_COUNT}

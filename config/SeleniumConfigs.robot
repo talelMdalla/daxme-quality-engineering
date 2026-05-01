@@ -4,9 +4,9 @@ Resource    ./EnvDetails.robot
 
 *** Variables ***
 # Number of retries
-${SMALL_RETRY_COUNT}        2x
-${MEDIUM_RETRY_COUNT}       3x
-${LARGE_RETRY_COUNT}        5x
+${SMALL_RETRY_COUNT}        2s
+${MEDIUM_RETRY_COUNT}       3s
+${LARGE_RETRY_COUNT}        5s
 
 # Delay for a retry
 ${RETRY_DELAY}              1 s
