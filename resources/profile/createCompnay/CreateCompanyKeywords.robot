@@ -28,13 +28,13 @@ Create company button
     Click Element    ${LOCATOR}
 
 Company name input
-    Set Text [Arguments] xpath://*[@data-test-id="company_name"] TestCompany ${SMALL_RETRY_COUNT}
+    Set Text    xpath=//*[@data-test-id="company_name"]    TestCompany    ${SMALL_RETRY_COUNT}
 
 Company ID input
-    Set Text [Arguments] xpath://*[@data-test-id="company_siret"] ${InvalidSIRET} ${SMALL_RETRY_COUNT}
+    Set Text    xpath://*[@data-test-id="company_siret"]  ${InvalidSIRET}  ${SMALL_RETRY_COUNT}
 
 SIRET valid input
-    Set Text [Arguments] xpath://*[@data-test-id="company_siret"] ${validSIRET} ${SMALL_RETRY_COUNT}
+    Set Text    xpath=//*[@data-test-id="company_siret"]    ${validSIRET}    ${SMALL_RETRY_COUNT}
 
 Scroll to submit button
     Execute JavaScript
@@ -53,7 +53,8 @@ Confirm button
     Click Element [Arguments] xpath=/html/body/div[3]/div/div[1]/div/div/div[2]/div[2]/div/button ${SMALL_RETRY_COUNT}
 
 Seconde confirm button
-    Click Element [Arguments] xpath=/html/body/div[3]/div/div[1]/div/div/div[2]/div[2]/div/button ${SMALL_RETRY_COUNT}
+   Wait Until Keyword Succeeds    ${SMALL_RETRY_COUNT}    ${RETRY_DELAY}
+   ...    Click Element    //button[contains(@class,'btn_orange') and normalize-space()='Confirmer']
 
 Empty company name error
     Element Text Should Be    xpath=//div[@data-test-id="Ce champ est obligatoire"]    ${Empty_filed_error}    ${SMALL_RETRY_COUNT}
