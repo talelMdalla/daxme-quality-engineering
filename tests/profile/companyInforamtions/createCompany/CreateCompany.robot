@@ -23,7 +23,7 @@ ${VALID_PASSWORD1}      ${TEST_PASS_COMPANY}
 validate create company with empty field
     [Tags]    regression
     Login with credentials    ${VALID_EMAIL1}    ${VALID_PASSWORD1}
-    Access to profile page
+    Access to profile page 
     Scroll to company information
     Create company button
     Scroll to submit button
