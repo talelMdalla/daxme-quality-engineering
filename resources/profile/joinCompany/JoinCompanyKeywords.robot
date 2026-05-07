@@ -6,7 +6,7 @@ Resource    ../../../config/CredentialsDetails.robot
 
 
 *** Variables ***
-${SIRETinvalide}    veuillez saisir un identifiant d'entreprise valide
+${SIRETinvalide}    ce champ doit contenir 14 caractères
 ${EmptySIRET}       Ce champ est obligatoire
 ${ValidSIRET}       tu as rejoint l'entreprise avec succés
 ${QuitSucessMsg}    Vous avez quitté l'entreprise
@@ -15,29 +15,41 @@ ${JoinSucessMsg}    Vous avez rejoint l'entreprise avec succés
 
 *** Keywords ***
 Access to profile page
-    Click Element [Arguments] xpath://button[@data-test-id="photo_profile"] ${SMALL_RETRY_COUNT}
-    Click Element [Arguments] xpath://*[@id="drop"]/button[1] ${SMALL_RETRY_COUNT}
+    Click Element   xpath://button[@data-test-id="photo_profile"]   ${SMALL_RETRY_COUNT}
+    Click Element   xpath://*[@id="drop"]/button[1]   ${SMALL_RETRY_COUNT}
 
 Joindre une entreprise
-    Click Element [Arguments] xpath://*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[3] ${SMALL_RETRY_COUNT}
+    ${LOCATOR}=    Set Variable    xpath=//span[normalize-space(.)="Joindre une entreprise existante"]/ancestor::div[contains(@class,"card-ctn")]
+    Wait Until Element Is Visible    ${LOCATOR}    10s
+    Scroll Element Into View    ${LOCATOR}
+    Click Element    ${LOCATOR}
 
 SIRET invalid input
-    Set Text [Arguments] xpath://*[@id="company__input3"] 77021502800018 ${SMALL_RETRY_COUNT}
+    Input Text    xpath=//*[@id="company__input3"]    77021502
+    Press Keys    xpath=//*[@id="company__input3"]    TAB
 
 SIRET valid input
-    Set Text [Arguments] xpath://*[@id="company__input3"] ${TEST_SIRET} ${SMALL_RETRY_COUNT}
+    Set Text    xpath=//*[@id="company__input3"]    ${TEST_SIRET}    ${SMALL_RETRY_COUNT}
 
 Submit button
-    Click Element [Arguments] xpath://*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[3]/div/form/div[2]/button ${SMALL_RETRY_COUNT}
+    Wait Until Keyword Succeeds    ${SMALL_RETRY_COUNT}    ${RETRY_DELAY}
+    ...    Click Element    //button[@type='submit' and contains(@class,'btn_orange')]
 
-Scroll to company information
-    Scroll To Element [Arguments] xpath://*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[4] ${SMALL_RETRY_COUNT}
+Scroll To Company Information
+    Execute JavaScript    window.scrollBy(0, 1900)
+    Sleep    0.5s
 
 Confirm button
     Click Element [Arguments] xpath=/html/body/div[3]/div/div[1]/div/div/div[2]/div[2]/div/button[2] ${SMALL_RETRY_COUNT}
 
 Error invalid SIRET
-    Element Text Should Contain [Arguments] xpath://*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[3]/div/form/div[1]/div/div ${SIRETinvalide} ${SMALL_RETRY_COUNT}
+    Wait Until Element Is Visible
+    ...    xpath=//div[contains(@class,'invalid-feedback')]
+    ...    5s
+
+    Element Should Contain
+    ...    xpath=//div[contains(@class,'invalid-feedback')]
+    ...    ce champ doit contenir 14 caractères
 
 Empty field error SIRET
     Element Text Should Contain [Arguments] xpath://*[@id="root"]/div[2]/div/div/div[2]/div/div[1]/div/div[3]/div/form/div[1]/div/div ${EmptySIRET} ${SMALL_RETRY_COUNT}
