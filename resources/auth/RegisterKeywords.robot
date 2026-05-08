@@ -64,7 +64,7 @@ Submit Register
     Click Button    xpath://*[@data-test-id="button-singupAgent-modal"]
 
 Accept general condition button
-    Click Element   xpath://input[@type="checkbox"]   ${SMALL_RETRY_COUNT}
+    Click Element    xpath=//input[@type="checkbox"]/..   ${SMALL_RETRY_COUNT}
 
 Confirm recaptcha
     Click Button    id=recaptcha-anchor
