@@ -205,20 +205,29 @@ validate with break times not between start and end times
 validate with two overlapping slots
     [Documentation]    Second step "schedule"
     [Tags]    regression
-    First step description
-    Start date input    01/01/2030
-    End date input    10/01/2030
+    Login with credentials    ${email}    ${passwrod}
+    Create mission button
+    Mission name input    hamza
+    Mission type input
+    Select company type from listes
+    Gender checkbox
+    Level checkbox
+    Address input    chat
+    Scroll to bottom
+    Next button
+    Start date input    01012030
+    End date input    10012030
     select Monday
     Click on days per week
-    Monday Start time input1    09:00
-    Monday end time input1    18:00
+    Monday Start time input    09:00
+    Monday end time input    18:00
     Add break time button
-    Start break time input1    10:05
-    End break time input1    10:10
+    Start break time input    10:05
+    End break time input      10:10
     Add interval button
     Scroll to bottom
     Seconde Start time    19:00
-    Seconde End time    20:00
+    Seconde End time      20:00
     Next button
     Wait Until Element Is Visible    locator=//*[@id="info_ctn"]/div
 
