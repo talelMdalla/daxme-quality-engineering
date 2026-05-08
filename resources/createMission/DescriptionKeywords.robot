@@ -15,13 +15,19 @@ Create mission button
     Click Element    xpath=//*[@id="chip_create_mission"]    ${SMALL_RETRY_COUNT}
     
 Next button
-    Wait Until Element Is Visible    xpath=//*[@id="Groupe_Buttons_Step"]/button[2]    timeout=10s
-    Scroll Element Into View    xpath=//*[@id="Groupe_Buttons_Step"]/button[2]
-    Sleep    1s
-    Execute JavaScript    document.querySelector('button.btn_orange').scrollIntoView({block: 'center'});
+    Wait Until MUI Is Idle
+
+    Execute JavaScript
+    ...    document.querySelector('button.btn_orange').scrollIntoView({block: 'center'})
+
+    Sleep    800ms
+
+    Execute JavaScript    window.scrollBy(0, -150)
+
     Sleep    500ms
-    Execute JavaScript    document.querySelector('button.btn_orange').click();
-    Sleep    1s
+
+    Execute JavaScript
+    ...    document.querySelector('button.btn_orange').click()
 
 Empty mission name error message
     Wait Until Page Contains    ${EmptyErrorMsg}    timeout=20s
