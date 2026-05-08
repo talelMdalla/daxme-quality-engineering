@@ -90,7 +90,9 @@ Start break time must be between start time and end time error message
     ...    ${Start_break_time_must_be_between_start_time_and_end_time_error}
 
 break times not between start and end times error message
-    Element Text Should Contain   xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[3]/div[1]/div[2]  ${start_break_time_must_between_start_time_and_end_time}   ${SMALL_RETRY_COUNT}
+    Wait Until Element Is Visible
+    ...    xpath=//*[@data-test-id="L'heure de début de la pause doit être entre l'heure de début et l'heure de fin"]
+    ...    timeout=10s   
 
 select days filed
     Click Element    xpath=//*[@id="select-days"]
