@@ -24,6 +24,7 @@ validate join company with invalid SIRET
     Scroll to company information
     Joindre une entreprise
     SIRET invalid input
+    Submit button
     Error invalid SIRET
 
 validate join company with empty field

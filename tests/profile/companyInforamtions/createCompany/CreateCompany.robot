@@ -12,8 +12,8 @@ Test Teardown       Close Browser
 
 
 *** Variables ***
-${VALID_EMAIL}          createcompany@gmail.com
-${VALID_PASSWORD}       Boutcho123&
+${VALID_EMAIL}          tokise2154@bezill.com
+${VALID_PASSWORD}       123Ghada!
 
 ${VALID_EMAIL1}         ${TEST_EMAIL_COMPANY}
 ${VALID_PASSWORD1}      ${TEST_PASS_COMPANY}
@@ -43,7 +43,7 @@ validate create company with invalid SIRET
     Select company type from liste
     Scroll to submit button
     Submit button
-    Seconde confirm button
+    #Seconde confirm button
 
 validate create company with valid SIRET
     [Tags]    smoke
@@ -56,5 +56,5 @@ validate create company with valid SIRET
     Select company type from liste
     Scroll to submit button
     Submit button
-    # Seconde confirm button
-    # Success message
+    #Seconde confirm button
+    #Success message

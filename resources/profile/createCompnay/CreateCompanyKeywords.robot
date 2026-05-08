@@ -50,7 +50,7 @@ Submit button
     ...    xpath=//button[normalize-space(.)="Soumettre" and not(@disabled)]
 
 Confirm button
-    Click Element [Arguments] xpath=/html/body/div[3]/div/div[1]/div/div/div[2]/div[2]/div/button ${SMALL_RETRY_COUNT}
+    Click Element   xpath=/html/body/div[3]/div/div[1]/div/div/div[2]/div[2]/div/button  ${SMALL_RETRY_COUNT}
 
 Seconde confirm button
    Wait Until Keyword Succeeds    ${SMALL_RETRY_COUNT}    ${RETRY_DELAY}
@@ -67,7 +67,7 @@ Empty company type error
     Element Text Should Be    xpath=//div[@data-test-id="Ce champ est obligatoire"]    ${Empty_filed_error}    ${SMALL_RETRY_COUNT}
 
 Success message
-    Element Text Should Be [Arguments] xpath:/html/body/div[1]/div[1]/div/div/div[1]/div[2] ${Success_Msg} ${SMALL_RETRY_COUNT}
+    Element Text Should Be    xpath:/html/body/div[1]/div[1]/div/div/div[1]/div[2] ${Success_Msg} ${SMALL_RETRY_COUNT}
 
 Select company type from liste
     Select From List By Value    id:company__input    9

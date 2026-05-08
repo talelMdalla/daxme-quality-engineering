@@ -30,13 +30,13 @@ ${TEST_PASS_AUTH}                   ${${ENV}_PASS_AUTH}
 
 # CREATE COMPANY AND JOIN COMPANY
 
-${LOCAL_EMAIL_COMPANY}              createcompany@gmail.com
-${DEV_EMAIL_COMPANY}                createcompany@gmail.com
-${PROD_EMAIL_COMPANY}               createcompany@gmail.com
+${LOCAL_EMAIL_COMPANY}              tokise2154@bezill.com
+${DEV_EMAIL_COMPANY}                tokise2154@bezill.com
+${PROD_EMAIL_COMPANY}               tokise2154@bezill.com
 
-${LOCAL_PASS_COMPANY}               Boutcho123&
-${DEV_PASS_COMPANY}                 Boutcho123&
-${PROD_PASS_COMPANY}                Boutcho123&
+${LOCAL_PASS_COMPANY}               123Ghada!
+${DEV_PASS_COMPANY}                 123Ghada!
+${PROD_PASS_COMPANY}                123Ghada!
 
 ${TEST_EMAIL_COMPANY}               ${${ENV}_EMAIL_COMPANY}
 ${TEST_PASS_COMPANY}                ${${ENV}_PASS_COMPANY}
