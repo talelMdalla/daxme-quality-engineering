@@ -259,7 +259,24 @@ validate schedule form with valid data
 validate schedule update with only days off
     [Documentation]    third step "Working hours"
     [Tags]    regression
-    Second step schedule
+    Login with credentials    ${email}    ${passwrod}
+    Create mission button
+    Mission name input    hamza
+    Mission type input
+    Select company type from listes
+    Gender checkbox
+    Level checkbox
+    Address input    chat
+    Scroll to bottom
+    Next button
+    Start date input    01012030
+    End date input      10012030
+    Set working days
+    Monday Start time input    09:00
+    Monday end time input     18:00
+    Next button
+    Sleep    2s
+    Verify schedule step
     Next week button
     Card of day selected
     Day off check box
