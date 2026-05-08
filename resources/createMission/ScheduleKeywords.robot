@@ -120,7 +120,7 @@ End break time input
     Common.Set Text     xpath=//*[@id="end_break_time-0-0"]  ${endBreakTime}    ${SMALL_RETRY_COUNT}
 
 Add interval button
-    Click Element [Arguments] xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[3]/div[1]/div/div[1]/button/span[1] ${SMALL_RETRY_COUNT}
+    Click Element    xpath=//button[.//text()[contains(.,'Ajouter un créneau de travail')]]    ${SMALL_RETRY_COUNT}
 
 Seconde Start time
     [Arguments]    ${SecondeStartTime}
@@ -128,7 +128,7 @@ Seconde Start time
     ...    xpath=//*[@id="start_time-0-1"]
     ...    timeout=10s
 
-    Set Text [Arguments] xpath=//*[@id="start_time-0-1"] ${SecondeStartTime} ${SMALL_RETRY_COUNT}
+    Set Text   xpath=//*[@id="start_time-0-1"]  ${SecondeStartTime}  ${SMALL_RETRY_COUNT}
 
 Seconde End time
     [Arguments]    ${SecondeEndTime}
@@ -136,7 +136,7 @@ Seconde End time
     ...    xpath=//*[@id="end_time-0-1"]
     ...    timeout=10s
 
-    Set Text [Arguments] xpath=//*[@id="end_time-0-1"] ${SecondeEndTime} ${SMALL_RETRY_COUNT}
+    Set Text   xpath=//*[@id="end_time-0-1"]  ${SecondeEndTime}  ${SMALL_RETRY_COUNT}
 
 Delete day
     Click Element [Arguments] xpath=//*[@id="select-days"]/div/div[1]/div[2]/div[2]/svg ${SMALL_RETRY_COUNT}
