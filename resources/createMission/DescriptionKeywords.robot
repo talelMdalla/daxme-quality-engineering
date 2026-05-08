@@ -189,7 +189,8 @@ Verify description step
     Wait Until Element Is Visible       xpath=//*[@id="info_ctn"]    timeout=10s
 
 Verify schedule step
-    Element Should Be Visible    xpath=//*[@id="root"]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/div[1]/div/li
+    Wait Until Page Contains Element    xpath=//span[contains(text(),'Ajustement des horaires')]    20s
+    Element Should Be Visible           xpath=//span[contains(text(),'Ajustement des horaires')]    10s
 
 Scroll to bottom
     Press Key    xpath=//body    En
