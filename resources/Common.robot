@@ -78,10 +78,26 @@ Element Should Not Be Visible
 Click Element
     [Arguments]    ${locator}    ${retryScale}=${SMALL_RETRY_COUNT}
     [Documentation]
-    ...    Click on a given button
+    ...    Click on a given button (stable version with JS fallback)
 
-    Wait Until Keyword Succeeds   ${retryScale}    ${RETRY_DELAY}    SeleniumLibrary.Wait Until Element Is Enabled    ${locator}
-    Wait Until Keyword Succeeds   ${retryScale}    ${RETRY_DELAY}    SeleniumLibrary.Click Element    ${locator}
+    Wait Until Keyword Succeeds
+    ...    ${retryScale}
+    ...    ${RETRY_DELAY}
+    ...    SeleniumLibrary.Wait Until Element Is Visible
+    ...    ${locator}
+
+    Scroll Element Into View    ${locator}
+    Sleep    500ms
+
+    ${status}=    Run Keyword And Return Status
+    ...    SeleniumLibrary.Click Element    ${locator}
+
+    IF    not ${status}
+        Log    "Fallback JS click used"
+        ${xpath}=    String.Remove String    ${locator}    xpath=
+        SeleniumLibrary.Execute JavaScript
+        ...    document.evaluate("${xpath}", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+    END
 
 Click Element By JavaScript Executor
     [Arguments]    ${elementXpathLocator}    ${retryScale}
