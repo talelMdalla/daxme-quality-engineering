@@ -56,4 +56,4 @@ Tuesday end time
     Common.Set Text    xpath=//*[@id="end_time-1-0"]    ${TuesdayendTime}   ${SMALL_RETRY_COUNT}
 
 Verif create mission with one day off
-    Element Should Be Visible [Arguments] xpath=//*[@id="Groupe_Buttons_Step"]/button ${SMALL_RETRY_COUNT}
+    Element Should Be Visible    xpath=//*[@id="Groupe_Buttons_Step"]/button     ${SMALL_RETRY_COUNT}
