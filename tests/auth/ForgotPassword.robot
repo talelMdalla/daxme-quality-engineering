@@ -11,35 +11,33 @@ Test Teardown       Close Browser
 *** Test Cases ***
 Validate reset password with empty email field
     [Tags]    regression
-    Open Browser Page
-    Button LoginForm
-    Forgot password button
+    Open Forgot Password Form
     Submit
     Epmty email error
 
 Validate reset password with invalid email
     [Tags]    regression
-    Open Browser Page
-    Button LoginForm
-    Forgot password button
+    Open Forgot Password Form
     Input Email    ${INVALID_EMAIL}
     Submit
     Invalid email error
 
 Validate reset password with email not existing
     [Tags]    regression
-    Open Browser Page
-    Button LoginForm
-    Forgot password button
+    Open Forgot Password Form
     Input Email    ${EmailNotExist}
     Submit
     Email not exist error
 
 Validate reset password with valid email
     [Tags]    smoke
-    Open Browser Page
-    Button LoginForm
-    Forgot password button
+    Open Forgot Password Form
     Input Email    ${VALID_EMAIL}
     Submit
     Success message
+
+*** Keywords ***
+Open Forgot Password Form
+    Open Browser Page
+    Button LoginForm
+    Forgot password button
