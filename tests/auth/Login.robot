@@ -21,8 +21,7 @@ ${EMAIL_INVALID}        hamza.com
 *** Test Cases ***
 Login with valid credentials
     [Tags]    smoke
-    Open Browser Page
-    Button LoginForm
+    Open Login Form
     Input Email    ${VALID_EMAIL}
     Input Password    ${VALID_PASSWORD}
     Submit Login
@@ -30,16 +29,14 @@ Login with valid credentials
 
 Login with empty fields
     [Tags]    regression
-    Open Browser Page
-    Button LoginForm
+    Open Login Form
     Submit Login
     Empty email error
     Empty password error
 
 Login with email or password invalid
     [Tags]    regression
-    Open Browser Page
-    Button LoginForm
+    Open Login Form
     Input Email    ${INVALID_EMAIL}
     Input Password    ${INVALID_PASSWORD}
     Submit Login
@@ -47,8 +44,12 @@ Login with email or password invalid
 
 Login with email invalid
     [Tags]    regression
-    Open Browser Page
-    Button LoginForm
+    Open Login Form
     Input Email    ${EMAIL_INVALID}
     Input Password    ${INVALID_PASSWORD}
     Invalid email error
+
+*** Keywords ***
+Open Login Form
+    Open Browser Page
+    Button LoginForm
