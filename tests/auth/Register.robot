@@ -14,10 +14,7 @@ Test Teardown       Close Browser
 *** Test Cases ***
 Register with empty fields
     [Tags]    regression
-    Open Browser Page
-    Button RegisterForm
-    Button AgentForm
-    Accept general condition button
+    Open Register Agent Form
     Submit Register
     FirstName empty error
     LastName empty error
@@ -30,20 +27,14 @@ Register with empty fields
 
 Register with email invalid
     [Tags]    1
-    Open Browser Page
-    Button RegisterForm
-    Button AgentForm
-    Accept general condition button
+    Open Register Agent Form
     Email Number invalid Input    testestest    12345678    # Invalid email, valid number
     Submit Register
     Invalid email error only    # Only check email error
 
 Register with number invalid
     [Tags]    1
-    Open Browser Page
-    Button RegisterForm
-    Button AgentForm
-    Accept general condition button
+    Open Register Agent Form
     Input FirstName    hamza
     Input LastName    chebbi
     Input Birthday    06    12    1998
@@ -55,10 +46,7 @@ Register with number invalid
     
 Register with email and number existe
     [Tags]    regression
-    Open Browser Page
-    Button RegisterForm
-    Button AgentForm
-    Accept general condition button
+    Open Register Agent Form
     Input FirstName    hamza
     Input LastName    chebbi
     Input Birthday    06    12    1998
@@ -70,10 +58,7 @@ Register with email and number existe
 
 Register with valid credentials
     [Tags]    smoke
-    Open Browser Page
-    Button RegisterForm
-    Button AgentForm
-    Accept general condition button
+    Open Register Agent Form
     Input FirstName    hamza
     Input LastName    chebbi
     ${email}    Get Random Email
@@ -85,3 +70,10 @@ Register with valid credentials
     Input ConfirmPassword    Password123*
     Submit Register
     Profile Avatar Should Be Visible
+
+*** Keywords ***
+Open Register Agent Form
+    Open Browser Page
+    Button RegisterForm
+    Button AgentForm
+    Accept general condition button
