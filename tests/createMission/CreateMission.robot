@@ -56,31 +56,12 @@ validate with an agent number greater than 124
 validate description form with valid data
     [Documentation]    First step "Description"
     [Tags]    smoke
-    Login with credentials    ${email}    ${passwrod}
-    Create mission button
-    Mission name input    hamza
-    Mission type input
-    Select company type from listes
-    Gender checkbox
-    Level checkbox
-    Address input    chat
-    Scroll to bottom
-    Next button
-    Verify description step
+    First step description
 
 Validate schedule step with empty fields
     [Documentation]    Second step "schedule"
     [Tags]    regression
-    Login with credentials    ${email}    ${passwrod}
-    Create mission button
-    Mission name input    hamza
-    Mission type input
-    Select company type from listes
-    Gender checkbox
-    Level checkbox
-    Address input    chat
-    Scroll to bottom
-    Next button
+    First step description
     Next button
     Start date empty error message
     End date empty error message
@@ -89,16 +70,7 @@ Validate schedule step with empty fields
 validate with an old start date and less than the end date
     [Documentation]    Second step "schedule"
     [Tags]    regression
-    Login with credentials    ${email}    ${passwrod}
-    Create mission button
-    Mission name input    hamza
-    Mission type input
-    Select company type from listes
-    Gender checkbox
-    Level checkbox
-    Address input    chat
-    Scroll to bottom
-    Next button
+    First step description
     Start date input    12072024    
     End date input      25072024
     Next button
@@ -107,16 +79,7 @@ validate with an old start date and less than the end date
 validate with start time less than end time
     [Documentation]    Second step "schedule"
     [Tags]    regression
-    Login with credentials    ${email}    ${passwrod}
-    Create mission button
-    Mission name input    hamza
-    Mission type input
-    Select company type from listes
-    Gender checkbox
-    Level checkbox
-    Address input    chat
-    Scroll to bottom
-    Next button
+    First step description
     Start date input    01012030
     End date input      10012030
     select days filed
@@ -130,16 +93,7 @@ validate with start time less than end time
 validate with break time less than 30 min
     [Documentation]    Second step "schedule"
     [Tags]    regression
-    Login with credentials    ${email}    ${passwrod}
-    Create mission button
-    Mission name input    hamza
-    Mission type input
-    Select company type from listes
-    Gender checkbox
-    Level checkbox
-    Address input    chat
-    Scroll to bottom
-    Next button
+    First step description    
     Start date input    01012030
     End date input      10012030
     select Monday
@@ -155,16 +109,7 @@ validate with break time less than 30 min
 validate with two time slots in the same day
     [Documentation]    Second step "schedule"
     [Tags]    regression
-    Login with credentials    ${email}    ${passwrod}
-    Create mission button
-    Mission name input    hamza
-    Mission type input
-    Select company type from listes
-    Gender checkbox
-    Level checkbox
-    Address input    chat
-    Scroll to bottom
-    Next button
+    First step description
     Start date input    01012030
     End date input      10012030
     select Monday
@@ -180,16 +125,7 @@ validate with two time slots in the same day
 validate with break times not between start and end times
     [Documentation]    Second step "schedule"
     [Tags]    regression
-    Login with credentials    ${email}    ${passwrod}
-    Create mission button
-    Mission name input    hamza
-    Mission type input
-    Select company type from listes
-    Gender checkbox
-    Level checkbox
-    Address input    chat
-    Scroll to bottom
-    Next button
+    First step description
     Start date input    01012030
     End date input    10012030
     select Monday
@@ -205,16 +141,7 @@ validate with break times not between start and end times
 validate with two overlapping slots
     [Documentation]    Second step "schedule"
     [Tags]    regression
-    Login with credentials    ${email}    ${passwrod}
-    Create mission button
-    Mission name input    hamza
-    Mission type input
-    Select company type from listes
-    Gender checkbox
-    Level checkbox
-    Address input    chat
-    Scroll to bottom
-    Next button
+    First step description
     Start date input    01012030
     End date input    10012030
     select Monday
@@ -234,24 +161,15 @@ validate with two overlapping slots
 validate schedule form with valid data
     [Documentation]    Second step "schedule"
     [Tags]    smoke
-    Login with credentials    ${email}    ${passwrod}
-    Create mission button
-    Mission name input    hamza
-    Mission type input
-    Select company type from listes
-    Gender checkbox
-    Level checkbox
-    Address input    chat
-    Scroll to bottom
-    Next button
+    First step description
     Start date input    01012030
     End date input      10012030
     Set working days
     Monday Start time input    09:00
-    Monday end time input    18:00
+    Monday end time input     18:00
     Add break time button
     Start break time input    13:00
-    End break time input    14:00
+    End break time input      14:00
     Next button
     Sleep    2s
     Verify schedule step
@@ -259,24 +177,7 @@ validate schedule form with valid data
 validate schedule update with only days off
     [Documentation]    third step "Working hours"
     [Tags]    regression
-    Login with credentials    ${email}    ${passwrod}
-    Create mission button
-    Mission name input    hamza
-    Mission type input
-    Select company type from listes
-    Gender checkbox
-    Level checkbox
-    Address input    chat
-    Scroll to bottom
-    Next button
-    Start date input    01012030
-    End date input      10012030
-    Set working days
-    Monday Start time input    09:00
-    Monday end time input     18:00
-    Next button
-    Sleep    2s
-    Verify schedule step
+    Second step schedule
     Next week button
     Card of day selected
     Day off check box
@@ -289,26 +190,7 @@ validate schedule update with only days off
 validate schedule update with one days off
     [Documentation]    third step "Working hours"
     [Tags]    regression
-    Login with credentials    ${email}    ${passwrod}
-    Create mission button
-    Mission name input    hamza
-    Mission type input
-    Select company type from listes
-    Gender checkbox
-    Level checkbox
-    Address input    chat
-    Scroll to bottom
-    Next button
-    Start date input    01012030
-    End date input     10012030
-    Select two days
-    Monday Start time input    09:00
-    Monday end time input    18:00
-    Tuesday start time       09:00
-    Tuesday end time        18:00
-    Next button
-    Sleep    2s
-    Verify schedule step
+    Second step schedule1
     Next week button
     Card of day selected
     Day off check box
@@ -321,6 +203,7 @@ validate schedule update with one days off
 
 
 *** Keywords ***
+
 First step description
     Login with credentials    ${email}    ${passwrod}
     Create mission button
@@ -329,15 +212,15 @@ First step description
     Select company type from listes
     Gender checkbox
     Level checkbox
-    Adress input
+    Address input    chat
     Scroll to bottom
     Next button
     Verify description step
 
 Second step schedule
     First step description
-    Start date input    01/01/2030
-    End date input    10/01/2030
+    Start date input    01012030
+    End date input    10012030
     Set working days
     Monday Start time input    09:00
     Monday end time input    18:00
@@ -347,9 +230,9 @@ Second step schedule
 
 Second step schedule1
     First step description
-    Start date input    01/01/2030
-    End date input    10/01/2030
-    Select tow days
+    Start date input    01012030
+    End date input    10012030
+    Select two days
     Monday Start time input    09:00
     Monday end time input    18:00
     Tuesday start time    09:00
