@@ -56,13 +56,23 @@ Validate Errors for start time grater than end time
     END
 
 Validate Errors under 30min
-    ${days_length} =    Get Length    ${days}
+    ${days_length}=    Get Length    ${days}
+
     FOR    ${index}    IN RANGE    0    ${days_length}
-        ${day} =    Get From List    ${days}    ${index}
-        ${xpath} =    Get From List    ${xpathsErrorMsg30min}    ${index}
-        Log    Validating error for ${day}
-        Wait Until Element Is Visible    ${xpath}
+
+        ${day}=    Get From List    ${days}    ${index}
+
+        ${xpath}=    Set Variable
+        ...    xpath=//*[contains(text(),"${day}")]/ancestor::div[contains(@class,"mb-1")]/following::div[contains(@class,"invalid-feedback")][1]
+
+        Log    Validating 1 hour error for ${day}
+
+        Scroll Element Into View    ${xpath}
+
+        Wait Until Element Is Visible    ${xpath}    10s
+
         Element Should Contain
         ...    ${xpath}
         ...    La durée d'un interval doit être supérieure ou égale à une heure.
+
     END
