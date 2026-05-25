@@ -58,3 +58,12 @@ validate create company with valid SIRET
     Submit button
     #Seconde confirm button
     #Success message
+
+********Keywords********
+
+Access to profile
+    Login with credentials    ${VALID_EMAIL1}    ${VALID_PASSWORD1}
+    Access to profile page
+    Scroll to company information
+    Create company button
+    Company name input

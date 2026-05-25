@@ -26,26 +26,32 @@ EnterMyAvailabilityButton
     Click Element    xpath=//button[@data-test-id="button-editSchedule-myCalendar"]
 
 LundiButton
-    Wait Until Element Is Visible    xpath=//div[contains(.,'Lundi')]    10s
-    Click Element    xpath=//div[contains(.,'Lundi')]//span[contains(@class,'MuiSwitch-switchBase')]
+    Wait Until Element Is Visible    xpath=//div[normalize-space()='Lundi']/span/span    10s
+    Click Element    xpath=//div[normalize-space()='Lundi']/span/span
 
 MardiButton
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[2]/div/div/span/span[1]
+    Wait Until Element Is Visible    xpath=//div[normalize-space()='Mardi']/span/span    10s
+    Click Element    xpath=//div[normalize-space()='Mardi']/span/span
 
 MercrediButton
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[3]/div/div/span/span[1]
-
+    Wait Until Element Is Visible    xpath=//div[normalize-space()='Mercredi']/span/span    10s
+    Click Element    xpath=//div[normalize-space()='Mercredi']/span/span
+    
 JeudiButton
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[4]/div/div/span/span[1]
+    Wait Until Element Is Visible    xpath=//div[normalize-space()='Jeudi']/span/span    10s
+    Click Element    xpath=//div[normalize-space()='Jeudi']/span/span
 
 VendrediButton
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[1]/div/div/span/span[1]
+    Wait Until Element Is Visible    xpath=//div[normalize-space()='Vendredi']/span/span    10s
+    Click Element    xpath=//div[normalize-space()='Vendredi']/span/span
 
 SamediButton
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[2]/div/div/span/span[1]
+    Wait Until Element Is Visible    xpath=//div[normalize-space()='Samedi']/span/span    10s
+    Click Element    xpath=//div[normalize-space()='Samedi']/span/span
 
 DimancheButton
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[3]/div/div/span/span[1]
+    Wait Until Element Is Visible    xpath=//div[normalize-space()='Dimanche']/span/span    10s
+    Click Element    xpath=//div[normalize-space()='Dimanche']/span/span
 
 ValidateButton
     Click Button    xpath://*[@id="root"]/div[2]/div/div[3]/div[2]/button[2]
