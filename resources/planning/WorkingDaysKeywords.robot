@@ -64,16 +64,20 @@ Empty filed error message
     ...    Ce champ est obligatoire
 
 Lundi start time input
-    [Arguments]    ${LundiStartTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div/div/input
-    ...    ${LundiStartTime}
+    [Arguments]    ${startTime}
+
+    Click Element    xpath=(//input[@name="start_time"]/..//span[@aria-label="Hours"])
+    Press Keys       None    CTRL+a
+    Press Keys       None    BACKSPACE
+    Press Keys       None    ${startTime}
 
 Lundi end time input
-    [Arguments]    ${LundiEndTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div/div/input
-    ...    ${LundiEndTime}
+    [Arguments]    ${endTime}
+
+    Click Element    xpath=(//input[@name="end_time"]/..//span[@aria-label="Hours"])
+    Press Keys       None    CTRL+a
+    Press Keys       None    BACKSPACE
+    Press Keys       None    ${endTime}
 
 Mardi start time input
     [Arguments]    ${MardiStartTime}
