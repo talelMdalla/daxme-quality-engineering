@@ -29,10 +29,10 @@ validate add working days with start time grater than end time
     VendrediButton
     SamediButton
     DimancheButton
-    Lundi start time input    08:00
-    Lundi end time input    06:00
-    Mardi start time input    08:00
-    Mardi end time input    06:00
+    Lundi start time input    0800
+    Lundi end time input    0600
+    Mardi start time input    0800
+    Mardi end time input    0600
     Mercredi start time input    08:00
     Mercredi end time input    06:00
     Jeudi start time input    08:00

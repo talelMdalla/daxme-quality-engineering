@@ -63,93 +63,181 @@ Empty filed error message
     ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]
     ...    Ce champ est obligatoire
 
-Lundi start time input
-    [Arguments]    ${startTime}
 
-    Click Element    xpath=(//input[@name="start_time"]/..//span[@aria-label="Hours"])
-    Press Keys       None    CTRL+a
-    Press Keys       None    BACKSPACE
-    Press Keys       None    ${startTime}
+Lundi start time input
+    [Arguments]    ${time}
+
+    ${picker}=    Set Variable
+    ...    xpath=//div[.//text()[normalize-space()='Lundi']]//input[@name='start_time']/preceding-sibling::div//span[@aria-label='Hours']
+
+    Wait Until Element Is Visible    ${picker}    10s
+    Click Element                    ${picker}
+
+    Press Keys    None    CTRL+a
+    Press Keys    None    BACKSPACE
+    Press Keys    None    ${time}
+    Press Keys    None    TAB
+
 
 Lundi end time input
+    [Arguments]    ${time}
+
+    ${picker}=    Set Variable
+    ...    xpath=//div[.//text()[normalize-space()='Lundi']]//input[@name='end_time']/preceding-sibling::div//span[@aria-label='Hours']
+
+    Wait Until Element Is Visible    ${picker}    10s
+    Click Element                    ${picker}
+
+    Press Keys    None    CTRL+a
+    Press Keys    None    BACKSPACE
+    Press Keys    None    ${time}
+    Press Keys    None    TAB
+
+Mardi Start Time Input
+    [Arguments]    ${startTime}
+
+    ${xpath}=    Set Variable    xpath=(//div[contains(@class,"mb-1")][.//*[contains(text(),"Mardi")]]/following-sibling::div//span[@aria-label="Hours"])[1]
+
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${startTime}
+
+
+Mardi End Time Input
     [Arguments]    ${endTime}
 
-    Click Element    xpath=(//input[@name="end_time"]/..//span[@aria-label="Hours"])
-    Press Keys       None    CTRL+a
-    Press Keys       None    BACKSPACE
-    Press Keys       None    ${endTime}
+    ${xpath}=    Set Variable    xpath=(//div[contains(@class,"mb-1")][.//*[contains(text(),"Mardi")]]/following-sibling::div//span[@aria-label="Hours"])[2]
 
-Mardi start time input
-    [Arguments]    ${MardiStartTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div/div/input
-    ...    ${MardiStartTime}
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
 
-Mardi end time input
-    [Arguments]    ${MardiEndTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div/div/input
-    ...    ${MardiEndTime}
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${endTime}
 
-Mercredi start time input
+Mercredi Start Time Input
     [Arguments]    ${MercrediStartTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[3]/div[2]/div[1]/div/div/input
-    ...    ${MercrediStartTime}
 
-Mercredi end time input
+    Execute JavaScript    window.scrollBy(0,400)
+
+    ${xpath}=    Set Variable    xpath=(//div[contains(@class,"mb-1")][.//*[contains(text(),"Mercredi")]]/following-sibling::div//span[@aria-label="Hours"])[1]
+  
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${MercrediStartTime}
+
+
+Mercredi End Time Input
     [Arguments]    ${MercrediEndTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div/div/input
-    ...    ${MercrediEndTime}
 
-Jeudi start time input
+    ${xpath}=    Set Variable    xpath=(//div[contains(@class,"mb-1")][.//*[contains(text(),"Mercredi")]]/following-sibling::div//span[@aria-label="Hours"])[2]
+
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${MercrediEndTime}
+
+
+Jeudi Start Time Input
     [Arguments]    ${JeudiStartTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[4]/div[2]/div[1]/div/div/input
-    ...    ${JeudiStartTime}
 
-Jeudi end time input
+    ${xpath}=    Set Variable    xpath=(//div[contains(@class,"mb-1")][.//*[contains(text(),"Jeudi")]]/following-sibling::div//span[@aria-label="Hours"])[1]
+
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${JeudiStartTime}
+
+
+Jeudi End Time Input
     [Arguments]    ${JeudiEndTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div/div/input
-    ...    ${JeudiEndTime}
 
-Vendredi start time input
+    ${xpath}=    Set Variable    xpath=(//div[contains(@class,"mb-1")][.//*[contains(text(),"Jeudi")]]/following-sibling::div//span[@aria-label="Hours"])[2]
+
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${JeudiEndTime}
+
+
+Vendredi Start Time Input
     [Arguments]    ${VendrediStartTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div/div/input
-    ...    ${VendrediStartTime}
 
-Vendredi end time input
+    ${xpath}=    Set Variable    xpath=(//div[contains(@class,"mb-1")][.//*[contains(text(),"Vendredi")]]/following-sibling::div//span[@aria-label="Hours"])[1]
+
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${VendrediStartTime}
+
+
+Vendredi End Time Input
     [Arguments]    ${VendrediEndTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div[2]/div/div/input
-    ...    ${VendrediEndTime}
 
-Samedi start time input
+    ${xpath}=    Set Variable    xpath=(//div[contains(@class,"mb-1")][.//*[contains(text(),"Vendredi")]]/following-sibling::div//span[@aria-label="Hours"])[2]
+
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${VendrediEndTime}
+
+
+Samedi Start Time Input
     [Arguments]    ${SamediStartTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div/input
-    ...    ${SamediStartTime}
+    Execute JavaScript    window.scrollBy(0,400)
+    ${xpath}=    Set Variable    xpath=(//div[contains(@class,"mb-1")][.//*[contains(text(),"Samedi")]]/following-sibling::div//span[@aria-label="Hours"])[1]
 
-Samedi end time input
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${SamediStartTime}
+
+
+Samedi End Time Input
     [Arguments]    ${SamediEndTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[2]/div[2]/div[2]/div/div/input
-    ...    ${SamediEndTime}
 
-Dimanche start time input
+    ${xpath}=    Set Variable    xpath=(//div[contains(@class,"mb-1")][.//*[contains(text(),"Samedi")]]/following-sibling::div//span[@aria-label="Hours"])[2]
+
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${SamediEndTime}
+
+
+Dimanche Start Time Input
     [Arguments]    ${DimancheStartTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div[1]/div/div/input
-    ...    ${DimancheStartTime}
 
-Dimanche end time input
+    ${xpath}=    Set Variable    xpath=(//div[contains(@class,"mb-1")][.//*[contains(text(),"Dimanche")]]/following-sibling::div//span[@aria-label="Hours"])[1]
+
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${DimancheStartTime}
+
+
+Dimanche End Time Input
     [Arguments]    ${DimancheEndTime}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div[2]/div/div/input
-    ...    ${DimancheEndTime}
+
+    ${xpath}=    Set Variable    xpath=(//div[contains(@class,"mb-1")][.//*[contains(text(),"Dimanche")]]/following-sibling::div//span[@aria-label="Hours"])[2]
+
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${DimancheEndTime}
 
 Lundi Error start time grater than end date
     Wait Until Element Is Visible    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[3]
