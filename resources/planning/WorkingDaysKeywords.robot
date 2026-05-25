@@ -282,7 +282,14 @@ Dimanche Error start time grater than end date
     ...    L'heure de fin ne peut pas être antérieure à l'heure de début. Veuillez indiquer vos disponibilités au-delà de 23h59 dans le jour suivant.
 
 Add time slots button for monday
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[1]/button
+    ${xpath}=    Set Variable
+    ...    xpath=//*[contains(text(),"Lundi")]/ancestor::div[contains(@class,"mb-1")]//button[contains(.,"Ajouter un créneau de travail")]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
 
 Add time slots button for Tuesday
     Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[2]/div/button
@@ -304,15 +311,35 @@ Add time slots button for Sunday
 
 Seconde Lundi start time
     [Arguments]    ${LundiStartTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[3]/div[1]/div/div/input
-    ...    ${LundiStartTimeSeconde}
+
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Lundi")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[3]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${LundiStartTimeSeconde}
 
 Seconde Lundi end time
     [Arguments]    ${LundiEndTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[3]/div[2]/div/div/input
-    ...    ${LundiEndTimeSeconde}
+
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Lundi")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[4]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${LundiEndTimeSeconde}
 
 Seconde Mardi start time
     [Arguments]    ${MardiStartTimeSeconde}
@@ -390,9 +417,16 @@ Scroll to bottom
     Press Key    xpath=//body    \ue00f
 
 Overlap error message
-    Wait Until Element Is Visible    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[4]
+    Execute JavaScript    window.scrollBy(0,400)
+    ${xpath}=    Set Variable
+    ...    xpath=//div[contains(@class,"invalid-feedback") and contains(.,"Les plages horaires ne doivent pas se chevaucher")]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
     Element Should Contain
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[4]
+    ...    ${xpath}
     ...    Les plages horaires ne doivent pas se chevaucher.
 
 less thant 1h error message

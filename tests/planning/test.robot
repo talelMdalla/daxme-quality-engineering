@@ -14,8 +14,8 @@ ${DELAY_IN_SECONDS}     1
 
 
 *** Test Cases ***
-validate add working days with less than 30 min between start time and end time
-    [Tags]    3
+validate add working days with two time slots in the same day with overlap
+    [Tags]    4
     Login with credentials    ${email}    ${passwrod}
     Sleep    time_=${DELAY_IN_SECONDS}
     PlanningButton
@@ -23,26 +23,11 @@ validate add working days with less than 30 min between start time and end time
     EnterMyAvailabilityButton
     Sleep    time_=${DELAY_IN_SECONDS}
     LundiButton
-    MardiButton
-    MercrediButton
-    JeudiButton
-    VendrediButton
-    SamediButton
-    DimancheButton
+    Add time slots button for monday
     Lundi start time input    08:00
-    Lundi end time input    08:30
-    Mardi start time input    08:00
-    Mardi end time input    08:30
-    Mercredi start time input    08:00
-    Mercredi end time input    08:30
-    Jeudi start time input    08:00
-    Jeudi end time input    08:30
-    Vendredi start time input    08:00
-    Vendredi end time input    08:30
-    Samedi start time input    08:00
-    Samedi end time input    08:30
-    Dimanche start time input    08:00
-    Dimanche end time input    08:30
-    Sleep    time_=${DELAY_IN_SECONDS}
-    Validate Errors under 30min
+    Lundi end time input    10:00
+    Seconde Lundi start time    08:00
+    Seconde Lundi end time    11:00
+    Sleep    1
+    Overlap error message
     [Teardown]    Close Browser
