@@ -13,13 +13,6 @@ ${BROWSER}                      Chrome
 ${expectedLandingPageUrl}       [https://dev.daxme.fr/landingpage,https://dev.daxme.fr/dashboard]
 ${DELAY_IN_SECONDS}             1
 @{days}                         Lundi    Mardi    Mercredi    Jeudi    Vendredi    Samedi    Dimanche
-@{xpaths}                       xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[3]
-...                             xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[2]/div[3]
-...                             xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[3]/div[3]
-...                             xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[4]/div[3]
-...                             xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[1]/div[3]
-...                             xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[2]/div[3]
-...                             xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[3]/div[3]
 
 @{xpathsErrorMsg30min}          xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]
 ...                             xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]
@@ -41,15 +34,25 @@ Verify Empty Field Errors For All Fields
     END
 
 Validate Errors for start time grater than end time
-    ${days_length} =    Get Length    ${days}
+    ${days_length}=    Get Length    ${days}
+
     FOR    ${index}    IN RANGE    0    ${days_length}
-        ${day} =    Get From List    ${days}    ${index}
-        ${xpath} =    Get From List    ${xpaths}    ${index}
+
+        ${day}=    Get From List    ${days}    ${index}
+
+        ${xpath}=    Set Variable
+        ...    xpath=//*[contains(text(),"${day}")]/ancestor::div[contains(@class,"mb-1")]/following::div[contains(@class,"invalid-feedback")][1]
+
         Log    Validating error for ${day}
-        Wait Until Element Is Visible    ${xpath}
+
+        Scroll Element Into View    ${xpath}
+
+        Wait Until Element Is Visible    ${xpath}    10s
+
         Element Should Contain
         ...    ${xpath}
         ...    L'heure de fin ne peut pas être antérieure à l'heure de début. Veuillez indiquer vos disponibilités au-delà de 23h59 dans le jour suivant.
+
     END
 
 Validate Errors under 30min
