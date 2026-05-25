@@ -34,9 +34,10 @@ MardiButton
     Click Element    xpath=//div[normalize-space()='Mardi']/span/span
 
 MercrediButton
+    Execute JavaScript    window.scrollBy(0,400)
     Wait Until Element Is Visible    xpath=//div[normalize-space()='Mercredi']/span/span    10s
     Click Element    xpath=//div[normalize-space()='Mercredi']/span/span
-    
+
 JeudiButton
     Wait Until Element Is Visible    xpath=//div[normalize-space()='Jeudi']/span/span    10s
     Click Element    xpath=//div[normalize-space()='Jeudi']/span/span
