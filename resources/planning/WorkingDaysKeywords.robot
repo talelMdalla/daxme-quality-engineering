@@ -55,7 +55,7 @@ DimancheButton
     Click Element    xpath=//div[normalize-space()='Dimanche']/span/span
 
 ValidateButton
-    Click Button    xpath://*[@id="root"]/div[2]/div/div[3]/div[2]/button[2]
+    Click Button    xpath=//button[@type='submit' and contains(.,'Valider')]
 
 Empty filed error message
     Wait Until Element Is Visible    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]
