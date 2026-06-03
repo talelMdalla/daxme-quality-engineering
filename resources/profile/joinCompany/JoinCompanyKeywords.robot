@@ -29,7 +29,7 @@ SIRET invalid input
     Press Keys    xpath=//*[@id="company__input3"]    TAB
 
 SIRET valid input
-    Set Text    xpath=//*[@id="company__input3"]    ${TEST_SIRET}    ${SMALL_RETRY_COUNT}
+    Set Text    xpath=//*[@id="company__input3"]    ${TEST_SIRET}
 
 Submit button
     Wait Until Element Is Visible
@@ -43,13 +43,9 @@ Scroll To Company Information
     Sleep    0.5s
 
 Confirm button
-    Wait Until Element Is Visible
-    ...    xpath=//button[normalize-space()='Confirmer']
-    ...    10s
-
-    Click Element
-    ...    xpath=//button[normalize-space()='Confirmer']
-    
+    Wait Until Element Is Visible    xpath=//button[normalize-space()='Confirmer']    10s
+    Click Element                      xpath=//button[normalize-space()='Confirmer']
+       
 Error invalid SIRET
     Wait Until Element Is Visible
     ...    xpath=//div[contains(@class,'invalid-feedback')]
