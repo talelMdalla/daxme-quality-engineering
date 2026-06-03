@@ -19,7 +19,7 @@ Access to profile page
     Click Element   xpath://*[@id="drop"]/button[1]   ${SMALL_RETRY_COUNT}
 
 Joindre une entreprise
-    ${LOCATOR}=    Set Variable    xpath=//span[normalize-space(.)="Joindre une entreprise existante"]/ancestor::div[contains(@class,"card-ctn")]
+    ${LOCATOR}=    Set Variable    xpath=//span[normalize-space(.)="Je me rattache à une entreprise inscrite sur DAXme"]/ancestor::div[contains(@class,"card-ctn")]
     Wait Until Element Is Visible    ${LOCATOR}    10s
     Scroll Element Into View    ${LOCATOR}
     Click Element    ${LOCATOR}
