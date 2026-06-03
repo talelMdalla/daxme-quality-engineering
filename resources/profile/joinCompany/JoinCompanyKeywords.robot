@@ -29,33 +29,36 @@ SIRET invalid input
     Press Keys    xpath=//*[@id="company__input3"]    TAB
 
 SIRET valid input
-    Clear Element Text    xpath=//*[@id="company__input3"]
-    Set Text    xpath=//*[@id="company__input3"]    ${TEST_SIRET}
+    Wait Until Element Is Visible    xpath=//*[@id="company__input3"]    10s
+    Clear Element Text               xpath=//*[@id="company__input3"]
+    Input Text                       xpath=//*[@id="company__input3"]    ${TEST_SIRET}
 
 Submit button
-    Wait Until Element Is Visible
-    ...    xpath=//button[contains(normalize-space(.),"Soumettre") and not(@disabled)]
-    ...    10s
+    ${locator}=    Set Variable    xpath=//button[contains(normalize-space(.),"Soumettre") and not(@disabled)]
 
-    Capture Page Screenshot
+    Wait Until Element Is Visible    ${locator}    10s
+    Wait Until Element Is Enabled    ${locator}    10s
 
-    Click Element
-    ...    xpath=//button[contains(normalize-space(.),"Soumettre") and not(@disabled)]
+    SeleniumLibrary.Scroll Element Into View    ${locator}
+    Sleep    0.5s
 
-    Capture Page Screenshot
+    SeleniumLibrary.Click Element    ${locator}
     
 Scroll To Company Information
     Execute JavaScript    window.scrollBy(0, 1900)
     Sleep    0.5s
 
 Confirm button
-    Wait Until Element Is Visible    xpath=//div[@role='dialog']    10s
-    Wait Until Element Is Visible
-    ...    xpath=//div[@role='dialog']//button[contains(@class,'btn_orange') and contains(.,'Confirmer')]
-    ...    10s
+    ${locator}=    Set Variable    xpath=//div[@role='dialog']//button[contains(normalize-space(.),"Confirmer")]
 
-    Click Element
-    ...    xpath=//div[@role='dialog']//button[contains(@class,'btn_orange') and contains(.,'Confirmer')]
+    Wait Until Element Is Visible    xpath=//div[@role='dialog']    10s
+    Wait Until Element Is Visible    ${locator}    10s
+    Wait Until Element Is Enabled    ${locator}    10s
+
+    SeleniumLibrary.Scroll Element Into View    ${locator}
+    Sleep    0.5s
+
+    SeleniumLibrary.Click Element    ${locator}
 
        
 Error invalid SIRET
@@ -76,15 +79,15 @@ Success message
     Element Text Should Contain   xpath=//div[@role='alert' and contains(@class,'Toastify__toast--success')]  ${JoinSucessMsg}   ${SMALL_RETRY_COUNT}
 
 Quit company
-    Wait Until Element Is Visible
-    ...    xpath=//button[contains(@class,'btn_orange') and contains(.,'Quitter')]
-    ...    10s
+    ${locator}=    Set Variable    xpath=//button[contains(normalize-space(.),"Quitter")]
 
-    Scroll Element Into View
-    ...    xpath=//button[contains(@class,'btn_orange') and contains(.,'Quitter')]
+    Wait Until Element Is Visible    ${locator}    10s
+    Wait Until Element Is Enabled    ${locator}    10s
 
-    Click Element
-    ...    xpath=//button[contains(@class,'btn_orange') and contains(.,'Quitter')]
+    SeleniumLibrary.Scroll Element Into View    ${locator}
+    Sleep    0.5s
+
+    SeleniumLibrary.Click Element    ${locator}
 
 Success message for quit company
      Element Text Should Contain   xpath=//div[@role='alert' and contains(@class,'Toastify__toast--success')]  ${QuitSucessMsg}   ${SMALL_RETRY_COUNT}
