@@ -34,18 +34,28 @@ SIRET valid input
 
 Submit button
     Wait Until Element Is Visible
-    ...    xpath=//button[normalize-space(.)="Soumettre" and not(@disabled)]
+    ...    xpath=//button[contains(normalize-space(.),"Soumettre") and not(@disabled)]
     ...    10s
+
+    Capture Page Screenshot
+
     Click Element
-    ...    xpath=//button[normalize-space(.)="Soumettre" and not(@disabled)]
+    ...    xpath=//button[contains(normalize-space(.),"Soumettre") and not(@disabled)]
+
+    Capture Page Screenshot
     
 Scroll To Company Information
     Execute JavaScript    window.scrollBy(0, 1900)
     Sleep    0.5s
 
 Confirm button
-    Wait Until Element Is Visible    xpath=//div[@role='dialog']//button[@class='btn_orange' and normalize-space()='Confirmer']    10s
-    Click Element                    xpath=//div[@role='dialog']//button[@class='btn_orange' and normalize-space()='Confirmer']
+    Wait Until Element Is Visible    xpath=//div[@role='dialog']    10s
+    Wait Until Element Is Visible
+    ...    xpath=//div[@role='dialog']//button[contains(@class,'btn_orange') and contains(.,'Confirmer')]
+    ...    10s
+
+    Click Element
+    ...    xpath=//div[@role='dialog']//button[contains(@class,'btn_orange') and contains(.,'Confirmer')]
 
        
 Error invalid SIRET
@@ -61,13 +71,20 @@ Empty field error SIRET
     Wait Until Element Is Visible    xpath=//div[@data-test-id="Ce champ est obligatoire"]    10s
     Element Text Should Be    xpath=//div[@data-test-id="Ce champ est obligatoire"]   ${EmptySIRET}  ${SMALL_RETRY_COUNT}
 
+
 Success message
     Element Text Should Contain   xpath=//div[@role='alert' and contains(@class,'Toastify__toast--success')]  ${JoinSucessMsg}   ${SMALL_RETRY_COUNT}
 
 Quit company
-    Wait Until Element Is Visible    xpath=//button[contains(@class,'btn_orange') and contains(.,'Quitter')]    10s
-    Scroll Element Into View         xpath=//button[contains(@class,'btn_orange') and contains(.,'Quitter')]
-    Click Element                    xpath=//button[contains(@class,'btn_orange') and contains(.,'Quitter')]
+    Wait Until Element Is Visible
+    ...    xpath=//button[contains(@class,'btn_orange') and contains(.,'Quitter')]
+    ...    10s
+
+    Scroll Element Into View
+    ...    xpath=//button[contains(@class,'btn_orange') and contains(.,'Quitter')]
+
+    Click Element
+    ...    xpath=//button[contains(@class,'btn_orange') and contains(.,'Quitter')]
 
 Success message for quit company
      Element Text Should Contain   xpath=//div[@role='alert' and contains(@class,'Toastify__toast--success')]  ${QuitSucessMsg}   ${SMALL_RETRY_COUNT}
