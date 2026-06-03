@@ -44,7 +44,9 @@ Scroll To Company Information
 
 Confirm button
     Wait Until Element Is Visible    xpath=//button[normalize-space()='Confirmer']    10s
-    Click Element                      xpath=//button[normalize-space()='Confirmer']
+    Wait Until Element Is Enabled    xpath=//button[normalize-space()='Confirmer']    10s
+    Sleep    0.5s
+    Click Element                    xpath=//button[normalize-space()='Confirmer']
        
 Error invalid SIRET
     Wait Until Element Is Visible
