@@ -39,10 +39,19 @@ Submit button
     Wait Until Element Is Visible    ${locator}    10s
     Wait Until Element Is Enabled    ${locator}    10s
 
-    SeleniumLibrary.Scroll Element Into View    ${locator}
+    ${element}=    Get WebElement    ${locator}
+
+    Execute JavaScript
+    ...    arguments[0].scrollIntoView({block: 'center'});
+    ...    ARGUMENTS
+    ...    ${element}
+
     Sleep    0.5s
 
-    SeleniumLibrary.Click Element    ${locator}
+    Execute JavaScript
+    ...    arguments[0].click();
+    ...    ARGUMENTS
+    ...    ${element}
     
 Scroll To Company Information
     Execute JavaScript    window.scrollBy(0, 1900)
