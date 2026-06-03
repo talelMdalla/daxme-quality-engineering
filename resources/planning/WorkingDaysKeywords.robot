@@ -30,6 +30,7 @@ LundiButton
     Click Element    xpath=//div[normalize-space()='Lundi']/span/span
 
 MardiButton
+    Execute JavaScript    window.scrollBy(0,400)
     Wait Until Element Is Visible    xpath=//div[normalize-space()='Mardi']/span/span    10s
     Click Element    xpath=//div[normalize-space()='Mardi']/span/span
 
@@ -47,6 +48,7 @@ VendrediButton
     Click Element    xpath=//div[normalize-space()='Vendredi']/span/span
 
 SamediButton
+    Execute JavaScript    window.scrollBy(0,400)
     Wait Until Element Is Visible    xpath=//div[normalize-space()='Samedi']/span/span    10s
     Click Element    xpath=//div[normalize-space()='Samedi']/span/span
 
@@ -203,6 +205,16 @@ Samedi Start Time Input
     Press Keys    NONE    BACKSPACE
     Press Keys    NONE    ${SamediStartTime}
 
+Samedi Start Time Input2
+    [Arguments]    ${SamediStartTime}
+    ${xpath}=    Set Variable    xpath=(//div[contains(@class,"mb-1")][.//*[contains(text(),"Samedi")]]/following-sibling::div//span[@aria-label="Hours"])[1]
+
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${SamediStartTime}
+
 
 Samedi End Time Input
     [Arguments]    ${SamediEndTime}
@@ -292,22 +304,63 @@ Add time slots button for monday
     Click Element    ${xpath}
 
 Add time slots button for Tuesday
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[2]/div/button
+    ${xpath}=    Set Variable
+    ...    xpath=//*[contains(text(),"Mardi")]/ancestor::div[contains(@class,"mb-1")]//button[contains(.,"Ajouter un créneau de travail")]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
 
 Add time slots button for Wednesday
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[3]/div[1]/button
+    ${xpath}=    Set Variable
+    ...    xpath=//*[contains(text(),"Mercredi")]/ancestor::div[contains(@class,"mb-1")]//button[contains(.,"Ajouter un créneau de travail")]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
 
 Add time slots button for Thursday
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[4]/div[1]/button
+    ${xpath}=    Set Variable
+    ...    xpath=//*[contains(text(),"Jeudi")]/ancestor::div[contains(@class,"mb-1")]//button[contains(.,"Ajouter un créneau de travail")]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
 
 Add time slots button for Friday
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[1]/div[1]/button
+    ${xpath}=    Set Variable
+    ...    xpath=//*[contains(text(),"Vendredi")]/ancestor::div[contains(@class,"mb-1")]//button[contains(.,"Ajouter un créneau de travail")]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
 
 Add time slots button for Saturday
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[2]/div[1]/button
+    ${xpath}=    Set Variable
+    ...    xpath=//*[contains(text(),"Samedi")]/ancestor::div[contains(@class,"mb-1")]//button[contains(.,"Ajouter un créneau de travail")]
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
 
 Add time slots button for Sunday
-    Click Element    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[3]/div[1]/button
+    ${xpath}=    Set Variable
+    ...    xpath=//*[contains(text(),"Dimanche")]/ancestor::div[contains(@class,"mb-1")]//button[contains(.,"Ajouter un créneau de travail")]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
 
 Seconde Lundi start time
     [Arguments]    ${LundiStartTimeSeconde}
@@ -343,75 +396,185 @@ Seconde Lundi end time
 
 Seconde Mardi start time
     [Arguments]    ${MardiStartTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[2]/div[3]/div[1]/div/div/input
-    ...    ${MardiStartTimeSeconde}
+    
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Mardi")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[3]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${MardiStartTimeSeconde}
 
 Seconde Mardi end time
     [Arguments]    ${MardiEndTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[2]/div[3]/div[2]/div/div/input
-    ...    ${MardiEndTimeSeconde}
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Mardi")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[4]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${MardiEndTimeSeconde}
 
 Seconde Mercredi start time
     [Arguments]    ${MercrediStartTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/div/div/input
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Mercredi")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[3]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${MercrediStartTimeSeconde}
     ...    ${MercrediStartTimeSeconde}
 
 Seconde Mercredi end time
     [Arguments]    ${MercrediEndTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[3]/div[3]/div[2]/div/div/input
-    ...    ${MercrediEndTimeSeconde}
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Mercredi")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[4]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${MercrediEndTimeSeconde}
 
 Seconde Jeudi start time
     [Arguments]    ${JeudiStartTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[4]/div[3]/div[1]/div/div/input
-    ...    ${JeudiStartTimeSeconde}
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Jeudi")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[3]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${JeudiStartTimeSeconde}
 
 Seconde Jeudi end time
     [Arguments]    ${JeudiEndTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[1]/div[4]/div[3]/div[2]/div/div/input
-    ...    ${JeudiEndTimeSeconde}
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Jeudi")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[4]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${JeudiEndTimeSeconde}
 
 Seconde Vendredi start time
     [Arguments]    ${VendrediStartTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[1]/div[3]/div[1]/div/div/input
-    ...    ${VendrediStartTimeSeconde}
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Vendredi")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[3]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${VendrediStartTimeSeconde}
 
 Seconde Vendredi end time
     [Arguments]    ${VendrediEndTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[1]/div[3]/div[2]/div/div/input
-    ...    ${VendrediEndTimeSeconde}
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Vendredi")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[4]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${VendrediEndTimeSeconde}
 
 Seconde Samedi start time
     [Arguments]    ${SamediStartTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[2]/div[3]/div[1]/div/div/input
-    ...    ${SamediStartTimeSeconde}
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Samedi")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[3]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${SamediStartTimeSeconde}
 
 Seconde Samedi end time
     [Arguments]    ${SamediEndTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[2]/div[3]/div[2]/div/div/input
-    ...    ${SamediEndTimeSeconde}
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Samedi")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[4]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${SamediEndTimeSeconde}
 
 Seconde Dimanche start time
     [Arguments]    ${DimancheStartTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[3]/div[3]/div[1]/div/div/input
-    ...    ${DimancheStartTimeSeconde}
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Dimanche")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[3]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${DimancheStartTimeSeconde}
 
 Seconde Dimanche end time
     [Arguments]    ${DimancheEndTimeSeconde}
-    Input Text
-    ...    xpath://*[@id="root"]/div[2]/div/div[3]/div[1]/div[2]/div[3]/div[3]/div[2]/div/div/input
-    ...    ${DimancheEndTimeSeconde}
+    ${xpath}=    Set Variable
+    ...    xpath=(//*[contains(text(),"Dimanche")]/ancestor::div[contains(@class,"mb-1")]/following::span[@aria-label="Hours"])[4]
+
+    Scroll Element Into View    ${xpath}
+
+    Wait Until Element Is Visible    ${xpath}    10s
+
+    Click Element    ${xpath}
+
+    Press Keys    NONE    CTRL+a
+    Press Keys    NONE    BACKSPACE
+    Press Keys    NONE    ${DimancheEndTimeSeconde}
 
 Scroll to bottom
     Press Key    xpath=//body    \ue00f
@@ -445,7 +608,8 @@ Invalid Time Range Error
 
 Success message
     Wait Until Element Is Visible
-    ...    xpath://*[@data-test-id="Planning modifié avec succès"]
+    ...    xpath=//*[@id="Planning modifié avec succès"]
+
     Element Should Contain
-    ...    xpath://*[@data-test-id="Planning modifié avec succès"]
+    ...    xpath=//*[@id="Planning modifié avec succès"]
     ...    Planning modifié avec succès

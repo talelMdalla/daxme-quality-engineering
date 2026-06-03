@@ -189,8 +189,8 @@ validate add working days with two time slots in the same day
     Seconde Vendredi end time    11:00
     SamediButton
     Add time slots button for Saturday
-    Samedi start time input    08:00
-    Samedi end time input    10:00
+    Samedi Start Time Input2    08:00
+    Samedi End Time Input    10:00
     Seconde Samedi start time    10:00
     Seconde Samedi end time    11:00
     DimancheButton
