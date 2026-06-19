@@ -19,10 +19,10 @@ Input Email
 
 Input Password
     [Arguments]    ${password}
-    Common.Set Text    xpath://input[@type='password']    ${password}  ${SMALL_RETRY_COUNT}
+    Common.Set Text    xpath://input[@type='password']    ${password}  
 
 Submit Login
-    Click Element    xpath://*[@data-test-id='button-login-loginModal'] 
+    Common.Click Element    xpath://*[@data-test-id='button-login-loginModal']   ${SMALL_RETRY_COUNT}
 
 Empty email error
     Element Text Should Contain    xpath://*[@data-test-id="email-error"]    ${requiredTextError}  ${SMALL_RETRY_COUNT}
