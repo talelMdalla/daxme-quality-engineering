@@ -11,7 +11,7 @@ ${InvalidEmailError}        S'il vous plaît entrez un email valide
 
 *** Keywords ***
 Button LoginForm
-    Click Element    xpath://a[@href="/login" and contains(text(), "Connexion")]  ${SMALL_RETRY_COUNT}
+    Common.Click Element    xpath://a[@href="/login" and contains(text(), "Connexion")]  ${SMALL_RETRY_COUNT}
     
 Input Email
     [Arguments]    ${email}

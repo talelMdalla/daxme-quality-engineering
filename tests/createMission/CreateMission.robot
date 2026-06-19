@@ -183,7 +183,7 @@ validate schedule update with only days off
     Day off check box
     Update button
     Scroll To The Bottom Of The Page
-    Setp3 Next button
+    Step3 Next button
     Confirm Financial information modal
     Create mission with all days off error
 
@@ -196,7 +196,7 @@ validate schedule update with one days off
     Day off check box
     Update button
     Scroll To The Bottom Of The Page
-    Setp3 Next button
+    Step3 Next button
     Confirm Financial information modal
     Verif create mission with one day off
 

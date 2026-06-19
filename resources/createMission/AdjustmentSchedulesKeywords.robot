@@ -9,6 +9,7 @@ ${All_DAYS_OFF_ERROR_MSG}       La création d'une mission avec seulement des jo
 
 *** Keywords ***
 Next week button
+    Wait Until Element Is Visible    xpath=//*[@id="Calendar__Day"]/button[2]    10s
     Click Element    xpath=//*[@id="Calendar__Day"]/button[2]    ${SMALL_RETRY_COUNT}
 
 Card of day selected
@@ -23,7 +24,7 @@ Update button
     Wait Until Element Is Visible    xpath=//button[contains(@class,'btn_orange') and normalize-space()='Modifier']    10s
     Click Element    xpath=//button[contains(@class,'btn_orange') and normalize-space()='Modifier']   ${SMALL_RETRY_COUNT}
 
-Setp3 Next button
+Step3 Next button
     Click Element    xpath=//*[@id="Groupe_Buttons_Step"]/button[2]   ${SMALL_RETRY_COUNT}
 
 Confirm Financial information modal
@@ -32,7 +33,7 @@ Confirm Financial information modal
 
 Create mission with all days off error
     Wait Until Element Is Visible    css:div.Toastify__toast    10s
-    Element Should Contain           css:div.Toastify__toast    ${All_DAYS_OFF_ERROR_MSG}  ${SMALL_RETRY_COUNT}
+    Element Should Contain           css:div.Toastify__toast    ${All_DAYS_OFF_ERROR_MSG}
 
 Select two days
     Click Element    xpath=//*[@id="select-days"]/div    ${SMALL_RETRY_COUNT}
@@ -56,4 +57,4 @@ Tuesday end time
     Common.Set Text    xpath=//*[@id="end_time-1-0"]    ${TuesdayendTime}   ${SMALL_RETRY_COUNT}
 
 Verif create mission with one day off
-    Element Should Be Visible    xpath=//*[@id="Groupe_Buttons_Step"]/button     ${SMALL_RETRY_COUNT}
+    Element Should Be Visible    xpath=//*[@id="Groupe_Buttons_Step"]/button     10s
