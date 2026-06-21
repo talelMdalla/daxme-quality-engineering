@@ -16,18 +16,11 @@ Create mission button
     
 Next button
     Wait Until MUI Is Idle
-
-    Execute JavaScript
-    ...    document.querySelector('button.btn_orange').scrollIntoView({block: 'center'})
-
-    Sleep    800ms
-
+    Execute JavaScript    document.querySelector('button.btn_orange').scrollIntoView({block: 'center'})
+    Wait Until MUI Is Idle
     Execute JavaScript    window.scrollBy(0, -150)
-
-    Sleep    500ms
-
-    Execute JavaScript
-    ...    document.querySelector('button.btn_orange').click()
+    Wait Until MUI Is Idle
+    Execute JavaScript    document.querySelector('button.btn_orange').click()
 
 Empty mission name error message
     Wait Until Page Contains    ${EmptyErrorMsg}    timeout=20s
@@ -85,38 +78,25 @@ Agent number input
 
 Mission type input
     [Arguments]    ${MissionType}=Type 1
-    Capture Page Screenshot    before_mission_type.png
-    
-    # Attendre que l'input existe
+
     Wait Until Page Contains Element    xpath=//input[@id='react-select-2-input']    timeout=10s
-    Sleep    2s
-    
-    # Cliquer sur le container
+
     Click Element    xpath=//div[@id='select-types']
-    Sleep    2s
-    
-    # Attendre et cliquer sur l'option
-    Wait Until Element Is Visible    xpath=//div[@id='react-select-2-option-0']    timeout=5s
+
+    Wait Until Element Is Visible    xpath=//div[@id='react-select-2-option-0']    timeout=10s
     Click Element    xpath=//div[@id='react-select-2-option-0']
-    Sleep    1s
-    
-    Capture Page Screenshot    after_mission_type.png
+
 
 Select company type from listes
     [Arguments]    ${CompanyType}=Type 1
-    Capture Page Screenshot    before_company_type.png
-    
+
     Wait Until Page Contains Element    xpath=//div[@id='select-types']    timeout=10s
-    Sleep    2s
-    
-    # Cliquer sur le container (IMPORTANT)
+
     Click Element    xpath=(//div[contains(@class,'css-b62m3t-container')])[2]
-    Sleep    2s
-    
-    Wait Until Element Is Visible    xpath=//div[@id='react-select-3-option-0']    timeout=5s
+
+    Wait Until Element Is Visible    xpath=//div[@id='react-select-3-option-0']    timeout=10s
+
     Click Element    xpath=//div[@id='react-select-3-option-0']
-    
-    Capture Page Screenshot    after_company_type.png
 
 Gender checkbox
     Capture Page Screenshot    before_gender.png
@@ -190,7 +170,7 @@ Verify description step
 
 Verify schedule step
     Wait Until Page Contains Element    xpath=//span[contains(text(),'Ajustement des horaires')]    20s
-    Element Should Be Visible           xpath=//span[contains(text(),'Ajustement des horaires')]    10s
+    Wait Until Element Is Visible           xpath=//span[contains(text(),'Ajustement des horaires')]    10s
 
 Scroll to bottom
-    Press Key    xpath=//body    En
+    Press Key    xpath=//body    END
