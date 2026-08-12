@@ -7,13 +7,12 @@ Resource            ../../resources/auth/ForgotPasswordKeywords.robot
 
 Test Teardown       Close Browser
 
-
 *** Test Cases ***
 Validate reset password with empty email field
     [Tags]    regression
     Open Forgot Password Form
     Submit
-    Epmty email error
+    Empty email error
 
 Validate reset password with invalid email
     [Tags]    regression
@@ -39,5 +38,9 @@ Validate reset password with valid email
 *** Keywords ***
 Open Forgot Password Form
     Open Browser Page
+    # Click the Connexion button (it's on the login page)
     Button LoginForm
+    # Click "Mot de passe oublié ?" link
     Forgot password button
+    # Wait for the forgot password form to load
+    Wait Until Element Is Visible    id:Email    timeout=10s

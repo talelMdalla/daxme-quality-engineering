@@ -8,15 +8,12 @@ Resource            ../../config/CredentialsDetails.robot
 
 Test Teardown       Close Browser
 
-
-
 *** Variables ***
 ${VALID_EMAIL}          ${TEST_EMAIL_AUTH}
 ${VALID_PASSWORD}       ${TEST_PASS_AUTH}
 ${INVALID_EMAIL}        testing1.daxme@gmail.com
 ${INVALID_PASSWORD}     Hamza123*
 ${EMAIL_INVALID}        hamza.com
-
 
 *** Test Cases ***
 Login with valid credentials

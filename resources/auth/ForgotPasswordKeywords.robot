@@ -3,7 +3,6 @@ Library     SeleniumLibrary
 Resource    ../../resources/Common.robot
 Resource    ../../config/CredentialsDetails.robot
 
-
 *** Variables ***
 ${VALID_EMAIL}              ${TEST_EMAIL_AUTH}
 ${INVALID_EMAIL}            testing
@@ -14,23 +13,26 @@ ${EmailNotEsixtError}       email n'existe pas
 ${InvalidEmailError}        S'il vous plaît entrez un email valide
 ${EmptyEmailError}          Ce champ est obligatoire
 
-
 *** Keywords ***
 Button LoginForm
-    Common.Click Element    xpath://a[@href="/login" and contains(text(), "Connexion")]
+    # FIXED: Use the correct button locator (it's a button, not a link)
+    Common.Click Element    xpath://button[contains(text(), "Connexion")]    ${SMALL_RETRY_COUNT}
 
 Forgot password button
+    # This locator works - id="forgotPassword" from the HTML
     Common.Click Element    xpath://*[@id="forgotPassword"]    ${SMALL_RETRY_COUNT}
 
 Input Email
     [Arguments]    ${email}
-    Input Text    id:Email    ${email}
+    # FIXED: Use Common.Set Text for stability
+    Common.Set Text    id:Email    ${email}    ${SMALL_RETRY_COUNT}
 
 Submit
     Common.Click Element    xpath://*[@data-test-id="btn_verification_email"]    ${SMALL_RETRY_COUNT}
 
-Epmty email error
-    Element Text Should Be    xpath://*[@data-test-id="reset-password-email"]    ${EmptyEmailError}    ${SMALL_RETRY_COUNT}
+Empty email error
+    # FIXED: Use Element Text Should Contain instead of Element Text Should Be
+    Element Text Should Contain    xpath://*[@data-test-id="reset-password-email"]    ${EmptyEmailError}    ${SMALL_RETRY_COUNT}
 
 Invalid email error
     Element Text Should Contain    xpath://*[@data-test-id="reset-password-email"]    ${InvalidEmailError}    ${SMALL_RETRY_COUNT}

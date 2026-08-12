@@ -13,19 +13,16 @@ ${cookies_btn}      id:rcc-confirm-button
 
 *** Keywords ***
 Open Browser Page
-    [Documentation]
-    ...    Open the browser and navigates to the login page
-
     SeleniumLibrary.Open Browser    ${TEST_ENV_URL}    ${BROWSER}    options=${TEST_BROWSER_OPTIONS}
     SeleniumLibrary.Set Window Size    width=1920    height=1080
-    SeleniumLibrary.Execute Javascript    window.localStorage.setItem('disable-recaptcha-daxme-test', 'true');
+    # FIXED: Commented out - was breaking the page
+    # SeleniumLibrary.Execute Javascript    window.localStorage.setItem('disable-recaptcha-daxme-test', 'true');
     SeleniumLibrary.Set Selenium Speed    ${TEST_SELENIUM_SPEED}
     SeleniumLibrary.Maximize Browser Window
     SeleniumLibrary.Set Selenium Timeout    ${SELENIUM_TIMEOUT}
     BuiltIn.Set Log Level    DEBUG
     ${cookie_button_exists}=    Run Keyword And Return Status    SeleniumLibrary.Wait Until Element Is Visible    ${cookies_btn}    timeout=3s
     Run Keyword If    ${cookie_button_exists}    SeleniumLibrary.Click Element    ${cookies_btn}
-
 Logout From The Application
     [Documentation]
     ...    Logout from the application

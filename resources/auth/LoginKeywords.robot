@@ -11,7 +11,8 @@ ${InvalidEmailError}        S'il vous plaît entrez un email valide
 
 *** Keywords ***
 Button LoginForm
-    Common.Click Element    xpath://a[@href="/login" and contains(text(), "Connexion")]  ${SMALL_RETRY_COUNT}
+    # FIXED: Using the correct locator
+    Common.Click Element    xpath://*[@data-test-id='button-login-loginModal']  ${SMALL_RETRY_COUNT}
     
 Input Email
     [Arguments]    ${email}
@@ -35,4 +36,4 @@ Invalid email or password error
     Element Text Should Contain    xpath://*[@data-test-id="login_field_error"]    ${emailOrPasswordError}  ${SMALL_RETRY_COUNT}
 
 Invalid email error
-    Element Text Should Contain    xpath://*[@data-test-id="email-error"]    ${InvalidEmailError}  ${SMALL_RETRY_COUNT} 
+    Element Text Should Contain    xpath://*[@data-test-id="email-error"]    ${InvalidEmailError}  ${SMALL_RETRY_COUNT}

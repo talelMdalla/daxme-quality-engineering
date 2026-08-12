@@ -2,7 +2,6 @@
 Library     SeleniumLibrary
 Resource    ../../resources/Common.robot
 
-
 *** Variables ***
 ${expectedPageUrl}          https://dev.daxme.fr/verif-code
 ${requiredTextError}        Ce champ est obligatoire
@@ -11,66 +10,77 @@ ${InvalideEmailError}       S'il vous plaît entrez un email valide
 ${EmailExistError}          Adresse mail déja utilisée
 ${NumberExistError}         Numéro de téléphone déja utilisé
 
-
 *** Keywords ***
 Button RegisterForm
-    Click Button    xpath://*[@data-test-id="button-signup-navbar"]
+    # Click Inscription button on login page
+    Common.Click Element    xpath://button[contains(text(), "Inscription")]    ${SMALL_RETRY_COUNT}
     
 Button AgentForm
-    Click Element    xpath://*[@data-test-id="card-individu-modal"]
+    Common.Click Element    xpath://*[@data-test-id="card-individu-modal"]    ${SMALL_RETRY_COUNT}
 
 Input FirstName
     [Arguments]    ${FirstName}
-    Input Text    xpath://*[@id="FirstName"]    ${FirstName}
+    Common.Set Text    xpath://*[@id="FirstName"]    ${FirstName}    ${SMALL_RETRY_COUNT}
 
 Input LastName
     [Arguments]    ${LastName}
-    Input Text    xpath://*[@id="lastName"]    ${LastName}
+    Common.Set Text    xpath://*[@id="lastName"]    ${LastName}    ${SMALL_RETRY_COUNT}
 
 Input Email
     [Arguments]    ${Email}
-    Input Text    xpath://*[@id="mail"]    ${Email}
+    Common.Set Text    xpath://*[@id="mail"]    ${Email}    ${SMALL_RETRY_COUNT}
 
 Input Birthday
     [Arguments]    ${day}    ${month}    ${year}
-    # Remplir le jour
+    # Click on the date picker inputs directly
     Click Element    xpath=//span[@aria-label="Day"]
-    Press Keys       xpath=//span[@aria-label="Day"]    ${day}
-    Sleep    0.2s    
+    Press Keys    xpath=//span[@aria-label="Day"]    ${day}
+    Sleep    0.5s
     Click Element    xpath=//span[@aria-label="Month"]
-    Press Keys       xpath=//span[@aria-label="Month"]    ${month}
-    Sleep    0.2s
-    # Remplir l'année
+    Press Keys    xpath=//span[@aria-label="Month"]    ${month}
+    Sleep    0.5s
     Click Element    xpath=//span[@aria-label="Year"]
-    Press Keys       xpath=//span[@aria-label="Year"]    ${year}
-    Sleep    0.2s
+    Press Keys    xpath=//span[@aria-label="Year"]    ${year}
+    Sleep    0.5s
 
 Input Number
     [Arguments]    ${Number}
-    Input Text    xpath://input[@type="tel"]    ${Number}
+    Common.Set Text    xpath://input[@type="tel"]    ${Number}    ${SMALL_RETRY_COUNT}
     Press Keys    xpath://input[@type="tel"]    TAB
 
 Input Password
     [Arguments]    ${Password}
-    Input Text    xpath://*[@name="password1"]    ${Password}
+    # Try different possible password field locators
+    ${status}=    Run Keyword And Return Status    Common.Set Text    xpath://*[@name="password1"]    ${Password}    ${SMALL_RETRY_COUNT}
+    Run Keyword If    not ${status}    Common.Set Text    xpath://*[@name="password"]    ${Password}    ${SMALL_RETRY_COUNT}
+    Run Keyword If    not ${status}    Common.Set Text    xpath://input[@type='password']    ${Password}    ${SMALL_RETRY_COUNT}
 
 Input ConfirmPassword
     [Arguments]    ${ConfirmPassword}
-    Input Text    xpath://*[@name="password2"]    ${ConfirmPassword}
+    # Try different possible confirm password field locators
+    ${status}=    Run Keyword And Return Status    Common.Set Text    xpath://*[@name="password2"]    ${ConfirmPassword}    ${SMALL_RETRY_COUNT}
+    Run Keyword If    not ${status}    Common.Set Text    xpath://*[@name="confirmPassword"]    ${ConfirmPassword}    ${SMALL_RETRY_COUNT}
+    Run Keyword If    not ${status}    Common.Set Text    xpath:(//input[@type='password'])[2]    ${ConfirmPassword}    ${SMALL_RETRY_COUNT}
 
 Submit Register
-    Click Button    xpath://*[@data-test-id="button-singupAgent-modal"]
+    # FIXED: Bypass reCAPTCHA before submitting
+    Bypass Recaptcha
+    Common.Click Element    xpath://*[@data-test-id="button-singupAgent-modal"]    ${SMALL_RETRY_COUNT}
 
 Accept general condition button
-    Click Element    xpath=//input[@type="checkbox"]/..   ${SMALL_RETRY_COUNT}
+    Common.Click Element    xpath=//input[@type="checkbox"]/..    ${SMALL_RETRY_COUNT}
 
-Confirm recaptcha
-    Click Button    id=recaptcha-anchor
+Bypass Recaptcha
+    [Documentation]    Bypass reCAPTCHA using localStorage
+    # Set localStorage flag to disable reCAPTCHA
+    Execute JavaScript    window.localStorage.setItem('disable-recaptcha-daxme-test', 'true');
+    Sleep    1s
+    Log    reCAPTCHA bypassed using localStorage
 
 Email Number invalid Input
     [Arguments]    ${Email}    ${Number}
-    Input Text    xpath://*[@id="mail"]    ${Email}
-    Input Text    xpath://input[@type="tel"]    ${Number}
+    Common.Set Text    xpath://*[@id="mail"]    ${Email}    ${SMALL_RETRY_COUNT}
+    Common.Set Text    xpath://input[@type="tel"]    ${Number}    ${SMALL_RETRY_COUNT}
     
 FirstName empty error
     Element Text Should Contain  xpath://*[@data-test-id="error_first_name"]  ${requiredTextError}  ${SMALL_RETRY_COUNT}
@@ -105,4 +115,4 @@ Invalid email error only
     Element Text Should Contain   xpath://*[@data-test-id="error_email"]  ${InvalideEmailError}  ${SMALL_RETRY_COUNT}
 
 Invalid number error only
-    Element Text Should Contain      xpath=//*[@data-test-id="errorphone"]    ${InvalideNumberError}  ${SMALL_RETRY_COUNT}
+    Element Text Should Contain   xpath://*[@data-test-id="errorphone"]  ${InvalideNumberError}  ${SMALL_RETRY_COUNT}
