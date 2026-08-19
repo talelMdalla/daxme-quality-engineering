@@ -5,7 +5,7 @@ Resource    ../resources/Common.robot
 
 *** Keywords ***
 Button LoginForm
-    Click Element  xpath://*[@href="/login" and contains(text(), "Connexion")]   ${SMALL_RETRY_COUNT}
+    Common.Click Element    xpath://*[@data-test-id='button-login-loginModal']  ${SMALL_RETRY_COUNT}
 
 Input Email
     [Arguments]    ${email}
